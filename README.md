@@ -1,18 +1,18 @@
 # Data-Game
 
-
-API : https://www.igdb.com/api / https://rawg.io/apidocs / 
-
+API : https://www.igdb.com/api / https://rawg.io/apidocs /
 
 ## ⚙️ Installation locale
 
 1. **Cloner le dépôt** :
+
    ```bash
    git clone https://github.com/sandrineyb/data-game.git
    cd data-game
    ```
 
 2. **Créer un environnement virtuel** (recommandé) :
+
    ```bash
    python -m venv venv
    source venv/bin/activate  # Sur Windows: .\venv\Scripts\activate
@@ -22,3 +22,4 @@ API : https://www.igdb.com/api / https://rawg.io/apidocs /
    ```bash
    pip install -r requirements.txt
    ```
+4.
