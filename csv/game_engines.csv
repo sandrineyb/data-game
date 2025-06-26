@@ -6,6 +6,7 @@ id,name,slug,description,companies,logo
 127,LS3D,ls3d,,,
 546,AGS,ags,,,
 119,Glacier,glacier,"The Glacier 1 game engine was created by IO Interactive in 1998 and was used publicly for the first time in the year 2000, with the release of IO Interactives first game, Hitman: Codename 47.",[290],70.0
+1128,Pixel Game Maker MV,pixel-game-maker-mv,,,
 1331,Tiger,tiger,,,
 1279,MS25,ms25,,,
 488,PC,pc--1,,,
@@ -53,14 +54,13 @@ id,name,slug,description,companies,logo
 69,Build,build,,"[188, 224]",30.0
 1009,KRASS Engine,krass-engine,,,
 1076,Engine,engine,,,326.0
-1139,Flutter,flutter,,,
 346,Road Hog Engine,road-hog-engine,,[420],
 39,SCI1.1,sci1-1,,,
 817,NeoX engine [ by NetEase Games ],neox-engine-by-netease-games,NeoX is the NetEase Games’ proprietary graphics engine,,
 1293,Glacier Engine,glacier-engine,,,
-1793,GB Studio,gb-studio--1,,,
 1235,NESiCAxLive,nesicaxlive,,,
 498,DS2,ds2,,[12247],
+1139,Flutter,flutter,,,
 20,Doom engine,doom-engine,,,
 1250,Airem engine,airem-engine,,,
 673,Serious Engine 4.0,serious-engine-4-dot-0,,,
@@ -100,7 +100,6 @@ id,name,slug,description,companies,logo
 1608,Action Editor 4,action-editor-4,Alternative spelling: Action Editor(Anton),[37971],
 836,namco,namco,,,
 1073,Varytale,varytale,,,
-1128,Pixel Game Maker MV,pixel-game-maker-mv,,,
 257,BASIC,basic,,,
 1623,Glitch Engine,glitch-engine,Custom engine made for Diabotical. Been in development for 10 years.,[10557],339.0
 617,Yuna Engine,yuna-engine,,,
@@ -164,6 +163,7 @@ Version 5 currently integrates:
 971,Sega Chihiro,sega-chihiro,,,
 978,Crystal Mines,crystal-mines,,,
 816,Yamaneko Engine,yamaneko-engine,"Nihon Falcom's in-house engine used for various games over the years, improvements made to it between games, usually confirmed by dataminers going through game files after a release.",,
+1796,DragonRuby,dragonruby,,,445.0
 979,Mars VR Engine,mars-vr-engine,,,
 1179,stockfish,stockfish,,,
 188,Snowblind engine,snowblind-engine,,,
@@ -190,6 +190,7 @@ Version 5 currently integrates:
 128,BitSquid,bitsquid,,,
 1452,LEAD Engine,lead-engine,"LEAD Engine is a game engine created by Ubisoft for Splinter Cell: Conviction & Blacklist. It is an evolution of the game engine used in the previous Splinter Cell game, Chaos Theory (Unreal Engine 2.5)",[38],
 301,CSS,css,,,
+462,"Custom HTML5, JavaScript, CSS",custom-html5-javascript-css,,,
 60,Prism3D,prism3d,,,
 1345,GDevelop,gdevelop,"GDevelop is a 2D and 3D cross-platform, free and open-source game engine, which mainly focuses on creating PC and mobile games, as well as HTML5 games playable in the browser.",,281.0
 1679,Story Machine,story-machine,"A No-Code General Purpose 2D Game Engine
@@ -234,7 +235,6 @@ An updated version of the engine created for Monolith Productions, called WAP 32
 593,Allegro,allegro,"Allegro is a cross-platform library mainly aimed at video game and multimedia programming. It handles common, low-level tasks such as creating windows, accepting user input, loading data, drawing images, playing sounds, etc. and generally abstracting away the underlying platform. However, Allegro is not a game engine: you are free to design and structure your program as you like.",,
 1491,CXD9615GB Emotion Engine,cxd9615gb-emotion-engine,"The Emotion Engine is the CPU for Sony's PlayStation 2, developed in a Sony - Toshiba cooperation and introduced in 1999.",,235.0
 70,The Sims 3 Engine,the-sims-3-engine,,,
-1689,Unity 6,unity-6,"Discover faster rendering, powerful lighting options, end-to-end multiplayer workflows, dynamic AI capabilities, and deeper support for mobile web runtimes.",[3067],379.0
 1010,Bemani System 573 Digital,bemani-system-573-digital,,,
 1036,Bemani PC Type 4,bemani-pc-type-4,,,
 622,Aether Engine,aether-engine,,,
@@ -246,6 +246,7 @@ An updated version of the engine created for Monolith Productions, called WAP 32
 77,AGOS,agos,,,
 1759,BreakGOLD,breakgold,,,
 328,Nocturne Engine,nocturne-engine,,,
+1689,Unity 6,unity-6,"Discover faster rendering, powerful lighting options, end-to-end multiplayer workflows, dynamic AI capabilities, and deeper support for mobile web runtimes.",[3067],379.0
 447,PINA,pina,,,
 80,HydroEngine,hydroengine,,,
 120,Enfusion,enfusion,,,
@@ -285,6 +286,7 @@ An updated version of the engine created for Monolith Productions, called WAP 32
 1320,TBH Game Engine,tbh-game-engine,,,
 1693,Simple Sonic Worlds,simple-sonic-worlds,,,
 413,Buildbox,buildbox,"Buildbox is a no-code development platform focused on game creation without programming, coding or scripting. The core audience for the software is entrepreneurs, designers and other gaming enthusiast without prior game development or coding knowledge.",,127.0
+213,Java,java,,,
 387,Praxis,praxis,,,
 1039,Object Locative Environment Coordinate System,object-locative-environment-coordinate-system,,,
 778,YU-RIS,yu-ris,,,
@@ -308,7 +310,6 @@ An updated version of the engine created for Monolith Productions, called WAP 32
 1291,Pinball Construction Set,pinball-construction-set,,,
 1214,ADE-6291,ade-6291,,,
 1216,Immortal Engine,immortal-engine,,,
-213,Java,java,,,
 359,BlitzMax,blitzmax,,,
 364,Argon,argon,,,
 393,Sephius Engine,sephius-engine,,,
@@ -369,6 +370,7 @@ An updated version of the engine created for Monolith Productions, called WAP 32
 697,I-Novae Engine,i-novae-engine,,,
 1075,LightForce,lightforce,,,
 612,Quicksilver X,quicksilver-x,,,
+272,KiriKiri,kirikiri,,,
 1287,Atari 6502,atari-6502,,,
 1236,Namco System,namco-system,,,
 180,Marmoset,marmoset,,,
@@ -396,7 +398,6 @@ An updated version of the engine created for Monolith Productions, called WAP 32
 542,Bright Light Halogen,bright-light-halogen,,[2142],
 545,Duplicate 669,duplicate-669,,,
 750,Unity 2019,unity-2019,,,
-272,KiriKiri,kirikiri,,,
 569,Wolfenstein RPG,wolfenstein-rpg,,,
 1125,Ftech X,ftech-x,,,
 779,InnocentGrey,innocentgrey,,,
@@ -635,7 +636,6 @@ Ren'Py is open source and free for commercial use.",,89.0
 770,Turok,turok,,,
 771,STEM engine,stem-engine,,,
 823,YU-RIS Script Engine,yu-ris-script-engine,,,
-620,Gdevelop5,gdevelop5,,,
 1003,Konami GX945,konami-gx945,,,
 1626,Easy FPS Editor,easy-fps-editor,,,
 983,Simple and Fast Multimedia Library,simple-and-fast-multimedia-library,,,
@@ -656,6 +656,7 @@ The engine is currently known as AnvilNext 2.0, changed in 2014 during developme
 355,Titanium,titanium,"Titanium engine (an updated version of Pure3D) was an engine developed by Radical Entertainment between 2005 and 2012, used on Crash Tag Team Racing; Scarface: The World Is Yours; Crash of the Titans; Crash: Mind over Mutant and Prototype (series).",,
 1265,Southpaw,southpaw,,,
 63,Adobe AIR,adobe-air,,,
+620,Gdevelop5,gdevelop5,,,
 541,DarkBASIC Pro,darkbasic-pro,,,
 1253,FlixEngine,flixengine,,,
 1337,DoJa,doja,,,
@@ -768,6 +769,7 @@ to make a cartridge that will operate on a real Atari 2600.",,386.0
 1038,ZGameEditor,zgameeditor,,,
 435,Lair Engine,lair-engine,,,
 514,Orion Engine,orion-engine,,,
+1338,BREW,brew,,,
 1116,Quark Engine,quark-engine,,,
 1445,Lux Engine,lux-engine,Lux Engine was developed by Luxoflux initially for Kung Fu Panda (2008),,
 1451,Tripper 3D Engine,tripper-3d-engine,,,
@@ -787,7 +789,6 @@ to make a cartridge that will operate on a real Atari 2600.",,386.0
 52,In-house engine,in-house-engine,,,
 1202,DC Tech Three,dc-tech-three,,,
 1327,Processing,processing,,,
-1338,BREW,brew,,,
 1275,Charles Engine,charles-engine,,,
 1205,Skulltag,skulltag,,,
 476,OpenFL,openfl,,,
@@ -825,12 +826,12 @@ An upgraded version of the Eclipse Engine, internally known as the Lycium Engine
 433,In House Engine,in-house-engine--1,,,
 1436,X-Tend,x-tend,"X-Tend Engine was created by Burut Creative Team (aka Burut CT) (Russian) for games like Kreed: Kreed (2003), Battle for Savitar (2004), ÜberSoldier (2006) & ÜberSoldier II (2007).",,194.0
 251,Fighter Maker,fighter-maker,,,
-305,RPG Maker,rpg-maker,,[2165],
 76,Jade,jade,,,
 1042,Zandronum engine,zandronum-engine,,,
 1174,Antarctica,antarctica,,,
 1669,Perfect Dark Decompilation,perfect-dark-decompilation,A decompilation of Perfect Dark into human readable code.,[50296],358.0
 1416,Bipsi,bipsi,Bipsi is a tool for making small games where a character explores a world and interacts with its inhabitants.,[23652],
+305,RPG Maker,rpg-maker,,[2165],
 71,Z-machine,z-machine,,,
 316,Serious Engine,serious-engine,,,
 517,PlayCanvas,playcanvas,,,
@@ -855,7 +856,6 @@ An upgraded version of the Eclipse Engine, internally known as the Lycium Engine
 149,Proprietary Engine,proprietary-engine,,,
 1175,Bullet,bullet,Bullet is real-time collision detection and multi-physics engine/simulation.,,
 1489,Fusion Engine,fusion-engine,"Fusion Engine is a game engine enhanced by Hangar 13, based on Illusion Engine developed by 2K Czech for Mafia II.",,
-221,Game Maker,game-maker,,,
 1301,Tiled,tiled,,,
 1348,Adobe Director,adobe-director,,,
 1178,LZDoom,lzdoom,,,
@@ -882,6 +882,7 @@ An upgraded version of the Eclipse Engine, internally known as the Lycium Engine
 139,Sith,sith,,,
 1303,Flaxengine,flaxengine,,,
 1154,EngineXT,enginext,,,
+221,Game Maker,game-maker,,,
 1171,BEPUPhysics,bepuphysics--1,,,
 1172,OpenSpace,openspace,,,
 1231,Taito F3 System,taito-f3-system,,,
@@ -897,7 +898,6 @@ An upgraded version of the Eclipse Engine, internally known as the Lycium Engine
 687,id Tech 7,id-tech-7,,,
 1492,CXD9615GB Emotion Engine,cxd9615gb-emotion-engine--1,,,
 1339,QUANTUM ENGINE,quantum-engine,,,
-831,PuzzleScript,puzzlescript,PuzzleScript is an open-source HTML5 puzzle game engine originally created by Stephen Lavelle.,[5186],172.0
 491,Frostbite 3,frostbite-3,"Frostbite 3 is the third generation of Frostbite, which made its debut in Battlefield 4.
 
 In the updated engine, the environments became much more dynamic upon the actions of the players and Destruction 4.0, which was known as Levolution in Battlefield 4. Need for Speed Rivals became the second game of its series to use the game engine and the first since the upgrade to Frostbite 3. On 14 July 2015, the game engine was introduced to the sports genre of video games, being put to use on Rory McIlroy PGA Tour. In November, Need for Speed and Star Wars Battlefront were both released under Frostbite 3.",[94],61.0
@@ -918,6 +918,7 @@ In the updated engine, the environments became much more dynamic upon the action
 986,Audacity,audacity,,,
 464,Visual Studio,visual-studio,,,
 880,Alicesoft System,alicesoft-system,,,
+831,PuzzleScript,puzzlescript,PuzzleScript is an open-source HTML5 puzzle game engine originally created by Stephen Lavelle.,[5186],172.0
 22,UbiArt Framework,ubiart-framework,,,17.0
 1606,Force-Vector Kinetic Engine,force-vector-kinetic-engine,,,
 843,unreal 4,unreal-4,,,
@@ -938,6 +939,7 @@ In the updated engine, the environments became much more dynamic upon the action
 124,Treyarch NGL,treyarch-ngl,Treyarch developed an in-house engine named Treyarch NGL based on the Id Tech 3. It has the particularity of having been used only for console games. The game was used from 2001-2016 after been replaced for IW Engine from Call of Duty (series),,
 1341,Sword of Moonlight,sword-of-moonlight,,,
 273,Shadow Knights,shadow-knights,,,
+1222,Neo Geo MVS,neo-geo-mvs,,,
 1795,RPG in a Box,rpg-in-a-box,,,
 443,fps creator classic,fps-creator-classic,,,
 27,Dark Alliance Engine,dark-alliance-engine,,[78],
@@ -960,16 +962,15 @@ In the updated engine, the environments became much more dynamic upon the action
 1318,Shards,shards,,,
 1363,Storyspace,storyspace,,,
 57,Real Virtuality,real-virtuality,,,
-1222,Neo Geo MVS,neo-geo-mvs,,,
 422,Intelligent Stupidity,intelligent-stupidity,,,
 1494,Twitch,twitch,,,
 1501,Zorn,zorn,"Zorn is high speed, real time, graphics and game engine developed jointly by Codify and Verido. The Zorn Engine allows access to the full potential of the target device by working close to the target hardware and skipping slow intermediate APIs.",[47185],
-592,SRPG Studio,srpg-studio,,,
 327,Infernal Engine,infernal-engine,,,
 280,SmartSim,smartsim,,,
 201,RuneTek,runetek,,,
 561,Doom Legacy,doom-legacy,,,
 1784,Viper,viper,"At Velan Studios, we build and maintain our own engine and toolchain called Viper. Viper is the engine behind Knockout City and Mario Kart Live: Home Circuit. It includes standard things you might expect from any game engine such as a level editor, renderer, scripting language, etc. It also has less obvious components like network backend services and even a continuous integration system so Viper can build and test itself.",[28447],
+592,SRPG Studio,srpg-studio,,,
 1460,AI2,ai2,Updated game engine by ELF Corp. Made in 1990 for RAY-GUN and used in Dragon Knight II as well.,[14081],
 1727,Sledgehammer Engine,sledgehammer-engine,"Call of Duty: Advanced Warfare featured Sledgehammer Games' heavily modified in-house branch of the IW engine, with only a few lines of legacy code remaining. The majority of the engine in Advanced Warfare had been rewritten. Sledgehammer Games incorporated brand new animation, physics, rendering, lighting, motion capture and facial animation systems. The developers reworked the audio engine which had also been built from the ground up. According to Sledgehammer Games audio director Don Veca, the team was able to integrate an audio intelligence system to the game.",[659],
 1376,SLUDGE,sludge,SLUDGE (standing for Scripting Language for Unhindered Development of a Gaming Environment) is a system by which anyone (within reason) can make an adventure game. It runs in any recent version of Windows and now also on Mac OS X and Linux. It's high-res (any resolution you want) and uses 32-bit colour.,,144.0
@@ -1035,8 +1036,8 @@ Users can start a project by extending only a single function, the Game class's 
 762,Shooting Game Builder,shooting-game-builder,"Shooting Game Builder is a tool for creating and distributing shoot 'em up with no programming required!
 You can create your own graphics, sounds, and ideas.",,271.0
 1748,Sega Model 3,sega-model-3,"The Sega Model 3 is an arcade platform produced by Sega in partnership with Lockheed Martin. It is a successor to the Sega Model 2 platform, and was released in 1996. The Model 3 hardware is very different to the Model 1 and Model 2 boards which preceded it. It was designed with one purpose in mind - to push as many textured polygons as possible for as least money as possible. Upon release, the Model 3 board was more powerful than any other arcade platform on the market, as well as any home console or computer.","[112, 33743]",410.0
-1688,HedgePhysics,hedgephysics,,,
 1251,Unity 2021,unity-2021,,,
+1688,HedgePhysics,hedgephysics,,,
 302,JavaScript,javascript,,,
 1311,Custom Engine,custom-engine,,,
 398,Chess Engine: The King,chess-engine-the-king,,,
@@ -1059,9 +1060,9 @@ You can create your own graphics, sounds, and ideas.",,271.0
 522,IRISZOOM,iriszoom,,,
 1465,LuaSTGExPlus,luastgexplus,A danmaku game engine coded in c++ and using the lua language.,,
 1706,Bibby RPG Engine,bibby-rpg-engine,,[58577],
+876,Ren'Py,renpy--1,,,
 1619,PWLib,pwlib,PWLib is a casemaker for Ace Attorney fan games.,,333.0
 589,Macromedia Director,macromedia-director,,,
-876,Ren'Py,renpy--1,,,
 1576,Monogatari,monogatari,"Monogatari is a simple web visual novel engine, created to bring Visual Novels to the web.",,297.0
 1673,raylib,raylib,A simple and easy-to-use library to enjoy videogames programming,,366.0
 1572,Super Mario Bros. X2,super-mario-bros-x2,,[25686],292.0
@@ -1100,11 +1101,11 @@ You can create your own graphics, sounds, and ideas.",,271.0
 1421,Omni3D,omni3d,,[234],
 95,Creation Engine,creation-engine,,[126],37.0
 55,Euphoria Engine,euphoria-engine,Euphoria is a game animation engine.,[3405],32.0
-1145,Unity 2020,unity-2020,,,
 104,MonoGame,monogame,"""MonoGame is an Open Source implementation of the Microsoft XNA 4 Framework. Our goal is to allow XNA developers on Xbox 360, Windows & Windows Phone to port their games to the iOS, Android, Mac OS X, Linux and Windows 8/10.As well as PlayStation Vita, Xbox One and PlayStation 4.""",[4835],82.0
 629,Lua,lua,,,
 1612,Fallout Engine,fallout-engine,In-house engine developed for Fallout 1 & 2,,
 1551,OpenLara,openlara,,,
+1145,Unity 2020,unity-2020,,,
 147,YETI,yeti,"The engine was originally developed by Tiwak SAS (formerly Yeti Interactive), an engine based on a heavily modified Unreal Engine 2.5, and introduced in the 360 version of Tom Clancy's Ghost Recon Advanced Warfighter.","[841, 4477]",202.0
 455,Orx,orx,"Orx is a 2.5D data-driven game development engine. It is open source, ultra-fast, multi-platform and full-featured for C/C++ programmers: beginners and experts alike.",,171.0
 48,id Tech 4,id-tech-4,,[184],
@@ -1122,7 +1123,6 @@ You can create your own graphics, sounds, and ideas.",,271.0
 192,MassTech,masstech,,,
 400,LÖVE,love,,,
 1636,ECWolf,ecwolf,"ECWolf is an advanced source port for Wolfenstein 3D, Spear of Destiny, and Super 3D Noah's Ark based off of the Wolf4SDL code base. ECWolf pulls a substantial amount of code from ZDoom and aims to provide a wide array of mod editing capabilities without the need to modify the source code.",[55699],
-394,renpy,renpy,,,
 118,Dunia Engine,dunia-engine,,[38],340.0
 1166,2D Fighter Maker 2nd.,2d-fighter-maker-2nd,,[2165],140.0
 513,Firebird Engine,firebird-engine,"For Shadow of Mordor’s sequel, Shadow of War, the studio’s design aspirations were greatly expanded — and we needed an engine capable of supporting them.
@@ -1133,6 +1133,7 @@ Enter Firebird, the latest and greatest evolution of our proprietary technology.
 1702,Ultramario,ultramario,,,
 906,The Games Factory,the-games-factory,,,
 56,id Tech 3,id-tech-3,,[184],21.0
+394,renpy,renpy,,,
 1737,Bizarre Engine 2,bizarre-engine-2,Power-Up the simplicity with Bizarre Engine 2,[60450],403.0
 1676,Xash3D FWGS,xash3d-fwgs,"Xash3D FWGS is a heavily modified fork of Xash3D Engine, which aims for cross-platform, perfect online game and compatibility with original Xash3D and Gold Source.",[57183],368.0
 1312,Xash3D,xash3d,"An open-source game engine that is almost fully compatible with Valve's GoldSrc engine. The engine can run most games and mods made with GoldSrc, but has significant improvements over the engine.",[57085],272.0
@@ -1165,7 +1166,6 @@ The Offset Engine was licensed by Red 5 Studios in 2006 to create their MMOFPS g
 154,Vengeance Engine,vengeance-engine,The Vengeance Engine is a game engine based on Unreal Engine 2/2.5. It was created by Irrational Games to make Tribes: Vengeance.,[21],67.0
 595,FNA,fna,FNA is an open-source multi-platform reimplementation of the Microsoft XNA 4.0 libraries.,,421.0
 1545,Jo Engine,jo-engine,Jo Engine is an open source 2D and 3D game engine for the Sega Saturn written in C under MIT license.,,268.0
-277,WOLF RPG Editor,wolf-rpg-editor,"WOLF RPG Editor is a game development tool created by SmokingWOLF, designed for creating complex role-playing games. The engine is free to use, and the public license allows its users to freely distribute and even sell their created games.",[6955],
 1156,Red Ring,red-ring,"Red Ring engine is a modified Unreal Engine 3 with a custom real-time lighting and shadow renderer (to capture the feel of Aliens), build specifically for the game Aliens: Colonial Marines by Gearbox Software.",,
 208,Zero,zero,"Zero is a proprietary game engine created by Pandemic Studios. It was used first in the game Battlezone II: Combat Commander and later used in several Star Wars games including the popular Battlefront series. Battlezone II: Combat Commander and Dark Reign 2 both feature an in-engine editor accessible via commands. 
 
@@ -1210,12 +1210,17 @@ The engine was renamed during the development of Assassin's Creed II, releassed 
 The engine was renamed again in 2012, during the development of Assassin's Creed III, to AnvilNext.",[38],
 1791,RPG Developer Bakin,rpg-developer-bakin,,,
 14,MT Framework,mt-framework,"MT Framework is a game engine created by Capcom. ""MT"" stands for ""Multi-Thread"", ""Meta Tools"" and ""Multi-Target"". While initially MT Framework was intended to power 2006's Dead Rising and Lost Planet: Extreme Condition only, Capcom later decided for their internal development divisions to adopt it as their default engine.",,206.0
+277,WOLF RPG Editor,wolf-rpg-editor,"WOLF RPG Editor is a game development tool created by SmokingWOLF, designed for creating complex role-playing games. The engine is free to use, and the public license allows its users to freely distribute and even sell their created games.",[6955],
 1699,MPAGD Gen2,mpagd-gen2,"MPAGD Gen2 is a modified version of MPAGD both at the engine level and fully operational integrated ASM routines, as well as new features and compilation options to generate a game for ZX Spectrum and Amstrad CPC.",,
 24,REDengine,redengine,REDengine is a game engine developed by CD Projekt Red exclusively for their nonlinear role-playing video games. It is the replacement of the Aurora Engine CD Projekt Red had previously licensed from BioWare for the development of The Witcher.,[908],307.0
 12,Telltale Tool,telltale-tool,"The Telltale Tool is a proprietary game engine developed by Telltale, built atop the Lua programming language.
 
 Telltale moved to an improved version of their engine around early 2016, partially implemented first in The Walking Dead: Michonne and fully completed for the release of Batman: The Telltale Series. The new Telltale Tool provided more direct support for DirectX 11 features, including physics-based models, texture mapping and blending, and dynamic lighting and shadows",,81.0
-25,CryEngine,cryengine,"Building on over a decade of continued engine development and refinement, CRYENGINE is used by AAA and indie developers alike to build some of today’s most ambitious games, while remaining 100% royalty-free to allow developers to reap the rewards of their hard work.",[249],13.0
+246,Wolfenstein 3D,wolfenstein-3d,"The Wolf3D (or Wolfenstein 3D) Engine is a raycaster engine developed by John Carmack for the hit FPS game Wolfenstein 3-D. It features smooth scrolling with textured walls, variable screen-size, and sprites. Designed for mid-range 386 computers it was one of the fastest texture-mapped 3D engines to be made available for licensing at the time (1992).
+
+It was officially licensed to JAM Productions to make Blake Stone: Aliens of Gold and Blake Stone: Planet Strike, licensed to Apogee to make ROTT (originally slated to be a Wolf3D sequel), and licensed to Capstone to make Corridor 7 and Operation Bodycount.
+
+It also inspired similar shareware and commercial ""doom clones"" of the mid-90's.",[184],
 1722,MechaSource,mechasource,,,
 18,4A Engine,4a-engine,"4A Games is a video game development studio known for its atmospheric first person shooters Metro 2033 and Metro: Last Light. The studio was established in 2005 by experienced game industry professionals with the aim of creating premium quality games for latest generation consoles and personal computers. All our experience, talent and enthusiasm go into creating games with deep story, unique gameplay elements and highly detailed believable environments.",[314],33.0
 74,X-ray Engine,x-ray-engine,"The X-Ray Engine is the name of the 3D game engine created by Kiev-based computer game developer GSC Game World. Released on 20 March 2007, the engine is used in the first three S.T.A.L.K.E.R. games released by the company. An upgraded engine was planned for the cancelled game S.T.A.L.K.E.R. 2.",[144],44.0
@@ -1224,11 +1229,7 @@ Telltale moved to an improved version of their engine around early 2016, partial
 The engine uses Warscape, a graphics engine developed by The Creative Assembly.
 
 The 32-bit version of Warscape was used from Empire: Total War till Total War: Attila, and then later changed to 64-bit in the development of Total War: Warhammer and beyond.",[111],78.0
-246,Wolfenstein 3D,wolfenstein-3d,"The Wolf3D (or Wolfenstein 3D) Engine is a raycaster engine developed by John Carmack for the hit FPS game Wolfenstein 3-D. It features smooth scrolling with textured walls, variable screen-size, and sprites. Designed for mid-range 386 computers it was one of the fastest texture-mapped 3D engines to be made available for licensing at the time (1992).
-
-It was officially licensed to JAM Productions to make Blake Stone: Aliens of Gold and Blake Stone: Planet Strike, licensed to Apogee to make ROTT (originally slated to be a Wolf3D sequel), and licensed to Capstone to make Corridor 7 and Operation Bodycount.
-
-It also inspired similar shareware and commercial ""doom clones"" of the mid-90's.",[184],
+25,CryEngine,cryengine,"Building on over a decade of continued engine development and refinement, CRYENGINE is used by AAA and indie developers alike to build some of today’s most ambitious games, while remaining 100% royalty-free to allow developers to reap the rewards of their hard work.",[249],13.0
 1752,teaGFX,teagfx,,,
 548,TW Engine 2,tw-engine-2,TW Engine 2 is the second engine developed by The Creative Assembly for their Total War series.,[111],80.0
 1458,WF Engine,wf-engine,"WF Engine was created by WayForward Technologies for DuckTales: Remastered (2013), BloodRayne: Betrayal (2014), Goosebumps: The Game (2015), Ghostbusters: The Video Game Remastered (2019), BloodRayne Betrayal: Fresh Bites (2021)",,
@@ -1252,6 +1253,16 @@ It's use is described on the Valkyria Chronicles Remastered website as:
 ""Hand-drawn watercolor imagery creates a warm graphical motif, while blurred outlines, soft edges, hatching, and visual use of onomatopoeias create an enthralling and vibrant game world. The melded style of 3D graphics and still images allows the player to move freely around a world that appears to have come directly from an artist's sketchbook.""",,
 531,KUBOTA/CATERPILLER,kubota-slash-caterpiller,,,
 253,Unigine,unigine,"UNIGINE SDK (Software Development Kit) is designed for development teams (C++/C# programmers, 3D artists) working on interactive 3D apps like a Games.",[742],214.0
+81,RPG Maker VX Ace,rpg-maker-vx-ace,"RPG Maker VX Ace improves every aspect of RPG creation, making it not only the latest, but also the greatest engine in the RPG Maker Series. With multiple tileset support, full autoshadow control, and a flexible features system, Ace gives you the most powerful RPG making tools ever.
+
+Ace provides all the tools you will need to make the game you've always dreamed of. Make your game, your way with all the following features:
+
+An enhanced map editor to build your world.
+A Character/Enemy/Skill/Equipment Database with a new powerful, flexible Features system.
+New event options, including playing Ogg Theora video.
+Expanded default resources, including a built in Character Generator to form your own custom sprites and faces.
+
+Lite is yours to use at no cost for as long as you need it. You can take your time learning the ins and outs of the program, as well as take your time planning out that amazing game. Lite is perfect for people with busy lives and even busier schedules. Need more features? Simply upgrade to RPG Maker VX Ace, and have even more power with your game creation. Including: unlimited events per map, a scripting system and more.",,
 58,Ignite Engine,ignite-engine,"The EA SPORTS IGNITE game engine delivers a new level of innovation, further blurring the line between the real-world and the virtual. Developed by EA SPORTS™, games powered by the engine are alive: players think, move and behave like real athletes, with environments as dynamic and ever-changing as real-world stadiums.
 
 With Human Intelligence, True Player Motion and Living Worlds, the way sports games are played has fundamentally changed. EA SPORTS IGNITE is designed to harness the potential of next-generation.",[1],27.0
@@ -1280,7 +1291,6 @@ Release History:
 - GIANTS Engine 10.0 released for Farming Simulator 25",,439.0
 1721,Supernova Mario Engine,supernova-mario-engine,,,
 239,Irrlicht,irrlicht,"The Irrlicht Engine is an open source realtime 3D engine written in C++. It is cross-platform, using D3D, OpenGL and its own software renderers. OpenGL-ES2 and WebGL renderers are also in development. It is a stable library which has been worked on for nearly 2 decades.",,91.0
-462,"Custom HTML5, JavaScript, CSS",custom-html5-javascript-css,,,
 1730,Volatile3D II,volatile3d-ii,"Volatile3D II game engine was started in 2008 and was considered to be a free alternate to id Tech 4 engine. It is a game engine with modern graphic effects, interactive physics and many other features. Its renderer features realtime per-pixel lighting, parallax mapping, dynamic soft shadows, screen-space ambient occlusion, post-process filters, bezier curves and many other popular graphic techniques. Physics is based on Newton Game Dynamics engine.",[59979],409.0
 1455,FUZE4,fuze4,"FUZE4 Nintendo Switch is a coding application for Nintendo Switch. It has been designed and developed by a team of experienced gamers, programmers, artists and educators. Programming languages all have their pros and cons. FUZE4 takes as many pros as we could cram in from a mix of these languages (C, Python & BASIC to name a few) to create a language that is as easy as BASIC, powerful like C and versatile like Python. The end result is a language ideally suited to coding games and apps for absolute beginners and seasoned programmers alike.",,
 576,Slipspace Engine,slipspace-engine,"Leading edge technologies convey moving emotional performances with truly organic, believable fidelity. Intuitive and powerful tools let fresh creators and industry veterans focus on bringing worlds vividly to life.",[722],220.0
@@ -1320,7 +1330,7 @@ Shadows: Jittered shadows, Shadow texture size at 350+++,
 Special Effects: Water, Volumetric fog and dust, Shader quality 2.0 (sun and light reflections), reflections (such as weapons and surface).",,195.0
 437,BANG!,bang,,,
 1767,RayBlast Engine,rayblast-engine,The RayBlast Engine is a private hybrid 2D/3D game engine created by RayBlast Games. There are currently no plans for a public release. Some information about it can be found on their About page.,[62214],
-594,flash,flash,,,
+235,Twine,twine,Twine is a free and open-source tool for making interactive fiction in the form of web pages.,,131.0
 668,CATHODE,cathode,"Cathode (styled as CATHODE) is an engine built by the Creative Assembly in partnership with AMD for the 2014 video game Alien: Isolation. It is a highly modified version of the engine created for an earlier title, Viking: Battle for Asgard. The trademark for Cathode's name was filed by SEGA on August 26th 2013, and eventually granted February 20th 2014.
 
 The Cathode engine was named after its bespoke node-based scripting functionality which allowed for live edit flowgraphs to control game logic. This system ran inside of a toolkit created for Cathode named the Creative Assembly Game Editor (CAGE) in a what-you-see-is-what-you-get (WYSIWYG) style. It allowed for the use of prefabs to quickly build upon existing scripts. The Cathode scripting system covered a range of systems including particles, lighting, props, AI scripts, audio, zoning, and character setup.
@@ -1333,11 +1343,12 @@ Cathode was built to ship to PS3, PS4, Xbox 360, Xbox One, and PC - however its 
 1254,OHRRPGCE,ohrrpgce,"OHRRPGCE stands for Official Hamster Republic Role Playing Game Construction Engine. The OHRRPGCE is a free and open source game making tool kit. It is cross-platform (Windows, Mac, Linux, Android).
 
 The OHRRPGCE aims to be an easy-to-use utility with which you can create your own retro-style 2D RPG game with no programming, or you can create other types of games with the built in Hspeak scripting language.",,
-225,Phoenix Engine (Relic),phoenix-engine-relic,"""Authored by Relic Entertainment and based on the Darksiders engine. Currently used only in Warhammer 40,000: Space Marine.""",[196],
+594,flash,flash,,,
 412,Decima,decima,"An engine created by Guerrilla Games for Killzone, and later used for Horizon Zero Dawn, that was simply called ""the engine"" till Hideo Kojima choose to use it for the creation of Death Stranding.
 The name Decima was quickly decided on as a reference to the ancient trade relationship between the Netherlands and Japan.
 
 Kojima Productions was given a copy of the engine's source code and is now collaborating with Guerilla Games on the future of its development.","[1843, 170]",84.0
+225,Phoenix Engine (Relic),phoenix-engine-relic,"""Authored by Relic Entertainment and based on the Darksiders engine. Currently used only in Warhammer 40,000: Space Marine.""",[196],
 1457,Slayer,slayer,"Slayer engine was created by The Collective, Inc. (now Double Helix Games / Amazon Games Orange County) for Buffy the Vampire Slayer (2002), Wrath Unleashed (2002), Star Wars: Episode III - Revenge of the Sith (2002), Indiana Jones and the Emperor's Tomb (2003), Marc Eckō's Getting Up: Contents Under Pressure (2004), The Da Vinci Code (2006), Silent Hill: Homecoming (2008), Battleship (2012), Killer Instinct (2013), Strider (2014) and Killer Instinct (2016).",,
 1410,AI5,ai5,"An engine used for many eroge titles made by Elf (Dragon Knight III, Doukyuusei, YU-NO)",[14081],
 369,libgdx,libgdx,,,
@@ -1345,11 +1356,11 @@ Kojima Productions was given a copy of the engine's source code and is now colla
 1726,LithTech V5,lithtech-v5,"LithTech V5 was pushed forward by two of the studio’s powerhouse sequels, Condemned 2: Bloodshot and F.E.A.R. 2: Project Origin.
 
 The new titles had to be bigger and better than their predecessors, and the engine’s capabilities expanded to match. Condemned 2 was Monolith’s first game for the PS3 and console support was a big focus for this version.",[407],
-235,Twine,twine,Twine is a free and open-source tool for making interactive fiction in the form of web pages.,,131.0
 438,Real Virtuality 3,real-virtuality-3,,,
 102,Virtools Engine,virtools-engine,"Games using a version of the Virtools engine (original or modified) by Virtools SA. It contains a 3D rendering engine, a GUI and a behavioral engine library with preset scripts. It is mainly used for adventures, simulations, shoot-em-ups and massive multiplayer games. Virtools can be used to develop Windows, Macintosh and Xbox games, with cross-compatibility.",[4286],
 54,Gamebryo,gamebryo,"Gamebryo (formerly NetImmerse until 2003) is a game engine developed by Gamebase Co., Ltd. and Gamebase USA, that incorporates a set of tools and plugins including run-time libraries, supporting video game developers for numerous cross-platform game titles in a variety of genres, and served as a basis for the Creation Engine.","[3997, 3998]",22.0
 436,DreamWorld,dreamworld,"The DreamWorld graphics engine was developed by Funcom circa 2000. Other computer games powered by DreamWorld technology include Anarchy Online and its various expansion packs. When Funcom began developing Age of Conan: Hyborian Adventures, the company reviewed its existing technology base and decided to focus on the further evolution of their proprietary DreamWorld engine as opposed to licensing a third-party engine like many online RPG companies do. As such, Funcom began to retool their engine with the overall design, pipeline and implementation process was taken into account. In light of these changes, the DreamWorld engine has been rebuilt for Age of Conan: Hyborian Adventures with new features, special effects and optimizations.",[458],51.0
+1146,RPG Maker MZ,rpg-maker-mz,"You want to create an RPG, but every game making tool you have found was either too complex or too limited? RPG Maker MZ empowers you with simple tools to create your RPG right out of the box, yet is customizable enough to make the exact RPG you want!","[30668, 21177, 4706]",
 1670,S2 Engine HD,s2-engine-hd,"S2 ENGINE HD is a complete software kit for developing and running videogames and other virtual-reality applications on PC systems, specifically dedicated to hobbyists, game enthusiasts and indies, created by a indie developer.",[24122],362.0
 1729,Volatile Engine,volatile-engine,"Although the engine itself was written from scratch, Volatile intentionally implements many design principles we refer to as “Quake ideology”. We are sure that old-school Quake/Half-Life programmers and level designers will notice that almost everything looks familiar. We do our best to incorporate the best principles from the best engines, so you will find some features you have already learnt from Source or Unreal. 
 
@@ -1362,7 +1373,6 @@ The engine is cross-platform (Windows, Linux/SteamOS, MacOS, Android), high-perf
 The engine is accessible to users through Roblox Studio which allows users to design content, game modes or purchasable content, that will run in Roblox.
 ""Roblox Studio is our development environment for real-time social experiences, allowing creators to directly manipulate 3D environments, create physics-based interactive models, design complex geometries, and script game mechanics.""",[8601],
 59,Impact Engine,impact-engine,,,
-1146,RPG Maker MZ,rpg-maker-mz,"You want to create an RPG, but every game making tool you have found was either too complex or too limited? RPG Maker MZ empowers you with simple tools to create your RPG right out of the box, yet is customizable enough to make the exact RPG you want!","[30668, 21177, 4706]",
 1717,Helheim Engine,helheim-engine,,[59452],
 1709,Flicky8,flicky8,,,
 62,Torque Game Engine,torque-game-engine,,[6638],75.0
@@ -1382,18 +1392,8 @@ A suite of tools and editors has also been developed in order to quickly power h
     -Streaming and resource management""",[405],40.0
 1761,Luxe,luxe,"A cross platform, rapid development game engine made by Studio Any Percent.",[41728],414.0
 1556,WASM-4,wasm-4,A fantasy console for retro game development. It works with WebAssembly.,,278.0
-81,RPG Maker VX Ace,rpg-maker-vx-ace,"RPG Maker VX Ace improves every aspect of RPG creation, making it not only the latest, but also the greatest engine in the RPG Maker Series. With multiple tileset support, full autoshadow control, and a flexible features system, Ace gives you the most powerful RPG making tools ever.
-
-Ace provides all the tools you will need to make the game you've always dreamed of. Make your game, your way with all the following features:
-
-An enhanced map editor to build your world.
-A Character/Enemy/Skill/Equipment Database with a new powerful, flexible Features system.
-New event options, including playing Ogg Theora video.
-Expanded default resources, including a built in Character Generator to form your own custom sprites and faces.
-
-Lite is yours to use at no cost for as long as you need it. You can take your time learning the ins and outs of the program, as well as take your time planning out that amazing game. Lite is perfect for people with busy lives and even busier schedules. Need more features? Simply upgrade to RPG Maker VX Ace, and have even more power with your game creation. Including: unlimited events per map, a scripting system and more.",,
-206,Construct 2,construct-2,"Construct is an HTML5-based 2D game editor, developed by Scirra Ltd.[3][4] It is aimed primarily at non-programmers,[5] allowing quick creation of games in a drag-and-drop fashion using a visual editor and a behavior-based logic system.",,53.0
 1738,libultraship,libultraship,,[40586],404.0
+206,Construct 2,construct-2,"Construct is an HTML5-based 2D game editor, developed by Scirra Ltd.[3][4] It is aimed primarily at non-programmers,[5] allowing quick creation of games in a drag-and-drop fashion using a visual editor and a behavior-based logic system.",,53.0
 1746,AdvertCity Engine,advertcity-engine,"A custom built 3D engine in C++ rendering with OpenGL, designed specifically for the game AdvertCity.","[18668, 61009]",
 532,GameMaker Studio 2,gamemaker-studio-2,"""GameMaker Studio 2 (Studio 2, GMS2) is the latest and greatest iteration of GameMaker. It provides a powerful yet easy-to-use platform for all your game development needs.""",[6932],74.0
 296,Clausewitz Engine,clausewitz-engine,"In 2007 the Paradox Development Studio debuted a proprietary game engine, titled Clausewitz (named after the Prussian general Carl von Clausewitz), in Europa Universalis III which has been put to use in every game developed by PDS since. The engine provides a 3D view of part or the totality of the world map, depending on the played game. Sengoku was the first game utilizing the Clausewitz 2.5 engine.",[7466],43.0
@@ -1409,6 +1409,7 @@ Lite is yours to use at no cost for as long as you need it. You can take your ti
 1633,Light.vn,light-dot-vn,Light.vn is a visual novel engine designed for ultra fast iteration to bring out the highest quality in all projects.,,
 1439,Vital Engine 3,vital-engine-3,"Vital Engine 3, was developed by Deep Shadows (Sergey Zabaryansky and Roman Lut) for White Gold: War in Paradise (aka Xenus II: White Gold) (2008) and The Precursors (2009).",,
 357,Sonic Worlds,sonic-worlds,,,
+6,Unreal Engine,unreal-engine,"Unreal Engine 4 gives you all the features you need to make just about any game you can dream up! When you get UE4, you have all the rendering horsepower to make a cinematic experience like the Infiltrator demo, and you can also build really simple games like side-scrolling platformers and match-three apps. That call is totally yours to make!",[17463],11.0
 1466,LPMud,lpmud,"LPMud, abbreviated LP, is a family of MUD server software. Its first instance, the original LPMud game driver, was developed in 1989 by Lars Pensjö (hence the LP in LPMud).
 
 LPMud was innovative in its separation of the MUD infrastructure into a virtual machine (known as the driver) and a development framework written in the LPC programming language (known as the mudlib).",,
@@ -1429,7 +1430,6 @@ The most current publicly available version of Rom is 2.4b6,[2] which was releas
 The largest Collection of Gold Box Games you can currently find in one spot for legal online acquisition of this product can be found at G.O.G. (In one of the Forgotten Realms Collections) and may also be available on Steam. When/If purchasing keep in mind that the First two games in the GoldBox set do not have Mouse Support (Possible Deal Breaker for some People. I don't Mind Personally, Though I wish Someone would mod in Mouse support for the first two eventually if able).
 
 Another Helpful Note, There is a handy tool that exists called ""Gold Box Companion"" that has helped these games make a comeback, it adds a better Mapping System, and Better Party Customization/Control/Rest/Magic-Re-Memorization (But download only From Developer, and only at your Own Risk).",,415.0
-6,Unreal Engine,unreal-engine,"Unreal Engine 4 gives you all the features you need to make just about any game you can dream up! When you get UE4, you have all the rendering horsepower to make a cinematic experience like the Infiltrator demo, and you can also build really simple games like side-scrolling platformers and match-three apps. That call is totally yours to make!",[17463],11.0
 479,Black Desert Engine,black-desert-engine,"Pearl Abyss created the ""Black Desert"" engine specifically for Black Desert Online, to handle the fast rendering required for its seamless world and large-scale castle sieges.",[2746],54.0
 480,XIGNCODE3,xigncode3,"XIGNCODE3 is the next generation of gaming security solution mainly for online gaming service, currently patented and registered as a “one-time executable code structure”, which allows levels of various security policies according to company management measurements.
 
@@ -1530,30 +1530,30 @@ DoDonPachi II, released by CAVE, came on a single dedicated board and utilizes a
 1789,RaptorEngine,raptorengine,,,
 1437,Mercury Engine,mercury-engine,"Mercury Engine was created by Brat Designs Ltd, for the game Breed (2004). The studio closed doors in 2005",,196.0
 608,Symbian,symbian,"Symbian is a discontinued mobile operating system (OS) and computing platform designed for smartphones.[6] It was originally developed as a proprietary software OS for personal digital assistants in 1998 by the Symbian Ltd. consortium. Symbian OS is a descendant of Psion's EPOC, and was released exclusively on ARM processors, although an unreleased x86 port existed. Symbian was used by many major mobile phone brands, like Samsung, Motorola, Sony Ericsson, and above all by Nokia. It was also prevalent in Japan by brands including Fujitsu, Sharp and Mitsubishi. As a pioneer that established the smartphone industry, it was the most popular smartphone OS on a worldwide average until the end of 2010, at a time when smartphones were in limited use, when it was overtaken by iOS and Android. It was notably less popular in North America.",[2421],346.0
-3,Source,source,"Source combines leading-edge character animation, advanced AI, real-world physics, shader-based rendering, and a highly extensible development environment to produce some of the most popular computer and console games. These games deliver the most intense, visually-stunning gameplay experiences on modern hardware, while scaling smoothly on older systems, enabling developers to reach a diverse range of gamers.",[56],9.0
 611,Smile Game Builder,smile-game-builder,,,
-603,Unity3D,unity3d,"Unity is a game development ecosystem: a powerful rendering engine fully integrated with a complete set of intuitive tools and rapid workflows to create interactive 3D and 2D content; easy multiplatform publishing; thousands of quality, ready-made assets in the Asset Store and a knowledge-sharing community.",[3067],428.0
+829,PICO-8,pico-8,"PICO-8 is a fantasy console for making, sharing and playing tiny games and other computer programs. It feels like a regular console, but runs on Windows / Mac / Linux. When you turn it on, the machine greets you with a commandline, a suite of cartridge creation tools, and an online cartridge browser called SPLORE.
+
+PICO-8 games, as well as the program's interface itself, are limited to a 128 × 128 pixel, 16-color display, and a 4-channel audio output.",[38289],303.0
 1609,SRPG Editor 2,srpg-editor-2,,[37971],
 1561,Octopus Engine,octopus-engine,Octopus Engine is an RTS engine made by the Octopus engine compagny. It is made to handle fast play rts on any usual game engine. It can handles thousands of units and allow roll back net play.,[50884],280.0
+3,Source,source,"Source combines leading-edge character animation, advanced AI, real-world physics, shader-based rendering, and a highly extensible development environment to produce some of the most popular computer and console games. These games deliver the most intense, visually-stunning gameplay experiences on modern hardware, while scaling smoothly on older systems, enabling developers to reach a diverse range of gamers.",[56],9.0
 1581,Adventuron,adventuron,Adventuron is a HTML5-based IDE for creating text adventure games.,[52387],302.0
 676,E.V.I.L Engine,evil-engine,"The proprietary engine used by Super Evil Megacorp for all their releases. 
 Named in 2012, the engine has been improved alongside their games and the platforms they are designed for.",[6992],
 36,Asura,asura,Asura is an engine developed by Rebellion and first used in Aliens versus Predator released in 1999.,"[318, 22324]",
 1711,Holistic,holistic,The Holistic engine was developed by Keen Games specifically for Enshrouded.,[2154],
 1728,Tommunism Engine,tommunism-engine,,[591],
-829,PICO-8,pico-8,"PICO-8 is a fantasy console for making, sharing and playing tiny games and other computer programs. It feels like a regular console, but runs on Windows / Mac / Linux. When you turn it on, the machine greets you with a commandline, a suite of cartridge creation tools, and an online cartridge browser called SPLORE.
-
-PICO-8 games, as well as the program's interface itself, are limited to a 128 × 128 pixel, 16-color display, and a 4-channel audio output.",[38289],303.0
 1600,CROSS-LIB,cross-lib,"Cross-Lib is a retro-hardware abstraction layer for coding ""universal"" games with the very same code for hundreds of mostly 8-bit systems (consoles, computers, scientific calculators, hand-held consoles, arcade boards, hacked toy computers, etc.).
 
 Cross-Lib is a WORA (Write Once Run Anywhere) framework for vintage systems, i.e., you code a game once in an abstract hardware-agnostic way and Cross-Lib produces the very same game for about 200 vintage systems.",[53684],361.0
 1604,HAMOOPIG,hamoopig,A Sega Genesis fork of the same creator's HAMOOPI fighting game engine.,,323.0
+603,Unity3D,unity3d,"Unity is a game development ecosystem: a powerful rendering engine fully integrated with a complete set of intuitive tools and rapid workflows to create interactive 3D and 2D content; easy multiplatform publishing; thousands of quality, ready-made assets in the Asset Store and a knowledge-sharing community.",[3067],428.0
 1781,BBD Platformer Engine,bbd-platformer-engine,,,
 1540,osu!framework,osu-framework,A game framework written with osu! in mind.,[22956],261.0
 1628,CMVS,cmvs,,,
 420,Stencyl,stencyl,"Stencyl is a video game development tool that allows users to create 2D video games for computers, mobile devices, and the web.",,
-837,Bitsy,bitsy,"Bitsy is a web-based ""little editor for little games or worlds"" featuring limited color palettes and a small pixel canvas.",[24394],
 1239,unity engine,unity-engine,,,
+837,Bitsy,bitsy,"Bitsy is a web-based ""little editor for little games or worlds"" featuring limited color palettes and a small pixel canvas.",[24394],
 515,Ronin,ronin,"To make The Force Unleashed as realistic as possible, LucasArts created a new engine code-named Ronin. But while the majority of its technology is proprietary, LucasArts had no hesitation about licensing third-party technology. It acquired Havok's physics engines; NaturalMotion's Euphoria for realistic, AI-driven character animations and Pixelux's Digital Molecular Matter (DMM), for spectacularly destructible environments.",,
 1546,3D Rad,3d-rad,,,
 1490,RUDE,rude,"RUDE (Retro Universal Design Engine) was originally created by Retro Studios for Metroid Prime (2002), and was the first game to run on their proprietary engine. Ever since that day, Retro has been using that same engine for their projects, albeit with major updates every step of the way (Metroid Prime 2: Echoes, Metroid Prime 3: Corruption). Metroid Prime Remastered (2023) is using the latest version of RUDE.",,
@@ -1574,13 +1574,13 @@ The name NAOMI was reportedly selected by Sega R&D head Hisashi Suzuki in honor 
 1635,Buddha,buddha,Buddha is an in-house engine used to power Double Fine games.,[85],
 1587,Net Yaroze,net-yaroze,"The Net Yaroze (ネットやろうぜ, Netto Yarōze) is a development kit for the PlayStation video game console. It was a promotion by Sony Computer Entertainment to computer programming hobbyists which launched in June 1996 in Japan and in 1997 in other countries.",[13634],309.0
 671,The Creator Engine,the-creator-engine,,,
-761,proprietary engine [ by Blizzard Entertainment ],proprietary-engine-by-blizzard-entertainment,,,
 174,PhyreEngine,phyreengine,"PhyreEngine is a  game engine from Sony Computer Entertainment compatible with PC, PlayStation Portable, PlayStation Vita, PlayStation 3 and PlayStation 4. It is free to registered developers and licensed for usage on any platform.
 
 The engine was launched during GDC 2008.  Version 3.0 was released in 2011.",[45],209.0
 29,Fox Engine,fox-engine,"The Fox Engine is a proprietary cross-platform, cross-generational game engine built by Kojima Productions for use in many Konami games. The engine's development began after the completion of 2008's Metal Gear Solid 4, with the goal of making the ""best engine in the world."" The engine makes it possible for Kojima Productions to develop multiplatform games with a significantly shortened development time and has been described as the first step for the developer to move away from development for a single platform. The engine is named after FOX, a fictional military unit from the Metal Gear series, wherein is also a reflection of Kojima Productions itself, which based its company logo on FOX's fox emblem.",[170],24.0
 1369,CTG (Core Technology Group),ctg-core-technology-group,"The engine was first used in 2005 with the release of the video game The Punisher. A major reworked version of the game was released in 2017 with Agents of Mayhem. Volition owns another in-house engine, called Geo-Mod, that was used specifically for the Red Faction (series) (2001-2011).",,
 490,Bedrock Engine,bedrock-engine,,,
+761,proprietary engine [ by Blizzard Entertainment ],proprietary-engine-by-blizzard-entertainment,,,
 1714,LithTech 2.x,lithtech-2-dot-x,"Starting with LithTech 2.0, LithTech Inc. began the process of creating many different versions of the engine. Monolith released their game No One Lives Forever (NOLF) featuring this version of the engine, however it was later revised to LithTech 2.2. The game received an upgrade to LithTech 2.2 in a patch release. The LithTech team then continued to improve version 2.2 for its licensees, resulting in the 2.3 and 2.4 iterations.",[407],
 1671,MicroW8,microw8,"MicroW8 is a WebAssembly based fantasy console inspired by the likes of TIC-80, WASM-4 and PICO-8.
 
@@ -1604,9 +1604,9 @@ Above that something that is notable is the fact that the Client side builds are
 
 In addition to making game development 80 percent faster than coding for native languages, developers can create fully functional prototypes in just a few hours, and a full game in just a matter of weeks.""",[6932],36.0
 743,Veloren Engine,veloren-engine,A fully open-source voxel game engine written in Rust primarily for use in the Veloren game.,,
-64,Adobe Flash Player,adobe-flash-player,"Adobe Flash Player is the standard for delivering high-impact, rich Web content. Designs, animation, and application user interfaces are deployed immediately across all browsers and platforms, attracting and engaging users with a rich Web experience.",[7246],63.0
 587,EGO Engine,ego-engine--2,,,
 704,RPG Maker VX,rpg-maker-vx,"RPG Maker VX (RPGツクールVX, RPG Tsukūru VX) is a version of PC program RPG Maker series. It has been superseded by RPG Maker VX Ace, which is an improved and enhanced version of RPG Maker VX. Both RPG Maker VX and RPG Maker VX Ace are developed by Enterbrain, following its predecessor, RPG Maker XP. RPG Maker VX follows the naming pattern present in previous RPG Maker releases by having a suffix based on the Windows versions the software was designed for (in this case, Windows Vista and Windows XP).",,232.0
+64,Adobe Flash Player,adobe-flash-player,"Adobe Flash Player is the standard for delivering high-impact, rich Web content. Designs, animation, and application user interfaces are deployed immediately across all browsers and platforms, attracting and engaging users with a rich Web experience.",[7246],63.0
 1680,Xash 2019,xash-2019,A continuation of the last version of Xash3D [Build 4529]. Updated to VS2019 as well.,[57428],373.0
 1712,Fenforge,fenforge,"Fenforge is a cross-platform game engine that has been in continuous development by Fen Research since September 2010. First used to develop Solstrike (2014) and Iona's Toybox (2021), Brighter Shores is the third game to use this engine. The engine is based on a privately developed programming language, and designed to be flexible general-purpose engine, allowing programmers to make different types of games relatively quickly.",[55704],389.0
 1462,Maniaplanet,maniaplanet,"Maniaplanet, is an engine created by Nadeo (a subsidiary of Ubisoft since 2009), for TrackMania 2 (Stadium, Valley, Lagoon) & TrackMania (2020)",,212.0
@@ -1655,11 +1655,11 @@ In Company of Heroes: Opposing Fronts, the Essence Engine was further improved t
 236,Cocos2d,cocos2d,,,68.0
 1771,Lemongine,lemongine,,,
 1504,Greenfoot,greenfoot,"Greenfoot is an integrated development environment using Java or Stride designed primarily for educational purposes at the high school and undergraduate level. It allows easy development of two-dimensional graphical applications, such as simulations and interactive games.",,245.0
-448,RPG Maker MV,rpg-maker-mv,"POWERFUL enough for a developer SIMPLE enough for a child VERSATILE enough for any platform! RPG MAKER MV allows you to make the RPG of your dreams! This latest version includes a host of new features and export options for MacOSX, Android, and iPhone!",[30668],233.0
-89,PhysX,physx,"Without accurate physics simulation even the most beautiful game feels static and lifeless. PhysX taps into the power of NVIDIA’s GeForce GTX GPUs to create incredible effects and scenes filled with dynamic destruction, particle based fluids, and life-like animation.",[1630],28.0
 507,Godot Engine,godot-engine,"Godot provides a huge set of common tools, so you can just focus on making your game without reinventing the wheel.
 
 Godot is completely free and open-source under the very permissive MIT license. No strings attached, no royalties, nothing. Your game is yours, down to the last line of engine code.",,132.0
+89,PhysX,physx,"Without accurate physics simulation even the most beautiful game feels static and lifeless. PhysX taps into the power of NVIDIA’s GeForce GTX GPUs to create incredible effects and scenes filled with dynamic destruction, particle based fluids, and life-like animation.",[1630],28.0
+448,RPG Maker MV,rpg-maker-mv,"POWERFUL enough for a developer SIMPLE enough for a child VERSATILE enough for any platform! RPG MAKER MV allows you to make the RPG of your dreams! This latest version includes a host of new features and export options for MacOSX, Android, and iPhone!",[30668],233.0
 61,LithTech 1,lithtech-1,"Originally the LithTech engine was supposed to be called DirectEngine, as Monolith was developing it for Microsoft to be included as a 3D engine for use with Microsoft's DirectX technology. After failing to secure the deal, Monolith continued development on their own and were able to license the engine, officially renamed to LithTech, to other companies.",[407],392.0
 1713,LithTech Talon,lithtech-talon,"LithTech Inc. developed a different engine specifically for Monolith's title, Aliens versus Predator 2. LithTech Talon was based on LithTech 2.2, rather than LithTech 2.4. Because of this choice, LithTech 2.4, RealArcade LithTech, and LithTech Talon became largely incompatible with each other. However, reviewers still thought of it as inferior to Unreal or id Tech.
 
@@ -1700,7 +1700,6 @@ TrueMotion was typically seen in games which full motion video played a relative
 1412,Pulp,pulp,"Pulp is a special development system for the Playdate that is used via a web browser. Pulp has functionality for creating graphics, sound, music and fonts for usage in games, and more advanced behaviour can be made through its own scripting language known as PulpScript.",[5213],313.0
 13,Unity,unity,"Unity is a game development ecosystem: a powerful rendering engine fully integrated with a complete set of intuitive tools and rapid workflows to create interactive 3D and 2D content; easy multiplatform publishing; thousands of quality, ready-made assets in the Asset Store and a knowledge-sharing community.",[3067],147.0
 354,RE Engine,re-engine,"The Reach for the Moon Engine, abbreviated as RE Engine and commonly nicknamed as the ""Resident Evil Engine"" by fans was created in 2014, during the beginning of the development of Resident Evil 7. The engine is a successor to MT Framework, Capcom's previous engine. Unlike its predecessor the RE Engine includes a variety of new graphical and rendering techniques such as Subsurface Scattering (a shader method used to produce highly realistic human skin), Dynamic shadows, FXAA + TAA, Shadow cache, moreover, rendering techniques include the ability to output 4K Resolution, HDR, a VR specific mode.",[37],170.0
-340,GameMaker,gamemaker,,[6932],334.0
 1487,Katana Engine,katana-engine,"Using our proprietary game engine, the Katana Engine, we efficiently develop games for multiple platforms, like PS5, Nintendo Switch, PC, and smartphone. In simulation games like Nobunaga's Ambition and Romance of the Three Kingdoms, we are using AI to create strategies and tactics and also to display officer personalities.",[18532],381.0
 695,KEX,kex,"Nightdive Studio's proprietary FPS engine used for their enhanced and remastered game releases.
 It is believed to be the third version of the engine. Making it an updated version the Kex engine developed by Samuel Villarreal, Senior Programmer at Nightdive, with the original version being his Doom64 EX engine.
@@ -1721,10 +1720,11 @@ Red Faction - v1.0
 Red Faction 2 - v1.0
 Red Faction Guerrilla - v2.0
 Red Faction Armageddon - v2.5",,139.0
+340,GameMaker,gamemaker,,[6932],334.0
+414,HTML5,html5,"HTML5 (Hypertext Markup Language 5) is a markup language used for structuring and presenting hypertext documents on the World Wide Web. It was the fifth and final major HTML version that is now a retired World Wide Web Consortium (W3C) recommendation. The current specification is known as the HTML Living Standard. It is maintained by the Web Hypertext Application Technology Working Group (WHATWG), a consortium of the major browser vendors (Apple, Google, Mozilla, and Microsoft).",,311.0
 681,KT Engine,kt-engine,"KT Engine is the engine planed and created by Kylotonn for the development of videogames on Steam/Windows, PS4, Xbox One and Nintendo Switch. This technology is the key tool for realizing the strategic vision of the studio.
 
 Kylotonn has a strong technological expertise based on its in-house real-time 3D technology, the KT Engine. At the forefront of the video game industry, this engine is also used for R&D projects on autonomous vehicle in the automotive industry.",[2952],85.0
-414,HTML5,html5,"HTML5 (Hypertext Markup Language 5) is a markup language used for structuring and presenting hypertext documents on the World Wide Web. It was the fifth and final major HTML version that is now a retired World Wide Web Consortium (W3C) recommendation. The current specification is known as the HTML Living Standard. It is maintained by the Web Hypertext Application Technology Working Group (WHATWG), a consortium of the major browser vendors (Apple, Google, Mozilla, and Microsoft).",,311.0
 529,Unity 5,unity-5,"Unity 5.0 is Unity Technologies biggest and boldest release so far. Powerful new features in Unity 5 include:
 
 ○ The Physically-based Standard Shader to make your materials look consistent in any lighting environment, cross platform.
@@ -1745,6 +1745,7 @@ The Apex Engine™ is designed entirely with our games in mind. Our strength lie
 Cobra uses C++ as the programming language. The development tools are created with C# / WPF / Forms and C++. Lua is used for gameplay features. It supports many platforms such as Microsoft Windows, Xbox One, PlayStation 4, iOS and Android devices. It supports cross-platform by allowing code and resources on PC to be compiled and run on other platforms. The game code and resources are isolated from the hardware by a common platform-neutral core API. It enables optimal use of a multi-processor, multi-threaded environment. 
 
 There is a framework for rapid development of tools to view, tweak and review changes to resources on platforms in live sessions. The 4th generation of Cobra has cloud-based analytics for data-driven games. The proprietary tools, tech and pluggable modules enable the development a wide variety of games on tablets, smartphones, PC and consoles without making employees unable to contribute.",[208],396.0
+351,Unreal Engine 3,unreal-engine-3,"Unreal Engine 3 (UE3) is a computer game engine developed by Epic Games. It is the third generation of the Unreal Engine, designed for DirectX 9-, 10-, and 11-capable PCs, the Xbox 360, the PlayStation 3, and OpenGL-based OSes (Mac OS X, iOS). Its renderer supports many advanced techniques including HDRR, per-pixel lighting, and dynamic shadows, and builds upon the tools available in previous versions of the engine.",[168],52.0
 614,Tyranobuilder Visual Novel Studio,tyranobuilder-visual-novel-studio,"Easily and quickly make your own multi-platform visual novels with TyranoBuilder, even if you know nothing about game programming or scripting!
 
 Bring your creativity to reality with our suite of drag-and-drop tools, plus scripting language for advanced users.",,284.0
@@ -1756,7 +1757,6 @@ Peter is intended for a broad range of the users. By using it, even the children
 667,Unreal,unreal,"Create without limits
 With Unreal Engine, you can bring amazing real-time experiences to life using the world’s most advanced real-time 3D creation tool.
 From first projects to the most demanding challenges, our free and accessible resources and inspirational community empower everyone to realize their ambitions.",[17463],136.0
-351,Unreal Engine 3,unreal-engine-3,"Unreal Engine 3 (UE3) is a computer game engine developed by Epic Games. It is the third generation of the Unreal Engine, designed for DirectX 9-, 10-, and 11-capable PCs, the Xbox 360, the PlayStation 3, and OpenGL-based OSes (Mac OS X, iOS). Its renderer supports many advanced techniques including HDRR, per-pixel lighting, and dynamic shadows, and builds upon the tools available in previous versions of the engine.",[168],52.0
 1743,Eclipse Engine,eclipse-engine--1,"Part of Digital Eclipse's work include their own Eclipse Engine, a tool that allows them to decompile the code from older games into a machine-readable format that is then used by the Eclipse Engine to play them on modern systems.
 
 While it may take some extra work by the company to decompile the older game into the proper format one time, this approach allows them to rapidly port the Eclipse Engine version to any modern gaming system, including personal computers, consoles, and portable and mobile devices, with minimal effort.
@@ -1792,11 +1792,6 @@ TRSE (or its full original name “Turbo Rascal Syntax error, “;” expected b
 
 TRSE runs on Windows 64-bit, Linux 64-bit and OS X. Development began on Feb 24th 2018. The TRSE framework contains a number of project examples for multiple platforms, including almost 300 runnable tutorials. TRSE also contains a real-time ray tracer that can export (compressed) data for demo and game production. In addition to this, TRSE contains a versatile image editor that can edit/import/export sprite/image/levels natively to almost all the systems supported by TRSE. TRSE also contains a rudimentary music tracker that currently supports the VIC-20, Adlib and PC speaker.",,
 1774,Glaiel Game Engine,glaiel-game-engine,"A proprietary game engine developed by Tyler Glaiel, notable for its ability to import SVG files and fast loading time.",[12884],
-456,Godot,godot,"Godot is an advanced, feature-packed, multi-platform 2D and 3D open source game engine.
-
-Godot provides a huge set of common tools, so you can just focus on making your game without reinventing the wheel.
-
-Godot is completely free and open source under the very permissive MIT license. No strings attached, no royalties, nothing. Your game is yours, down to the last line of engine code.",,367.0
 4,GoldSrc,goldsrc,"GoldSrc (also known as GoldSource, and formerly just the Half-Life Engine) is a 3D video game engine created by  Valve in 1996. It was the driving force behind many famous games of the late 90s and early 00s, such as  Half-Life,  Team Fortress Classic,  Counter-Strike, and  Day of Defeat. GoldSrc is a heavily modified version of the  Quake engine, and runs on C++ programming code. GoldSrc and its level editor,  Valve Hammer Editor, were released by Valve for public use, making it the source of countless community-made modifications.",[56],269.0
 334,RPG Maker XP,rpg-maker-xp,"RPG Maker XP is an incredible game development software that empowers creative minds to bring their RPG ideas to life. It offers an intuitive interface and a vast array of customization options, making game creation a breeze. With its pre-built assets and the option to import your own resources, you can create a truly unique game world that reflects your vision and style.
 
@@ -1821,9 +1816,14 @@ The engine will be supported for 1 year after this change as part of their Long 
 2017.3.1 was released on February 7, 2018. The last release before the LTS phase.
 2017.4.1 was released on April 24, 2018.
 2017.4.17 was released on December 9, 2018. The current LTS release.",[3067],
-1325,Taito Type-X2,taito-type-x2,,,
 439,Unreal Engine 4,unreal-engine-4--1,"Unreal Engine 4 is a complete suite of game development tools made by game developers, for game developers. From 2D mobile games to console blockbusters, Unreal Engine 4 gives you everything you need to start, ship, grow and stand out from the crowd.
 
 Revolutionary new workflow features and a deep toolset empower developers to quickly iterate on ideas and see immediate results, while complete C++ source code access brings the experience to a whole new level.
 
 Unreal Engine technology powers hundreds of games as well as real-time 3D films, training simulations, visualizations and more. Over the past 15 years, thousands of individuals and teams and have built careers and companies around skills developed using the engine.",[17463],50.0
+1325,Taito Type-X2,taito-type-x2,,,
+456,Godot,godot,"Godot is an advanced, feature-packed, multi-platform 2D and 3D open source game engine.
+
+Godot provides a huge set of common tools, so you can just focus on making your game without reinventing the wheel.
+
+Godot is completely free and open source under the very permissive MIT license. No strings attached, no royalties, nothing. Your game is yours, down to the last line of engine code.",,367.0
