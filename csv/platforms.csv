@@ -8,6 +8,7 @@ id,category,generation,name,platform_logo,platform_family,slug,versions,platform
 148,1.0,,AY-3-8607,,,ay-3-8607,[211],1.0,,,
 150,6.0,,Turbografx-16/PC Engine CD,291.0,,turbografx-16-slash-pc-engine-cd,[215],6.0,TG-16CD/PCECD,,
 156,6.0,,Thomson MO5,537.0,,thomson-mo5,[221],6.0,,,
+510,5.0,6.0,Nintendo e-Reader,,5.0,nintendo-e-reader,[732],5.0,Game Boy Advance e-Reader,,
 309,5.0,8.0,Evercade,754.0,,evercade,"[500, 426, 594]",5.0,,,
 389,3.0,,AirConsole,746.0,,airconsole,[511],3.0,,,
 13,4.0,,DOS,38.0,,dos,"[56, 540]",4.0,PC DOS,DOS,
