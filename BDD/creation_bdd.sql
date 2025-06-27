@@ -1,6 +1,6 @@
 -- Platform
 CREATE TABLE platform(
-   id INT,
+   id INT PRIMARY KEY,
    name VARCHAR(250) NOT NULL,
    abbreviation VARCHAR(100),
    summary TEXT,
@@ -10,123 +10,108 @@ CREATE TABLE platform(
    category INT,
    family INT,
    type INT,
-   alternative_name VARCHAR(250),
-   PRIMARY KEY(id)
+   alternative_name VARCHAR(250)
 );
 
 -- Game Category
 CREATE TABLE game_category(
-   id INT,
-   name VARCHAR(50),
-   PRIMARY KEY(id)
+   id INT PRIMARY KEY,
+   name VARCHAR(50)
 );
 
--- Platform  Version
+-- Platform Version
 CREATE TABLE platform_version(
-   id INT,
-   version_name VARCHAR(50),
-   PRIMARY KEY(id)
+   id INT PRIMARY KEY,
+   version_name VARCHAR(50)
 );
 
 -- Player Perspective
 CREATE TABLE player_perspective(
-   id INT,
+   id INT PRIMARY KEY,
    name VARCHAR(50),
-   slug VARCHAR(50),
-   PRIMARY KEY(id)
+   slug VARCHAR(50)
 );
-
 
 -- Game Engines
 CREATE TABLE game_engines(
-   id INT,
+   id INT PRIMARY KEY,
    name VARCHAR(150),
    slug VARCHAR(150),
-   description TEXT,
-   PRIMARY KEY(id)
+   description TEXT
 );
 
 -- Age Ratings
 CREATE TABLE age_ratings(
-   id INT,
+   id INT PRIMARY KEY,
    organization VARCHAR(50),
-   age VARCHAR(50),
-   PRIMARY KEY(id)
+   age VARCHAR(50)
 );
 
 -- Multiplayer Modes
 CREATE TABLE multiplayer_modes(
-   id INT,
-   campaigncoop BOOLEAN NOT NULL,
-   lancoop BOOLEAN,
-   offlinecoop BOOLEAN,
+   id INT PRIMARY KEY,
+   campaigncoop TINYINT(1) NOT NULL,
+   lancoop TINYINT(1),
+   offlinecoop TINYINT(1),
    offlinecoopmax SMALLINT,
    offlinemax SMALLINT,
-   onlinecoop BOOLEAN,
+   onlinecoop TINYINT(1),
    onlinecoopmax SMALLINT,
    onlinemax SMALLINT,
-   platform_id  INT,
-   splitscreen BOOLEAN,
-   splitscreenonline BOOLEAN,
-   PRIMARY KEY(id)
+   platform_id INT,
+   splitscreen TINYINT(1),
+   splitscreenonline TINYINT(1)
 );
 
 -- Company Status
 CREATE TABLE company_status(
-   id INT,
-   name VARCHAR(100),
-   PRIMARY KEY(id)
+   id INT PRIMARY KEY,
+   name VARCHAR(100)
 );
 
 -- Game Engine Logos
 CREATE TABLE game_engine_logos(
-   id INT,
-   url TEXT,
-   PRIMARY KEY(id)
+   id INT PRIMARY KEY,
+   url TEXT
 );
 
 -- Game
 CREATE TABLE game(
-   id INT,
+   id INT PRIMARY KEY,
    name VARCHAR(100) NOT NULL,
    slug VARCHAR(100) NOT NULL,
    summary TEXT,
    first_release_date DATE,
-   total_rating DECIMAL(5,2),
-   PRIMARY KEY(id)
+   total_rating DECIMAL(5,2)
 );
 
 -- Language Supports
 CREATE TABLE language_supports(
-   id INT,
+   id INT PRIMARY KEY,
    language_id SMALLINT,
    language_support_type_id SMALLINT,
    game_id INT,
-   PRIMARY KEY(id),
    FOREIGN KEY (game_id) REFERENCES game(id) ON DELETE CASCADE
 );
 
 -- Language
 CREATE TABLE language(
-   id INT,
+   id INT PRIMARY KEY,
    locale VARCHAR(100),
    name VARCHAR(250),
-   native_name VARCHAR(250),
-   PRIMARY KEY(id)
+   native_name VARCHAR(250)
 );
 
--- Languague Support Types
+-- Language Support Types
 CREATE TABLE language_supports_type(
-   id INT,
-   name VARCHAR(50),
-   PRIMARY KEY(id)
+   id INT PRIMARY KEY,
+   name VARCHAR(50)
 );
 
 -- Genres
 CREATE TABLE genres (
-   id INT,
-   name VARCHAR(100),
-   PRIMARY KEY(id)
+   id INT PRIMARY KEY,
+   name VARCHAR(100)
 );
 
 -- Videos
@@ -140,7 +125,7 @@ CREATE TABLE videos(
 
 -- Company
 CREATE TABLE company(
-   id INT,
+   id INT PRIMARY KEY,
    changed_company_id INT,
    country VARCHAR(250),
    description TEXT,
@@ -149,17 +134,14 @@ CREATE TABLE company(
    slug VARCHAR(250),
    start_date DATE,
    status_id INT,
-   PRIMARY KEY(id),
    FOREIGN KEY (parent) REFERENCES company(id) ON DELETE CASCADE
 );
 
 -- Company Logos
 CREATE TABLE company_logos(
-   id INT,
-   url TEXT,
-   PRIMARY KEY(id)
+   id INT PRIMARY KEY,
+   url TEXT
 );
-
 
 -- Jeu / Platform (avec prix optionnel)
 CREATE TABLE game_platform (
