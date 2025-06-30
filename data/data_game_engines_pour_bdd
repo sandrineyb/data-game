@@ -1,0 +1,47 @@
+# Import
+import pandas as pd
+import ast
+
+# Préparation du dataframe games_engines pour l'import dans la bdd
+
+
+# On récupere les infos de notre table principale game_engines
+df = pd.read_csv("csv/game_engines.csv")
+
+# On garde que les colonnes qui existent dans ta table SQL principale
+df_main = df[["id", "name", "slug", "description"]]
+
+df_main.to_csv("csv/game_engines_main.csv", index=False)
+
+
+# On récupere les infos pour notre table de jointure game_engine_logo
+jointure_logo = []
+for _, row in df.iterrows():
+    if pd.notnull(row['logo']) and row['logo'] != '':
+        try:
+            logo_id = int(float(row['logo']))
+            jointure_logo.append(
+                {'engine_id': int(row['id']), 'logo_id': logo_id})
+        except Exception as e:
+            print(f"Erreur sur logo: {row['logo']} pour game_engine id {row['id']} -- {e}")
+
+pd.DataFrame(jointure_logo).to_csv("csv/game_engine_logo.csv", index=False)
+
+
+# On récupere les infos pour notre table de jointure company_game_engine
+jointure_companies = []
+for _, row in df.iterrows():
+    if pd.notnull(row['companies']):
+        # la colonne companies est au format chaîne "[290,321]"
+        companies = ast.literal_eval(row['companies'])
+        # parfois une seule valeur, parfois liste
+        if isinstance(companies, int):
+            companies = [companies]
+        for comp_id in companies:
+            jointure_companies.append({
+                'company_id': int(comp_id),
+                'engine_id': int(row['id'])
+            })
+
+pd.DataFrame(jointure_companies).to_csv(
+    "csv/company_game_engine.csv", index=False)
