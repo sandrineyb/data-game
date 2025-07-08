@@ -1,12 +1,18 @@
-
 import mysql.connector
+from dotenv import load_dotenv
+import os
+
+# Chargement des variables d'environnement depuis le fichier .env
+load_dotenv()
+# Récupération des informations de connexion à la base de données
+db_password = os.getenv('BDD_PSWD')
 
 # Connexion à ta base de données chez o2switch
 conn = mysql.connector.connect(
     host='127.0.0.1',
     port=3307,
     user='bawi2179_idumi',
-    password='zyLeM]F_lkz$',
+    password=db_password,
     database='bawi2179_data_game',
     allow_local_infile=True
 )
