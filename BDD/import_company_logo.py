@@ -24,12 +24,12 @@ csv_path = r"C:\Users\User\Documents\Data-Game\data-game\csv\company_logo.csv"
 
 query = f"""
 LOAD DATA LOCAL INFILE '{csv_path.replace("\\", "/")}'
-INTO TABLE company_logos
+INTO TABLE company_logo
 FIELDS TERMINATED BY ',' 
 ENCLOSED BY '"' 
 LINES TERMINATED BY '\\n'
 IGNORE 1 LINES
-(id, url);
+(company_id, logo_id);
 """
 
 try:
