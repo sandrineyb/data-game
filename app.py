@@ -21,6 +21,3 @@ def consoles():
 @app.route('/entreprises')
 def entreprises():
     return render_template('entreprises.html')
-
-if __name__ == "__main__":
-    app.run(debug=True)
