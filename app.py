@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+from models import db, Game
 
 app = Flask(__name__)
 
@@ -8,7 +9,10 @@ def home():
 
 @app.route('/jeux')
 def jeux():
-    return render_template('jeu.html')
+    page = request.args.get('page', 1, type=int)
+    per_page = 25
+    pagination = Game.query.paginate(page=page, per_page=per_page)
+    return render_template('jeux.html', games=pagination.items, pagination=pagination)
 
 @app.route('/consoles')
 def consoles():

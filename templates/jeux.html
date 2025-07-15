@@ -36,8 +36,55 @@
         </nav>
     </div>
     <!-- Ajoute un margin-top sur .container pour ne pas cacher le contenu sous la navbar -->
+    <!-- Dans la section contenu de jeux.html -->
     <div class="container" style="margin-top:90px;">
-        <!-- ...ton contenu... -->
+        <h2>Liste des jeux</h2>
+        <ul>
+            {% for game in games %}
+            <li>
+                <strong>{{ game.name }}</strong> ({{ game.first_release_date }})<br>
+                {{ game.summary }}<br>
+                Note : {{ game.total_rating }}
+            </li>
+            {% endfor %}
+        </ul>
+
+        <!-- Pagination Bootstrap -->
+        <nav aria-label="Page navigation">
+          <ul class="pagination justify-content-center">
+            {% if pagination.has_prev %}
+              <li class="page-item">
+                <a class="page-link" href="{{ url_for('jeux', page=pagination.prev_num) }}">Précédent</a>
+              </li>
+            {% else %}
+              <li class="page-item disabled">
+                <span class="page-link">Précédent</span>
+              </li>
+            {% endif %}
+
+            {% for p in pagination.iter_pages(left_edge=2, right_edge=2, left_current=2, right_current=2) %}
+              {% if p %}
+                {% if p == pagination.page %}
+                  <li class="page-item active"><span class="page-link">{{ p }}</span></li>
+                {% else %}
+                  <li class="page-item"><a class="page-link" href="{{ url_for('jeux', page=p) }}">{{ p }}</a></li>
+                {% endif %}
+              {% else %}
+                <li class="page-item disabled"><span class="page-link">…</span></li>
+              {% endif %}
+            {% endfor %}
+
+            {% if pagination.has_next %}
+              <li class="page-item">
+                <a class="page-link" href="{{ url_for('jeux', page=pagination.next_num) }}">Suivant</a>
+              </li>
+            {% else %}
+              <li class="page-item disabled">
+                <span class="page-link">Suivant</span>
+              </li>
+            {% endif %}
+          </ul>
+        </nav>
     </div>
 
 
