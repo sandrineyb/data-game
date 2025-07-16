@@ -52,10 +52,6 @@ class Language(db.Model):
     name = db.Column(db.String(250))
     native_name = db.Column(db.String(250))
     
-    # Relation avec les types de support de langue
-    support_types = db.relationship('LanguageSupportsType', 
-                                   backref='languages')
-    
     def __repr__(self):
         return f"<Language {self.name}>"
 
