@@ -28,7 +28,7 @@ game_game_type = db.Table('game_game_type',
 # Player perspectives et game
 player_perspective = db.Table('game_player_perspective',
     db.Column('game_id', db.Integer, db.ForeignKey('game.id')),
-    db.Column('player_perspective_id', db.Integer, db.ForeignKey('player_perspective.id'))
+    db.Column('perspective_id', db.Integer, db.ForeignKey('perspective.id'))
 )
 
 # Age ratings et game
