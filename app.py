@@ -3,6 +3,7 @@ from models import db, Game
 from dotenv import load_dotenv
 import os
 import logging
+from datetime import datetime
 
 # Configuration des logs
 logging.basicConfig(level=logging.DEBUG)
@@ -61,17 +62,26 @@ def rechercher():
         if not query:
             return redirect(url_for('jeux'))
         
-        # Version avec gestion d'erreur
         resultats = Game.query.filter(
             Game.name.like(f'%{query}%')
         ).all()
+        
+        # Convertir les dates si nécessaire
+        for jeu in resultats:
+            if isinstance(jeu.first_release_date, str):
+                try:
+                    # Supposant que le format est YYYY-MM-DD
+                    jeu.first_release_date = datetime.strptime(
+                        jeu.first_release_date, '%Y-%m-%d').date()
+                except (ValueError, TypeError):
+                    # Gardez-le tel quel si la conversion échoue
+                    pass
         
         return render_template('resultats_recherche.html',
                              query=query, 
                              resultats=resultats)
     except Exception as e:
         app.logger.error("Erreur dans la recherche : %s", str(e))
-        # Redirection avec message d'erreur
         return render_template('erreur.html', 
                               message="Une erreur est survenue pendant la recherche.", 
                               error=str(e))
