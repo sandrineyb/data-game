@@ -1,21 +1,9 @@
-from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 import os
 
-# Charge les variables d'environnement du .env
-load_dotenv()
-
-app = Flask(__name__)
-
-# Configuration SQLAlchemy avec pymysql
-app.config['SQLALCHEMY_DATABASE_URI'] = (
-    f"mysql+pymysql://{os.getenv('BDD_USER')}:{os.getenv('BDD_PSWD')}"
-    f"@{os.getenv('BDD_HOST')}/{os.getenv('BDD_NAME')}"
-)
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-db = SQLAlchemy(app)
+# Ne crée pas l'app Flask ici, juste l'objet db
+db = SQLAlchemy()
 
 # Modèle Game
 class Game(db.Model):
