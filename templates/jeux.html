@@ -38,16 +38,40 @@
     <!-- Ajoute un margin-top sur .container pour ne pas cacher le contenu sous la navbar -->
     <!-- Dans la section contenu de jeux.html -->
     <div class="container" style="margin-top:90px;">
-        <h2>Liste des jeux</h2>
-        <ul>
+        <h2 class="mb-4">Liste des jeux</h2>
+        
+        <!-- Liste Bootstrap avec list-group -->
+        <div class="list-group mb-4">
             {% for game in games %}
-            <li>
-                <strong>{{ game.name }}</strong> ({{ game.first_release_date }})<br>
-                {{ game.summary }}<br>
-                Note : {{ game.total_rating }}
-            </li>
+                <a href="{{ url_for('jeu_detail', slug=game.slug) }}" class="list-group-item list-group-item-action">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="mb-1">{{ game.name }}</h5>
+                        {% if game.total_rating %}
+                            <span class="badge bg-primary rounded-pill">{{ "%.1f"|format(game.total_rating) }}/100</span>
+                        {% endif %}
+                    </div>
+                    
+                    <!-- Date et genres -->
+                    <div class="d-flex justify-content-between">
+                        <small class="text-muted">
+                            {% if game.first_release_date %}
+                                {{ game.first_release_date.strftime('%d/%m/%Y') }}
+                            {% endif %}
+                        </small>
+                        <div>
+                            {% for genre in game.genres %}
+                                <span class="badge bg-secondary me-1">{{ genre.name }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    
+                    <!-- Summary en version courte -->
+                    {% if game.summary %}
+                        <p class="text-truncate text-muted small mt-1">{{ game.summary }}</p>
+                    {% endif %}
+                </a>
             {% endfor %}
-        </ul>
+        </div>
 
         <!-- Pagination Bootstrap -->
         <nav aria-label="Page navigation">
