@@ -72,3 +72,16 @@ class Genre(db.Model):
     
     def __repr__(self):
         return f"<Genre {self.name}>"
+
+# Videos Jeux
+class GameVideo(db.Model):
+    __tablename__ = 'videos'
+    id = db.Column(db.Integer, primary_key=True)
+    game_id = db.Column(db.Integer, db.ForeignKey('game.id'))
+    video_id = db.Column(db.String(150))
+    name = db.Column(db.String(200))
+    
+    game = db.relationship('Game', backref=db.backref('videos', lazy=True))
+    
+    def __repr__(self):
+        return f"<GameVideo {self.name}>"

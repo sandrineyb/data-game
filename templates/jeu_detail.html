@@ -42,6 +42,17 @@
             <div class="col-md-8">
                 <h1>{{ game.name }}</h1>
 
+                {% if game.videos %}
+                    {% if game.videos|length > 0 %}
+                        <div class="ratio ratio-16x9 mb-4">
+                            <iframe src="https://www.youtube.com/embed/{{ game.videos[0].video_id }}" 
+                                    title="{{ game.videos[0].name }}" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen></iframe>
+                        </div>
+                    {% endif %}
+                {% endif %}
+
                 {% if game.total_rating %}
                 <div class="mb-3">
                     <span class="badge bg-primary">{{ "%.1f"|format(game.total_rating) }}/100</span>
