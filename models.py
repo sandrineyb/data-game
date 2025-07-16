@@ -19,6 +19,24 @@ game_genre = db.Table('game_genre',
     db.Column('genre_id', db.Integer, db.ForeignKey('genres.id'))
 )
 
+# Game type et game
+game_game_type = db.Table('game_game_type',
+    db.Column('game_id', db.Integer, db.ForeignKey('game.id')),
+    db.Column('category_id', db.Integer, db.ForeignKey('game_type.id'))
+)
+
+# Player perspectives et game
+player_perspective = db.Table('game_player_perspective',
+    db.Column('game_id', db.Integer, db.ForeignKey('game.id')),
+    db.Column('player_perspective_id', db.Integer, db.ForeignKey('player_perspective.id'))
+)
+
+# Age ratings et game
+age_rating = db.Table('game_age_rating',
+    db.Column('game_id', db.Integer, db.ForeignKey('game.id')),
+    db.Column('age_rating_id', db.Integer, db.ForeignKey('age_rating.id'))
+)
+
 # Modèles
 # Game
 class Game(db.Model):
@@ -40,6 +58,21 @@ class Game(db.Model):
     genres = db.relationship('Genre',
                             secondary=game_genre,
                             backref=db.backref('games', lazy='dynamic'))
+    
+    # Type
+    game_types = db.relationship('GameType',
+                                 secondary=game_game_type,
+                                 backref=db.backref('games', lazy='dynamic'))
+    
+    # Player Perspectives
+    player_perspectives = db.relationship('PlayerPerspective',
+                                            secondary=player_perspective,
+                                            backref=db.backref('games', lazy='dynamic'))
+    
+    # Age Ratings
+    age_ratings = db.relationship('AgeRating',
+                                  secondary=age_rating,
+                                  backref=db.backref('games', lazy='dynamic'))
 
     def __repr__(self):
         return f"<Game {self.name}>"
@@ -85,3 +118,33 @@ class GameVideo(db.Model):
     
     def __repr__(self):
         return f"<GameVideo {self.name}>"
+    
+    
+# Game Type
+class GameType(db.Model):
+    __tablename__ = 'game_type'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+    
+    def __repr__(self):
+        return f"<GameType {self.name}>"
+    
+# Player Perspective
+class PlayerPerspective(db.Model):
+    __tablename__ = 'player_perspective'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+    slug = db.Column(db.String(100))
+    
+    def __repr__(self):
+        return f"<PlayerPerspective {self.name}>"
+    
+# Age rating
+class AgeRating(db.Model):
+    __tablename__ = 'age_ratings'
+    id = db.Column(db.Integer, primary_key=True)
+    organization = db.Column(db.String(100))
+    age = db.Column(db.String(100))
+    
+    def __repr__(self):
+        return f"<AgeRating {self.organization} - {self.age}>"

@@ -58,37 +58,85 @@
                 {% endif %}
                 {% endif %}
 
-                {% if game.total_rating %}
-                <div class="mb-3">
-                    <span class="badge bg-primary">{{ "%.1f"|format(game.total_rating) }}/100</span>
+                <div class="d-flex align-items-center mb-3">
+                    {% if game.total_rating %}
+                    <span class="badge bg-primary me-2">{{ "%.1f"|format(game.total_rating) }}/100</span>
+                    {% endif %}
+                    
+                    <!-- Age Ratings -->
+                    {% if game.age_ratings %}
+                    {% for rating in game.age_ratings %}
+                    <span class="badge bg-danger me-2">{{ rating.organization }} {{ rating.age }}</span>
+                    {% endfor %}
+                    {% endif %}
                 </div>
-                {% endif %}
 
                 {% if game.first_release_date %}
                 <p class="text-muted">Date de sortie : {{ game.first_release_date.strftime('%d/%m/%Y') }}</p>
                 {% endif %}
 
+                <!-- Game Types -->
+                {% if game.game_types %}
+                <div class="mb-3">
+                    <strong>Type : </strong>
+                    {% for type in game.game_types %}
+                    <span class="badge bg-info me-1">{{ type.name }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                
+                <!-- Genres -->
                 {% if game.genres %}
                 <div class="mb-3">
+                    <strong>Genres : </strong>
                     {% for genre in game.genres %}
                     <span class="badge bg-secondary me-1">{{ genre.name }}</span>
                     {% endfor %}
                 </div>
                 {% endif %}
-
-                {% if game.summary %}
-                <h3>Résumé</h3>
-                <p>{{ game.summary }}</p>
-                {% endif %}
-
-                {% if game.languages %}
-                <h3>Langues</h3>
-                <ul>
-                    {% for language in game.languages %}
-                    <li>{{ language.name }}</li>
+                
+                <!-- Player Perspectives -->
+                {% if game.player_perspectives %}
+                <div class="mb-3">
+                    <strong>Perspective : </strong>
+                    {% for perspective in game.player_perspectives %}
+                    <span class="badge bg-warning text-dark me-1">{{ perspective.name }}</span>
                     {% endfor %}
-                </ul>
+                </div>
                 {% endif %}
+
+                <!-- Résumé -->
+                {% if game.summary %}
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3 class="mb-0">Résumé</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{ game.summary }}</p>
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- Langues -->
+                {% if game.languages %}
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3 class="mb-0">Langues disponibles</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            {% for language in game.languages %}
+                            <li class="list-group-item">{{ language.name }} ({{ language.native_name }})</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            
+            <!-- Colonne de droite pour info additionnelles -->
+            <div class="col-md-4">
+                <!-- Si tu veux ajouter plus d'infos dans une colonne secondaire -->
             </div>
         </div>
     </div>
