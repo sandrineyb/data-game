@@ -59,7 +59,11 @@
                         <div class="d-flex justify-content-between">
                             <small class="text-muted">
                                 {% if jeu.first_release_date %}
-                                    {{ jeu.first_release_date.strftime('%d/%m/%Y') }}
+                                    {% if jeu.first_release_date is string %}
+                                        {{ jeu.first_release_date }}
+                                    {% else %}
+                                        {{ jeu.first_release_date.strftime('%d/%m/%Y') }}
+                                    {% endif %}
                                 {% endif %}
                             </small>
                             <div>
