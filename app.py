@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, redirect, render_template, request, url_for
 from models import db, Game
 from dotenv import load_dotenv
 import os
@@ -52,6 +52,25 @@ def entreprises():
 def jeu_detail(slug):
     game = Game.query.filter_by(slug=slug).first_or_404()
     return render_template('jeu_detail.html', game=game)
+
+@app.route('/rechercher')
+def rechercher():
+    # Récupère le terme de recherche depuis l'URL
+    query = request.args.get('q', '')
+    
+    # Si aucun terme n'est fourni, redirige vers la liste des jeux
+    if not query:
+        return redirect(url_for('jeux'))
+
+    # Recherche dans la base de données (insensible à la casse)
+    resultats = Game.query.filter(
+        Game.name.ilike(f'%{query}%')
+    ).all()
+    
+    # Affiche les résultats
+    return render_template('resultats_recherche.html', 
+                          query=query, 
+                          resultats=resultats)
 
 # Pour exécuter l'app en local
 if __name__ == '__main__':

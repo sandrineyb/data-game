@@ -28,9 +28,14 @@
                 </div>
                 <!-- Bouton recherche à droite -->
                 <div class="d-flex align-items-center">
-                    <button class="btn border border-white text-white" style="background:transparent;">
-                        <i class="bi bi-search"></i> Rechercher un jeu
-                    </button>
+                    <form action="{{ url_for('rechercher') }}" method="GET" class="d-flex">
+                        <input type="text" name="q" class="form-control form-control-sm me-2"
+                            placeholder="Rechercher un jeu..." aria-label="Rechercher">
+                        <button type="submit" class="btn border border-white text-white"
+                            style="background:transparent;">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
         </nav>
