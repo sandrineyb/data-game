@@ -55,22 +55,26 @@ def jeu_detail(slug):
 
 @app.route('/rechercher')
 def rechercher():
-    # Récupère le terme de recherche depuis l'URL
-    query = request.args.get('q', '')
-    
-    # Si aucun terme n'est fourni, redirige vers la liste des jeux
-    if not query:
-        return redirect(url_for('jeux'))
-
-    # Recherche dans la base de données (insensible à la casse)
-    resultats = Game.query.filter(
-        Game.name.ilike(f'%{query}%')
-    ).all()
-    
-    # Affiche les résultats
-    return render_template('resultats_recherche.html', 
-                          query=query, 
-                          resultats=resultats)
+    try:
+        query = request.args.get('q', '')
+        
+        if not query:
+            return redirect(url_for('jeux'))
+        
+        # Version avec gestion d'erreur
+        resultats = Game.query.filter(
+            Game.name.like(f'%{query}%')
+        ).all()
+        
+        return render_template('resultats_recherche.html',
+                             query=query, 
+                             resultats=resultats)
+    except Exception as e:
+        app.logger.error("Erreur dans la recherche : %s", str(e))
+        # Redirection avec message d'erreur
+        return render_template('erreur.html', 
+                              message="Une erreur est survenue pendant la recherche.", 
+                              error=str(e))
 
 # Pour exécuter l'app en local
 if __name__ == '__main__':
