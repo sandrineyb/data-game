@@ -1,0 +1,43 @@
+{% extends "base.html" %}  <!-- Si tu utilises un template de base -->
+
+{% block content %}
+<div class="container" style="margin-top:90px;">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>{{ game.name }}</h1>
+            
+            {% if game.total_rating %}
+            <div class="mb-3">
+                <span class="badge bg-primary">{{ "%.1f"|format(game.total_rating) }}/100</span>
+            </div>
+            {% endif %}
+            
+            {% if game.first_release_date %}
+            <p class="text-muted">Date de sortie : {{ game.first_release_date.strftime('%d/%m/%Y') }}</p>
+            {% endif %}
+            
+            {% if game.genres %}
+            <div class="mb-3">
+                {% for genre in game.genres %}
+                <span class="badge bg-secondary me-1">{{ genre.name }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+            
+            {% if game.summary %}
+            <h3>Résumé</h3>
+            <p>{{ game.summary }}</p>
+            {% endif %}
+            
+            {% if game.languages %}
+            <h3>Langues</h3>
+            <ul>
+                {% for language in game.languages %}
+                <li>{{ language.name }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

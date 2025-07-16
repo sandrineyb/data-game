@@ -48,6 +48,11 @@ def consoles():
 def entreprises():
     return render_template('entreprises.html')
 
+@app.route('/jeu/<slug>')
+def jeu_detail(slug):
+    game = Game.query.filter_by(slug=slug).first_or_404()
+    return render_template('jeu_detail.html', game=game)
+
 # Pour exécuter l'app en local
 if __name__ == '__main__':
     app.run(debug=True)
