@@ -153,12 +153,20 @@
                 {% if game.multiplayer %}
                 <div class="card mb-4">
                     <div class="card-header">
-                        <h3 class="mb-0">Information Multijoueur </h3>
+                        <h3 class="mb-0">Modes Multijoueur</h3>
                     </div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
-                            {% if game.multiplayer %}
-                            <li class="list-group-item">{{ platform_name }}</li>
+                            {# Vérifie et affiche chaque mode multijoueur si activé #}
+
+                            {% if game.multiplayer.campaingcoop %}
+                        <li class="list-group-item">Coopération en Campagne</li>
+                        {% endif %}
+
+                        {% if game.multiplayer.lancoop %}
+                        <li class="list-group-item">Coopération en Réseau Local (LAN)</li>
+                        {% endif %}
+                            <li class="list-group-item">{{ multiplayer_modes }}</li>
                             {% endfor %}
                         </ul>
                     </div>
