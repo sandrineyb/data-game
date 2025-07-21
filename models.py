@@ -112,6 +112,21 @@ company_company_logos = db.Table('company_company_logos',
                                            db.ForeignKey('company_logos.id'))
                                  )
 
+# Company Developed By
+company_developed_by = db.Table('company_developed_by',
+                                db.Column('company_id', db.Integer,
+                                          db.ForeignKey('company.id')),
+                                db.Column('developer_id', db.Integer,
+                                          db.ForeignKey('company.id'))
+                                )
+
+# Company Published By
+company_published_by = db.Table('company_published_by',
+                                db.Column('company_id', db.Integer,
+                                          db.ForeignKey('company.id')),
+                                db.Column('publisher_id', db.Integer,
+                                          db.ForeignKey('company.id'))
+                                )
 
 # Modèles
 # Game
@@ -258,7 +273,7 @@ class MultiplayerMode(db.Model):
     onlinecoop = db.Column(db.Integer)           # tinyint(1)
     onlinecoopmax = db.Column(db.SmallInteger)   # smallint(6)
     onlinemax = db.Column(db.SmallInteger)       # smallint(6)
-    platform_id = db.Column(db.Integer, db.ForeignKey('platforms.id'))
+    platform_id = db.Column(db.Integer, db.ForeignKey('platform.id'))
     splitscreen = db.Column(db.Integer)          # tinyint(1)
     splitscreenonline = db.Column(db.Integer)    # tinyint(1)
 
@@ -342,18 +357,27 @@ class Company(db.Model):
     slug = db.Column(db.String(150))
     start_date = db.Column(db.Date)
     status_id = db.Column(db.Integer)
-    
+
     # Relation many-to-many
     game_engines = db.relationship('GameEngine',
-                                      secondary=company_game_engine,
-                                      backref=db.backref('companies', lazy='dynamic'))
+                                   secondary=company_game_engine,
+                                   backref=db.backref('companies', lazy='dynamic'))
     company_status = db.relationship('CompanyStatus',
                                      secondary=company_company_status,
-                                        backref=db.backref('companies', lazy='dynamic'))
+                                     backref=db.backref('companies', lazy='dynamic'))
     company_logos = db.relationship('CompanyLogos',
                                     secondary=company_company_logos,
                                     backref=db.backref('companies', lazy='dynamic'))
-    
+    developed_by = db.relationship('Company',
+                                   secondary=company_developed_by,
+                                   primaryjoin=id == company_developed_by.c.company_id,
+                                   secondaryjoin=id == company_developed_by.c.developer_id,
+                                   backref=db.backref('developed_companies', lazy='dynamic'))
+    published_by = db.relationship('Company',
+                                   secondary=company_published_by,
+                                   primaryjoin=id == company_published_by.c.company_id,
+                                   secondaryjoin=id == company_published_by.c.publisher_id,
+                                   backref=db.backref('published_companies', lazy='dynamic'))
 
     def __repr__(self):
         return f"<Company {self.name}>"
