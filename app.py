@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 import os
 import logging
 from datetime import datetime
+from recommendation import recommend_games
+
 
 # Configuration des logs
 logging.basicConfig(level=logging.DEBUG)
@@ -71,7 +73,13 @@ def entreprises():
 @app.route('/jeu/<slug>')
 def jeu_detail(slug):
     game = Game.query.filter_by(slug=slug).first_or_404()
-    return render_template('jeu_detail.html', game=game)
+    # Obtenir les noms de jeux recommandés
+    recommended_names = recommend_games(game.name, n=5)
+
+    # Récupérer les objets Game depuis la base SQL
+    recommandations = Game.query.filter(Game.name.in_(recommended_names)).all()
+
+    return render_template('jeu_detail.html', game=game, recommandations=recommandations) 
 
 @app.route('/rechercher')
 def rechercher():
