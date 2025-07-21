@@ -79,7 +79,7 @@ def consoles():
 
 @app.route('/entreprises')
 def entreprises():
-    page = request.arg.get('page', 1, type=int)
+    page = request.args.get('page', 1, type=int)
     per_page = 20
     app.logger.debug("Récupération des Entreprises page %s", page)
     pagination = Company.query.paginate(page=page, per_page=per_page)
