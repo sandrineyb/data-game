@@ -5,6 +5,7 @@ import os
 import logging
 from datetime import datetime
 from recommendation import recommend_games
+import country_converter as coco
 
 
 # Configuration des logs
@@ -25,6 +26,22 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialise db avec l'app
 db.init_app(app)
+
+
+# FOnction code ISO pays
+def get_country_name(iso_code):
+    if not iso_code:
+        return ""
+    try:
+        # Convertit le code en entier puis en chaîne sur 3 chiffres
+        code_num = int(float(iso_code))
+        code_str = str(code_num).zfill(3)
+        # Utilise coco pour convertir le code numérique en nom français
+        name_fr = coco.convert(names=code_str, src='ISO3N', to='name_short', not_found=str(iso_code), language='fr')
+        return name_fr
+    except Exception:
+        return str(iso_code)
+
 
 # Gestionnaires d'erreurs globaux
 
@@ -103,6 +120,11 @@ def jeu_detail(slug):
 def console_detail(slug):
     platform = Platform.query.filter_by(slug=slug).first_or_404()
     return render_template('platform_detail.html', platform=platform)
+
+@app.route('/entreprise/<slug>')
+def entreprise_detail(slug):
+    company = Company.query.filter_by(slug=slug).first_or_404()
+    return render_template('entreprises_detail.html', company=company, get_country_name=get_country_name)
 
 
 @app.route('/rechercher')

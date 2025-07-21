@@ -23,6 +23,16 @@ game_all = pd.read_csv(r'./csv/games_all.csv')  # ou data/jeux.csv selon ton pro
 
 # Nettoyage des colonnes multilabel si besoin
 list_columns = ['genres', 'players_perspectives', 'release_period', 'type']
+list_columns = [col for col in list_columns if col in game_all.columns]
+
+
+for col in list_columns:
+    # Remplace les NaN par des listes vides et convertit les chaînes en listes
+    game_all[col] = game_all[col].apply(
+        lambda x: x if isinstance(x, list)
+        else [] if pd.isna(x)
+        else [i.strip() for i in str(x).split(',')]
+    )
 
 # ======== Encodage des features ========
 encoded_features = []
