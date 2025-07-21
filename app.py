@@ -91,6 +91,11 @@ def jeu_detail(slug):
     game = Game.query.filter_by(slug=slug).first_or_404()
     return render_template('jeu_detail.html', game=game)
 
+@app.route('/console/<slug>')
+def console_detail(slug):
+    platform = Platform.query.filter_by(slug=slug).first_or_404()
+    return render_template('console_detail.html', platform=platform)
+
 
 @app.route('/rechercher')
 def rechercher():
