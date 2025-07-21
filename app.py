@@ -5,7 +5,7 @@ import os
 import logging
 from datetime import datetime
 from recommendation import recommend_games
-import pycountry
+import country_converter as coco
 
 
 # Configuration des logs
@@ -33,10 +33,10 @@ def get_country_name(iso_code):
     if not iso_code:
         return ""
     try:
-        # Convertit en int si c'est un float
         code_num = int(float(iso_code))
-        country = pycountry.countries.get(numeric=str(code_num).zfill(3))
-        return country.name if country else str(iso_code)
+        # Convertit le code numérique ISO en nom français
+        name_fr = coco.convert(code=code_num, to='name_short', not_found=str(iso_code), language='fr')
+        return name_fr
     except Exception:
         return str(iso_code)
 

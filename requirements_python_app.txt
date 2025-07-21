@@ -6,3 +6,4 @@ python-dotenv
 pymysql
 cryptography
 pycountry
+country_converter
