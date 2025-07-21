@@ -33,9 +33,11 @@ def get_country_name(iso_code):
     if not iso_code:
         return ""
     try:
+        # Convertit le code en entier puis en chaîne sur 3 chiffres
         code_num = int(float(iso_code))
-        # Convertit le code numérique ISO en nom français
-        name_fr = coco.convert(code=code_num, to='name_short', not_found=str(iso_code), language='fr')
+        code_str = str(code_num).zfill(3)
+        # Utilise coco pour convertir le code numérique en nom français
+        name_fr = coco.convert(names=code_str, src='ISO3N', to='name_short', not_found=str(iso_code), language='fr')
         return name_fr
     except Exception:
         return str(iso_code)
