@@ -105,7 +105,7 @@ company_company_status = db.Table('company_company_status',
                                   )
 
 # Company Company Logos
-company_company_logos = db.Table('company_company_logos',
+company_company_logos = db.Table('company_logo',
                                  db.Column('company_id', db.Integer,
                                            db.ForeignKey('company.id')),
                                  db.Column('logo_id', db.Integer,
