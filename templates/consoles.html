@@ -40,9 +40,68 @@
             </div>
         </nav>
     </div>
-    <!-- Ajoute un margin-top sur .container pour ne pas cacher le contenu sous la navbar -->
-    <div class="container" style="margin-top:90px;">
-        <!-- ...ton contenu... -->
+    <!-- Liste Bootstrap avec list-group -->
+    <div class="list-group mb-4">
+        {% for platform in platforms %}
+        <a href="{{ url_for('console_detail', slug=platform.slug) }}" class="list-group-item list-group-item-action">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="mb-1">{{ platform.name }}</h5>
+                <small class="text-muted">{{ platform.family }}</small>
+            </div>
+
+            <!-- Géneration de la console -->
+            {% if platform.generation %}
+            <small class="text-muted">Génération : {{ platform.generation }}</small>
+            {% endif %}
+
+
+            <!-- Summary en version courte -->
+            {% if platform.summary %}
+            <p class="text-truncate text-muted small mt-1">{{ platform.summary }}</p>
+            {% endif %}
+
+
+
+        </a>
+        {% endfor %}
+    </div>
+
+    <!-- Pagination Bootstrap -->
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if pagination.has_prev %}
+            <li class="page-item">
+                <a class="page-link" href="{{ url_for('consoles', page=pagination.prev_num) }}">Précédent</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <span class="page-link">Précédent</span>
+            </li>
+            {% endif %}
+
+            {% for p in pagination.iter_pages(left_edge=2, right_edge=2, left_current=2, right_current=2) %}
+            {% if p %}
+            {% if p == pagination.page %}
+            <li class="page-item active"><span class="page-link">{{ p }}</span></li>
+            {% else %}
+            <li class="page-item"><a class="page-link" href="{{ url_for('consoles', page=p) }}">{{ p }}</a></li>
+            {% endif %}
+            {% else %}
+            <li class="page-item disabled"><span class="page-link">…</span></li>
+            {% endif %}
+            {% endfor %}
+
+            {% if pagination.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="{{ url_for('consoles', page=pagination.next_num) }}">Suivant</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <span class="page-link">Suivant</span>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
     </div>
 
 

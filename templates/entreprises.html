@@ -1,66 +1,94 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Data Game</title>
-    <link rel="stylesheet" href="/static/css/styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Data Game</title>
+  <link rel="stylesheet" href="/static/css/styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 </head>
 
 <body>
-    <!-- Wrapper centré et largeur 66% -->
-    <div class="position-fixed top-0 start-50 translate-middle-x" style="width:66%; z-index: 1030;">
-        <nav class="navbar navbar-expand-lg bg-primary rounded-pill my-3 px-4 py-2 shadow">
-            <div class="container-fluid justify-content-between align-items-center">
-                <!-- Boutons à gauche -->
-                <div class="d-flex align-items-center">
-                    <a class="btn btn-primary me-2" href="{{ url_for('home') }}">Accueil</a>
-                    <a class="btn btn-primary me-2" href="{{ url_for('jeux') }}">Jeux</a>
-                    <a class="btn btn-primary me-2" href="{{ url_for('consoles') }}">Consoles</a>
-                    <a class="btn btn-primary" href="{{ url_for('entreprises') }}">Entreprises</a>
-                </div>
-                <!-- Logo centré -->
-                <div class="mx-auto">
-                    <img src="/static/img/logo.png" alt="Logo Data Game" style="height:40px;">
-                </div>
-                <!-- Bouton recherche à droite -->
-                <div class="d-flex align-items-center">
-                    <form action="{{ url_for('rechercher') }}" method="GET" class="d-flex">
-                        <input type="text" name="q" class="form-control form-control-sm me-2"
-                            placeholder="Rechercher un jeu..." aria-label="Rechercher">
-                        <button type="submit" class="btn border border-white text-white"
-                            style="background:transparent;">
-                            <i class="bi bi-search"></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </nav>
-    </div>
-    <!-- Ajoute un margin-top sur .container pour ne pas cacher le contenu sous la navbar -->
-    <div class="container" style="margin-top:90px;">
-        <!-- ...ton contenu... -->
-    </div>
-
-
-
-
-
-    <!-- Footer -->
-    <footer class="text-center py-3 mt-5" style="background-color: #f2f2f2;">
-        <div class="container">
-            <p class="mb-0 text-secondary">© 2025 Data Game. Tous droits réservés.</p>
+  <!-- Wrapper centré et largeur 66% -->
+  <div class="position-fixed top-0 start-50 translate-middle-x" style="width: 66%; z-index: 1030">
+    <nav class="navbar navbar-expand-lg bg-primary rounded-pill my-3 px-4 py-2 shadow">
+      <div class="container-fluid justify-content-between align-items-center">
+        <!-- Boutons à gauche -->
+        <div class="d-flex align-items-center">
+          <a class="btn btn-primary me-2" href="{{ url_for('home') }}">Accueil</a>
+          <a class="btn btn-primary me-2" href="{{ url_for('jeux') }}">Jeux</a>
+          <a class="btn btn-primary me-2" href="{{ url_for('consoles') }}">Consoles</a>
+          <a class="btn btn-primary" href="{{ url_for('entreprises') }}">Entreprises</a>
         </div>
-    </footer>
+        <!-- Logo centré -->
+        <div class="mx-auto">
+          <img src="/static/img/logo.png" alt="Logo Data Game" style="height: 40px" />
+        </div>
+        <!-- Bouton recherche à droite -->
+        <div class="d-flex align-items-center">
+          <form action="{{ url_for('rechercher') }}" method="GET" class="d-flex">
+            <input type="text" name="q" class="form-control form-control-sm me-2" placeholder="Rechercher un jeu..."
+              aria-label="Rechercher" />
+            <button type="submit" class="btn border border-white text-white" style="background: transparent">
+              <i class="bi bi-search"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <!-- Ajoute un margin-top sur .container pour ne pas cacher le contenu sous la navbar -->
+  <div class="container" style="margin-top: 90px">
+    <!-- ...ton contenu... -->
+  </div>
 
+  <!-- Pagination Bootstrap -->
+  <nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+      {% if pagination.has_prev %}
+      <li class="page-item">
+        <a class="page-link" href="{{ url_for('entreprises', page=pagination.prev_num) }}">Précédent</a>
+      </li>
+      {% else %}
+      <li class="page-item disabled">
+        <span class="page-link">Précédent</span>
+      </li>
+      {% endif %} {% for p in pagination.iter_pages(left_edge=2, right_edge=2,
+      left_current=2, right_current=2) %} {% if p %} {% if p ==
+      pagination.page %}
+      <li class="page-item active"><span class="page-link">{{ p }}</span></li>
+      {% else %}
+      <li class="page-item">
+        <a class="page-link" href="{{ url_for('entreprises', page=p) }}">{{ p }}</a>
+      </li>
+      {% endif %} {% else %}
+      <li class="page-item disabled"><span class="page-link">…</span></li>
+      {% endif %} {% endfor %} {% if pagination.has_next %}
+      <li class="page-item">
+        <a class="page-link" href="{{ url_for('entreprises', page=pagination.next_num) }}">Suivant</a>
+      </li>
+      {% else %}
+      <li class="page-item disabled">
+        <span class="page-link">Suivant</span>
+      </li>
+      {% endif %}
+    </ul>
+  </nav>
 
+  <!-- Footer -->
+  <footer class="text-center py-3 mt-5" style="background-color: #f2f2f2">
+    <div class="container">
+      <p class="mb-0 text-secondary">
+        © 2025 Data Game. Tous droits réservés.
+      </p>
+    </div>
+  </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-        crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
