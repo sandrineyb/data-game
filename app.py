@@ -104,6 +104,11 @@ def console_detail(slug):
     platform = Platform.query.filter_by(slug=slug).first_or_404()
     return render_template('platform_detail.html', platform=platform)
 
+@app.route('/entreprise/<slug>')
+def entreprise_detail(slug):
+    company = Company.query.filter_by(slug=slug).first_or_404()
+    return render_template('entreprises_detail.html', company=company)
+
 
 @app.route('/rechercher')
 def rechercher():
