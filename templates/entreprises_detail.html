@@ -48,8 +48,10 @@
         <!-- company logo (jointure a faire )-->
         {% if company.company_logos %}
         <div class="mb-3">
-          <strong>Type : </strong>
-          <span class="badge bg-warning text-dark me-1">{{ company_logos.url }}</span>
+          <strong>Logos :</strong>
+          {% for logo in company.company_logos %}
+            <span class="badge bg-warning text-dark me-1">{{ logo.url }}</span>
+          {% endfor %}
         </div>
         {% endif %}
 
