@@ -66,7 +66,7 @@
         {% if company.country %}
         <div class="mb-3">
           <strong>Pays : </strong>
-          <p>{{ company.country }}</p>
+          <p>{{ get_country_name(company.country) }}</p>
         </div>
         {% endif %}
 

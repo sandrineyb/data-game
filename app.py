@@ -5,6 +5,7 @@ import os
 import logging
 from datetime import datetime
 from recommendation import recommend_games
+import pycountry
 
 
 # Configuration des logs
@@ -25,6 +26,15 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialise db avec l'app
 db.init_app(app)
+
+
+# FOnction code ISO pays
+def get_country_name(iso_code):
+    if not iso_code:
+        return ""
+    country = pycountry.countries.get(alpha_2=iso_code.upper())
+    return country.name if country else iso_code
+
 
 # Gestionnaires d'erreurs globaux
 
@@ -107,7 +117,7 @@ def console_detail(slug):
 @app.route('/entreprise/<slug>')
 def entreprise_detail(slug):
     company = Company.query.filter_by(slug=slug).first_or_404()
-    return render_template('entreprises_detail.html', company=company)
+    return render_template('entreprises_detail.html', company=company, get_country_name=get_country_name)
 
 
 @app.route('/rechercher')
