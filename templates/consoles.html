@@ -43,7 +43,7 @@
     <!-- Liste Bootstrap avec list-group -->
     <div class="list-group mb-4">
         {% for platform in platforms %}
-        <a href="{{ url_for('platform_detail', slug=platform.slug) }}" class="list-group-item list-group-item-action">
+        <a href="{{ url_for('console_detail', slug=platform.slug) }}" class="list-group-item list-group-item-action">
             <div class="d-flex justify-content-between align-items-center">
                 <h5 class="mb-1">{{ platform.name }}</h5>
                 <small class="text-muted">{{ platform.family }}</small>
