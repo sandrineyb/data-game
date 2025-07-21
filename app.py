@@ -74,7 +74,7 @@ def consoles():
     per_page = 25
     app.logger.debug("Récupération des consoles page %s", page)
     pagination = Platform.query.paginate(page=page, per_page=per_page)
-    return render_template('consoles.html')
+    return render_template('consoles.html', platforms=pagination.items, pagination=pagination)
 
 
 @app.route('/entreprises')
@@ -83,7 +83,7 @@ def entreprises():
     per_page = 20
     app.logger.debug("Récupération des Entreprises page %s", page)
     pagination = Company.query.paginate(page=page, per_page=per_page)
-    return render_template('entreprises.html')
+    return render_template('entreprises.html', companies=pagination.items, pagination=pagination)
 
 
 @app.route('/jeu/<slug>')
