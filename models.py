@@ -72,6 +72,46 @@ platform_platform_version = db.Table('platform_platform_version',
                                                db.ForeignKey('platform_version.id'))
                                      )
 
+# Game Game Engine
+game_game_engine = db.Table('game_game_engine',
+                            db.Column('game_id', db.Integer,
+                                      db.ForeignKey('game.id')),
+                            db.Column('engine_id', db.Integer,
+                                      db.ForeignKey('game_engines.id'))
+                            )
+
+# Game Engine Logo
+game_engine_logo = db.Table('game_engine_logo',
+                            db.Column('engine_id', db.Integer,
+                                      db.ForeignKey('game_engines.id')),
+                            db.Column('logo_id', db.Integer,
+                                      db.ForeignKey('game_engine_logos.id'))
+                            )
+
+# Company Game Engine
+company_game_engine = db.Table('company_game_engine',
+                               db.Column('company_id', db.Integer,
+                                         db.ForeignKey('company.id')),
+                               db.Column('engine_id', db.Integer,
+                                         db.ForeignKey('game_engines.id'))
+                               )
+
+# Company Company Status
+company_company_status = db.Table('company_company_status',
+                                  db.Column('company_id', db.Integer,
+                                            db.ForeignKey('company.id')),
+                                  db.Column('status_id', db.Integer,
+                                            db.ForeignKey('company_status.id'))
+                                  )
+
+# Company Company Logos
+company_company_logos = db.Table('company_company_logos',
+                                 db.Column('company_id', db.Integer,
+                                           db.ForeignKey('company.id')),
+                                 db.Column('logo_id', db.Integer,
+                                           db.ForeignKey('company_logos.id'))
+                                 )
+
 
 # Modèles
 # Game
@@ -117,10 +157,16 @@ class Game(db.Model):
                                         secondary=game_multiplayer_mode,
                                         backref=db.backref('games', lazy='dynamic'))
 
+    game_engines = db.relationship('GameEngine',
+                                   secondary=game_game_engine,
+                                   backref=db.backref('games', lazy='dynamic'))
+
     def __repr__(self):
         return f"<Game {self.name}>"
 
 # Language
+
+
 class Language(db.Model):
     __tablename__ = 'language'
     id = db.Column(db.Integer, primary_key=True)
@@ -132,6 +178,8 @@ class Language(db.Model):
         return f"<Language {self.name}>"
 
 # LanguageSupportsType
+
+
 class LanguageSupportsType(db.Model):
     __tablename__ = 'language_supports_type'
     id = db.Column(db.Integer, primary_key=True)
@@ -141,6 +189,8 @@ class LanguageSupportsType(db.Model):
         return f"<LanguageSupportType {self.name}>"
 
 # Genre
+
+
 class Genre(db.Model):
     __tablename__ = 'genres'
     id = db.Column(db.Integer, primary_key=True)
@@ -150,6 +200,8 @@ class Genre(db.Model):
         return f"<Genre {self.name}>"
 
 # Videos Jeux
+
+
 class GameVideo(db.Model):
     __tablename__ = 'videos'
     id = db.Column(db.Integer, primary_key=True)
@@ -248,3 +300,82 @@ class PlatformVersion(db.Model):
 
     def __repr__(self):
         return f"<PlatformVersion {self.version_name}>"
+
+
+# Game Engine
+class GameEngine(db.Model):
+    __tablename__ = 'game_engines'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(150))
+    slug = db.Column(db.String(150))
+    description = db.Column(db.Text)
+
+    def __repr__(self):
+        return f"<GameEngine {self.name}>"
+
+# Game Engine Logos
+
+
+class GameEngineLogo(db.Model):
+    __tablename__ = 'game_engine_logos'
+    id = db.Column(db.Integer, primary_key=True)
+    url = db.Column(db.Text)
+
+    game_engine = db.relationship('GameEngine',
+                                  secondary=game_engine_logo,
+                                  backref=db.backref('logos', lazy=True))
+
+    def __repr__(self):
+        return f"<GameEngineLogo {self.url}>"
+
+# Company
+
+
+class Company(db.Model):
+    __tablename__ = 'company'
+    id = db.Column(db.Integer, primary_key=True)
+    changed_company_id = db.Column(db.Integer)
+    country = db.Column(db.String(250))
+    description = db.Column(db.Text)
+    name = db.Column(db.String(150))
+    parent = db.Column(db.Integer, db.ForeignKey('company.id'))
+    slug = db.Column(db.String(150))
+    start_date = db.Column(db.Date)
+    status_id = db.Column(db.Integer)
+    
+    # Relation many-to-many
+    game_engines = db.relationship('GameEngine',
+                                      secondary=company_game_engine,
+                                      backref=db.backref('companies', lazy='dynamic'))
+    company_status = db.relationship('CompanyStatus',
+                                     secondary=company_company_status,
+                                        backref=db.backref('companies', lazy='dynamic'))
+    company_logos = db.relationship('CompanyLogos',
+                                    secondary=company_company_logos,
+                                    backref=db.backref('companies', lazy='dynamic'))
+    
+
+    def __repr__(self):
+        return f"<Company {self.name}>"
+
+# Company Status
+
+
+class CompanyStatus(db.Model):
+    __tablename__ = 'company_status'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+
+    def __repr__(self):
+        return f"<CompanyStatus {self.name}>"
+
+# Company Logos
+
+
+class CompanyLogos(db.Model):
+    __tablename__ = 'company_logos'
+    id = db.Column(db.Integer, primary_key=True)
+    url = db.Column(db.Text)
+
+    def __repr__(self):
+        return f"<CompanyLogo {self.url}>"
