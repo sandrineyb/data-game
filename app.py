@@ -32,8 +32,13 @@ db.init_app(app)
 def get_country_name(iso_code):
     if not iso_code:
         return ""
-    country = pycountry.countries.get(alpha_2=iso_code.upper())
-    return country.name if country else iso_code
+    try:
+        # Convertit en int si c'est un float
+        code_num = int(float(iso_code))
+        country = pycountry.countries.get(numeric=str(code_num).zfill(3))
+        return country.name if country else str(iso_code)
+    except Exception:
+        return str(iso_code)
 
 
 # Gestionnaires d'erreurs globaux
