@@ -43,50 +43,50 @@
   <div class="container" style="margin-top:90px;">
     <div class="row">
       <div class="col-md-8">
-        <h1>{{ Company.name }}</h1>
+        <h1>{{ company.name }}</h1>
 
-        <!-- Company logo (jointure a faire )-->
-        {% if Company.company_logos %}
+        <!-- company logo (jointure a faire )-->
+        {% if company.company_logos %}
         <div class="mb-3">
           <strong>Type : </strong>
           <span class="badge bg-warning text-dark me-1">{{ company_logos.url }}</span>
         </div>
         {% endif %}
 
-        <!-- Company name -->
-        {% if Company.name %}
+        <!-- company name -->
+        {% if company.name %}
         <div class="mb-3">
           <strong>Type : </strong>
         </div>
         {% endif %}
 
         <!-- Date de création-->
-        {% if Company.start_date %}
-        <p class="text-muted">Date de création : {{ Company.start_date.strftime('%m/%Y') }}</p>
+        {% if company.start_date %}
+        <p class="text-muted">Date de création : {{ company.start_date.strftime('%m/%Y') }}</p>
         {% endif %}
 
-        <!-- country Company-->
-        {% if Company.country %}
+        <!-- country company-->
+        {% if company.country %}
         <div class="mb-3">
           <strong>Type : </strong>
         </div>
         {% endif %}
 
         <!-- statues -->
-        {% if Company.company_status %}
+        {% if company.company_status %}
         <div class="mb-3">
           <strong>Type : </strong>
         </div>
         {% endif %}
 
         <!-- Description -->
-        {% if Company.description %}
+        {% if company.description %}
         <div class="card mb-4">
           <div class="card-header">
             <h3 class="mb-0">Description</h3>
           </div>
           <div class="card-body">
-            <p class="card-text">{{ Company.description }}</p>
+            <p class="card-text">{{ company.description }}</p>
           </div>
         </div>
         {% endif %}
