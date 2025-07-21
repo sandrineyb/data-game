@@ -62,7 +62,7 @@
                     {% if game.total_rating %}
                     <span class="badge bg-primary me-2">{{ "%.1f"|format(game.total_rating) }}/100</span>
                     {% endif %}
-                    
+
                     <!-- Age Ratings -->
                     {% if game.age_ratings %}
                     {% for rating in game.age_ratings %}
@@ -84,7 +84,7 @@
                     {% endfor %}
                 </div>
                 {% endif %}
-                
+
                 <!-- Genres -->
                 {% if game.genres %}
                 <div class="mb-3">
@@ -94,7 +94,7 @@
                     {% endfor %}
                 </div>
                 {% endif %}
-                
+
                 <!-- Player Perspectives -->
                 {% if game.player_perspectives %}
                 <div class="mb-3">
@@ -157,24 +157,19 @@
                     </div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
-                            {# Vérifie et affiche chaque mode multijoueur si activé #}
-
                             {% if game.multiplayer.campaingcoop %}
-                        <li class="list-group-item">Coopération en Campagne</li>
-                        {% endif %}
+                            <li class="list-group-item">Coopération en Campagne</li>
+                            {% endif %}
 
-                        {% if game.multiplayer.lancoop %}
-                        <li class="list-group-item">Coopération en Réseau Local (LAN)</li>
-                        {% endif %}
-                            <li class="list-group-item">{{ multiplayer_modes }}</li>
-                            {% endfor %}
+                            {% if game.multiplayer.lancoop %}
+                            <li class="list-group-item">Coopération en Réseau Local (LAN)</li>
+                            {% endif %}
+
+                            {# Ajoute ici d'autres modes si besoin #}
                         </ul>
                     </div>
                 </div>
                 {% endif %}
-
-            </div>
-            # afficher les modes de jeu multijoueur + platform #
                 <!-- Jeux similaires -->
                 {% if recommandations %}
                 <div class="card mb-4">
@@ -202,25 +197,25 @@
                 </div>
                 {% endif %}
 
-            <!-- Colonne de droite pour info additionnelles -->
-            <div class="col-md-4">
-                <!-- Si tu veux ajouter plus d'infos dans une colonne secondaire -->
+                <!-- Colonne de droite pour info additionnelles -->
+                <div class="col-md-4">
+                    <!-- Si tu veux ajouter plus d'infos dans une colonne secondaire -->
+                </div>
             </div>
         </div>
-    </div>
-    {% endblock %}
+        {% endblock %}
 
-    <!-- Footer -->
-    <footer class="text-center py-3 mt-5" style="background-color: #f2f2f2;">
-        <div class="container">
-            <p class="mb-0 text-secondary">© 2025 Data Game. Tous droits réservés.</p>
-        </div>
-    </footer>
+        <!-- Footer -->
+        <footer class="text-center py-3 mt-5" style="background-color: #f2f2f2;">
+            <div class="container">
+                <p class="mb-0 text-secondary">© 2025 Data Game. Tous droits réservés.</p>
+            </div>
+        </footer>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+            crossorigin="anonymous"></script>
 </body>
 
 </html>
