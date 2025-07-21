@@ -3,6 +3,7 @@ from sklearn.preprocessing import MultiLabelBinarizer
 from sklearn.neighbors import NearestNeighbors
 import unicodedata
 import re
+import random
 
 # ======== Nettoyage de texte ========
 def normalize_text(text):
@@ -18,7 +19,7 @@ def normalize_text(text):
 
 # ======== Chargement du dataset ========
 # Remplace par le bon chemin vers ton CSV
-game_all = pd.read_csv(r"../csv/game_all.csv")  # ou data/jeux.csv selon ton projet
+game_all = pd.read_csv(r'./csv/games_all.csv')  # ou data/jeux.csv selon ton projet
 
 # Nettoyage des colonnes multilabel si besoin
 list_columns = ['genres', 'players_perspectives', 'release_period', 'type']
@@ -42,19 +43,26 @@ features_matrix.index = game_all['clean_name']
 name_lookup = dict(zip(game_all['clean_name'], game_all['game_name']))
 
 # ======== Modèle KNN ========
-knn_model = NearestNeighbors(metric='cosine', algorithm='brute')
+knn_model = NearestNeighbors(metric='cosine', algorithm='auto')
 knn_model.fit(features_matrix)
 
 # ======== Fonction de recommandation ========
-def recommend_games(game_name, n=5):
+def recommend_games(game_name, n=10):
     clean = normalize_text(game_name)
 
     if clean not in features_matrix.index:
+        print(f"Jeu '{game_name}' non trouvé.")
         return []
 
     game_vector = features_matrix.loc[clean].values.reshape(1, -1)
-    distances, indices = knn_model.kneighbors(game_vector, n_neighbors=n+1)
-    recommended_clean_names = features_matrix.index[indices.flatten()[1:]]
-    recommended_original_names = [name_lookup[clean_name] for clean_name in recommended_clean_names]
+    distances, indices = knn_model.kneighbors(game_vector, n_neighbors=10) # prendre + de voisins
+    recommended_clean_names = features_matrix.index[indices.flatten()[1:]] # enlever le jeu lui-même
+    
+    # Mélange aléatoire + sélection des n premiers
+    recommended_clean_names = list(recommended_clean_names)
+    random.shuffle(recommended_clean_names)
+    recommended_clean_names = recommended_clean_names[:n]
+    
+    return [name_lookup[clean_name] for clean_name in recommended_clean_names]
 
-    return recommended_original_names
+    
