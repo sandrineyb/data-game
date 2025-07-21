@@ -82,9 +82,10 @@
                 <h1>{{ Company.name }}</h1>
 
                 <!-- Company logo (jointure a faire )-->
-                {% if Company_logo.url %}
+                {% if Company.company_logos %}
                 <div class="mb-3">
                     <strong>Type : </strong>
+                    <span class="badge bg-warning text-dark me-1">{{ company_logos.url }}</span>
                 </div>
                 {% endif %}
 
@@ -108,7 +109,7 @@
                 {% endif %}
             
                 <!-- statues -->
-                {% if Company.status_id %}
+                {% if Company.company_status %}
                 <div class="mb-3">
                     <strong>Type : </strong>
                 </div>
@@ -142,5 +143,4 @@
       integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
       crossorigin="anonymous"
     ></script>
-  </body>
 </html>
