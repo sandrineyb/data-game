@@ -1,4 +1,7 @@
 flask
 flask_sqlalchemy
-pymysql
+pandas
+scikit-learn
 python-dotenv
+pymysql
+cryptography
