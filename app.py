@@ -122,7 +122,16 @@ def jeu_detail(slug):
 @app.route('/console/<slug>')
 def console_detail(slug):
     platform = Platform.query.filter_by(slug=slug).first_or_404()
-    return render_template('console_detail.html', platform=platform)
+    multiplayer_modes_display = []
+    for mode in platform.multiplayer_modes:
+        for key, value in mode.__dict__.items():
+            if key not in ['_sa_instance_state', 'id', 'platform_id'] and value and value != 0:
+                multiplayer_modes_display.append((key, value))
+    return render_template(
+        'console_detail.html',
+        platform=platform,
+        multiplayer_modes_display=multiplayer_modes_display
+    )
 
 @app.route('/entreprise/<slug>')
 def entreprise_detail(slug):
