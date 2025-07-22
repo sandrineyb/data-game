@@ -93,6 +93,25 @@
                     </div>
                 </div>
                 {% endif %}
+                {% if top_5_games %}
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3 class="mb-0">Les jeux les mieux notés sur la console</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            {% for game in top_5_games %}
+                            <li class="list-group-item">
+                                <a href="{{ url_for('jeu_detail', slug=game.slug) }}">{{ game.name }}</a>
+                                {% if game.total_rating %}
+                                <span class="badge bg-primary ms-2">{{ "%.1f"|format(game.total_rating) }}/100</span>
+                                {% endif %}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                {% endif %}
             </div>
             <div class="col-md-4">
                 <!-- Colonne de droite pour infos additionnelles (logos, entreprises, etc.) -->

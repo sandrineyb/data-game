@@ -131,11 +131,19 @@ def console_detail(slug):
                     mode_max[key] = value
     # Transforme en liste de tuples pour le template
     multiplayer_modes_display = list(mode_max.items())
+    
+    # Top 5 jeux les mieux notés pour la console
+    top_5_games = Game.query.filter_by(platform_id=platform.id).order_by(Game.total_rating.desc()).limit(5).all()
+    
     return render_template(
         'console_detail.html',
         platform=platform,
-        multiplayer_modes_display=multiplayer_modes_display
+        multiplayer_modes_display=multiplayer_modes_display,
+        top_5_games=top_5_games
     )
+
+
+
 
 @app.route('/entreprise/<slug>')
 def entreprise_detail(slug):
