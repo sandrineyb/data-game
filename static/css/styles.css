@@ -1,3 +1,46 @@
 .bg-primary {
   background-color: #0d2346 !important; /* exemple bleu foncé */
 }
+/* ---------- Rajout de Sandrine --------------------------- */
+/* Fond pixel art */
+body {
+    background-image: url("/static/img/background-pixel.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: 'Press Start 2P', monospace;
+}
+
+/* Typo rétro (facultatif, ajouter lien Google Fonts si utilisée) */
+/*
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+*/
+
+.main-header {
+    padding: 100px 20px 60px;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    backdrop-filter: blur(8px);
+    padding: 30px 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Navbar transparente */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
