@@ -58,7 +58,7 @@
         <!-- Date et genres -->
         <div class="d-flex justify-content-between">
           <small class="text-muted">
-            {% if game.first_release_date %}
+            {% if game.first_release_date and game.first_release_date != "0000-00-00" %}
               {% if game.first_release_date is string %}
                 {{ game.first_release_date }}
               {% else %}
