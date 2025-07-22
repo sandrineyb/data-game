@@ -122,11 +122,15 @@ def jeu_detail(slug):
 @app.route('/console/<slug>')
 def console_detail(slug):
     platform = Platform.query.filter_by(slug=slug).first_or_404()
-    multiplayer_modes_display = []
+    mode_max = {}
     for mode in platform.multiplayer_modes:
         for key, value in mode.__dict__.items():
             if key not in ['_sa_instance_state', 'id', 'platform_id'] and value and value != 0:
-                multiplayer_modes_display.append((key, value))
+                # On garde la valeur maximale pour chaque clé
+                if key not in mode_max or value > mode_max[key]:
+                    mode_max[key] = value
+    # Transforme en liste de tuples pour le template
+    multiplayer_modes_display = list(mode_max.items())
     return render_template(
         'console_detail.html',
         platform=platform,
