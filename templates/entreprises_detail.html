@@ -81,16 +81,18 @@
             <strong>Logos :</strong>
             {% for logo in company.company_logos %}
             <img
-              class="badge bg-warning text-dark me-1"
               src="https:{{ logo.url }}"
+              class="me-2"
+              style="height: 40px"
+              alt="Logo"
             />
             {% endfor %}
           </div>
           {% endif %} {% if company.start_date %}
-          <p class="text-muted">
+          <div class="mb-3">
             <strong> Date de création :</strong>
             {{ company.start_date.strftime('%m/%Y') }}
-          </p>
+          </div>
           {% endif %} {% if company.country %}
           <div class="mb-3">
             <strong>Pays : </strong>
@@ -117,7 +119,8 @@
               <p class="card-text">{{ company.description }}</p>
             </div>
           </div>
-          {% endif %} {% if company.game_game_engines %}
+          {% endif %} {% if company.company_game_engine %} {% for engine in
+          company.company_game_engine %}
           <div class="mb-3">
             <strong>Moteur graphique : </strong>
             {% for engine in company.company_game_engine %}
@@ -127,8 +130,10 @@
               <strong>Logos moteur graphique :</strong>
               {% for logo in engine.engine_logos %}
               <img
-                class="badge bg-warning text-dark me-1"
                 src="https:{{ logo.url }}"
+                class="me-2"
+                style="height: 40px"
+                alt="Logo"
               />
               {% endfor %}
             </div>
