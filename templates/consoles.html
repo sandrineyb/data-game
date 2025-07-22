@@ -16,25 +16,21 @@
         <nav class="navbar navbar-expand-lg bg-transparent rounded-pill my-3 px-4 py-2 shadow">
             <div class="container-fluid justify-content-between align-items-center">
                 <!-- Boutons à gauche -->
-                <div class="d-flex align-items-center">
-                    <a class="btn btn-primary me-2" href="{{ url_for('home') }}">Accueil</a>
-                    <a class="btn btn-primary me-2" href="{{ url_for('jeux') }}">Jeux</a>
-                    <a class="btn btn-primary me-2" href="{{ url_for('consoles') }}">Consoles</a>
-                    <a class="btn btn-primary" href="{{ url_for('entreprises') }}">Entreprises</a>
+                <div>
+                    <a class="btn btn-outline-light me-2" href="{{ url_for('home') }}">Accueil</a>
+                    <a class="btn btn-outline-light me-2" href="{{ url_for('jeux') }}">Jeux</a>
+                    <a class="btn btn-outline-light me-2" href="{{ url_for('consoles') }}">Consoles</a>
+                    <a class="btn btn-outline-light" href="{{ url_for('entreprises') }}">Entreprises</a>
                 </div>
                 <!-- Logo centré -->
                 <div class="mx-auto">
                     <img src="/static/img/logo.png" alt="Logo Data Game" style="height:40px;">
                 </div>
                 <!-- Bouton recherche à droite -->
-                <div class="d-flex align-items-center">
+                <div>
                     <form action="{{ url_for('rechercher') }}" method="GET" class="d-flex">
-                        <input type="text" name="q" class="form-control form-control-sm me-2"
-                            placeholder="Rechercher un jeu..." aria-label="Rechercher">
-                        <button type="submit" class="btn border border-white text-white"
-                            style="background:transparent;">
-                            <i class="bi bi-search"></i>
-                        </button>
+                        <input class="form-control form-control-sm me-2" type="text" name="q" placeholder="Rechercher">
+                        <button class="btn btn-outline-light" type="submit"><i class="bi bi-search"></i></button>
                     </form>
                 </div>
             </div>
