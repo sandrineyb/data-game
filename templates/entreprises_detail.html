@@ -1,9 +1,10 @@
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Data Game</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="/static/css/styles.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -16,7 +17,7 @@
     <link rel="icon" type="image/png" href="/static/img/favicon.png" />
   </head>
 
-  <body>
+  <body class="bg-dark text-white">
     <div
       class="position-fixed top-0 start-50 translate-middle-x"
       style="width: 66%; z-index: 1030"
@@ -114,7 +115,7 @@
             </p>
           </div>
           {% endif %} {% if company.description %}
-          <div class="card mb-4">
+          <div class="card mb-4 bg-secondary text-white">
             <div class="card-header">
               <h3 class="mb-0">Description</h3>
             </div>
@@ -126,29 +127,32 @@
           <div class="mb-3">
             <strong>Moteur graphique :</strong>
             {% for engine in company.company_game_engine %}
-            <p>{{ engine.name }}</p>
-            {% if engine.engine_logos %}
-            <div class="mb-3">
-              <strong>Logos moteur graphique :</strong>
-              {% for logo in engine.engine_logos %}
-              <img
-                src="https:{{ logo.url }}"
-                class="me-2"
-                style="height: 40px"
-                alt="Logo moteur graphique"
-              />
-              {% endfor %}
+            <div class="mb-2">
+              <p>{{ engine.name }}</p>
+              {% if engine.engine_logos %}
+              <div class="mb-2">
+                <strong>Logos moteur graphique :</strong>
+                {% for logo in engine.engine_logos %}
+                <img
+                  src="https:{{ logo.url }}"
+                  class="me-2"
+                  style="height: 40px"
+                  alt="Logo moteur graphique"
+                />
+                {% endfor %}
+              </div>
+              {% endif %}
             </div>
-            {% endif %} {% endfor %}
+            {% endfor %}
           </div>
           {% endif %}
         </div>
       </div>
     </div>
 
-    <footer class="text-center py-3 mt-5" style="background-color: #f2f2f2">
+    <footer class="text-center py-3 mt-5" style="background-color: #222">
       <div class="container">
-        <p class="mb-0 text-secondary">
+        <p class="mb-0 text-white-50">
           © 2025 Data Game. Tous droits réservés.
         </p>
       </div>
