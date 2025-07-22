@@ -12,7 +12,7 @@
     />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
   </head>
 
@@ -120,31 +120,27 @@
               <p class="card-text">{{ company.description }}</p>
             </div>
           </div>
-          {% endif %} {# <--- NOUVEAU PLACEMENT POUR LA FIN DE 'if company.description' #}
+          {% endif %}
 
           {% if company.company_game_engine %}
           <div class="mb-3">
-            <strong> Moteur graphique : </strong>
-            {% for engine in game.game_engines %}
+            <strong>Moteur graphique : </strong>
+            {% for engine in company.company_game_engine %}
             <p>{{ engine.name }}</p>
-            {% if game.engine_logos %}
+            {% if engine.engine_logos %}
             <div class="mb-3">
               <strong>Logos moteur graphique :</strong>
-              {% for logo in game.engine_logos %}
-              <img
-                class="badge bg-warning text-dark me-1"
-                src="https:{{ logo.url }}"
-              />
+              {% for logo in engine.engine_logos %}
+              <img class="badge bg-warning text-dark me-1" src="https:{{ logo.url }}" />
               {% endfor %}
             </div>
             {% endif %}
-            {% endfor %} {# <--- FIN DE LA BOUCLE FOR 'engine' #}
+            {% endfor %}
           </div>
-          {% endif %} {# <--- FIN DU 'if company.company_game_engine' #}
-
-        </div> {# <--- FERMETURE DU col-md-8 #}
-      </div> {# <--- FERMETURE DU row #}
-    </div> {# <--- FERMETURE DU container #}
+          {% endif %}
+        </div> 
+      </div> 
+    </div> 
 
     <footer class="text-center py-3 mt-5" style="background-color: #f2f2f2">
       <div class="container">
