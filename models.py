@@ -266,7 +266,7 @@ class AgeRating(db.Model):
 class MultiplayerMode(db.Model):
     __tablename__ = 'multiplayer_modes'
     id = db.Column(db.Integer, primary_key=True)
-    campaingcoop = db.Column(db.Integer)         # tinyint(1)
+    campaigncoop = db.Column(db.Integer)         # tinyint(1)
     lancoop = db.Column(db.Integer)              # tinyint(1)
     offlinecoop = db.Column(db.Integer)          # tinyint(1)
     offlinecoopmax = db.Column(db.SmallInteger)  # smallint(6)
