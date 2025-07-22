@@ -72,6 +72,16 @@ platform_platform_version = db.Table('platform_platform_version',
                                                db.ForeignKey('platform_version.id'))
                                      )
 
+
+# Game Platform
+game_platform = db.Table('game_platform',
+                         db.Column('game_id', db.Integer,
+                                   db.ForeignKey('game.id')),
+                         db.Column('platform_id', db.Integer,
+                                   db.ForeignKey('platform.id'))
+                         )
+
+
 # Game Game Engine
 game_game_engine = db.Table('game_game_engine',
                             db.Column('game_id', db.Integer,
@@ -172,9 +182,15 @@ class Game(db.Model):
                                         secondary=game_multiplayer_mode,
                                         backref=db.backref('games', lazy='dynamic'))
 
+    # Game Engines
     game_engines = db.relationship('GameEngine',
                                    secondary=game_game_engine,
                                    backref=db.backref('games', lazy='dynamic'))
+
+    # Platforms
+    platforms = db.relationship('Platform',
+                                secondary=game_platform,
+                                backref=db.backref('games', lazy='dynamic'))
 
     def __repr__(self):
         return f"<Game {self.name}>"
