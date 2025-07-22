@@ -73,30 +73,26 @@
                 {% endif %}
 
                 <!-- Modes multijoueur -->
-                {% set has_multiplayer = false %}
+                {% set multiplayer_modes_display = [] %}
                 {% for mode in platform.multiplayer_modes %}
                   {% for key, value in mode.__dict__.items() %}
                     {% if key not in ['_sa_instance_state', 'id', 'platform_id'] and value and value != 0 %}
-                      {% set has_multiplayer = true %}
+                      {% do multiplayer_modes_display.append((key, value)) %}
                     {% endif %}
                   {% endfor %}
                 {% endfor %}
 
-                {% if has_multiplayer %}
+                {% if multiplayer_modes_display %}
                 <div class="card mb-4">
                   <div class="card-header">
                     <h3 class="mb-0">Modes Multijoueur</h3>
                   </div>
                   <div class="card-body">
                     <ul class="list-group list-group-flush">
-                      {% for mode in platform.multiplayer_modes %}
-                        {% for key, value in mode.__dict__.items() %}
-                          {% if key not in ['_sa_instance_state', 'id', 'platform_id'] and value and value != 0 %}
-                            <li class="list-group-item">
-                              {{ key|replace('coop', 'coopération')|replace('max', 'max')|replace('online', 'en ligne')|replace('offline', 'hors ligne')|replace('splitscreen', 'écran partagé')|capitalize }} : {{ value }}
-                            </li>
-                          {% endif %}
-                        {% endfor %}
+                      {% for key, value in multiplayer_modes_display %}
+                        <li class="list-group-item">
+                          {{ key|replace('coop', 'coopération')|replace('max', 'max')|replace('online', 'en ligne')|replace('offline', 'hors ligne')|replace('splitscreen', 'écran partagé')|capitalize }} : {{ value }}
+                        </li>
                       {% endfor %}
                     </ul>
                   </div>
