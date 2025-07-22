@@ -133,7 +133,9 @@ def console_detail(slug):
     multiplayer_modes_display = list(mode_max.items())
     
     # Top 5 jeux les mieux notés pour la console
-    top_5_games = Game.query.filter_by(platform_id=platform.id).order_by(Game.total_rating.desc()).limit(5).all()
+    top_5_games = Game.query.join(game_platform).filter(
+        game_platform.c.platform_id == platform.id
+    ).order_by(Game.total_rating.desc()).limit(5).all()
     
     return render_template(
         'console_detail.html',
