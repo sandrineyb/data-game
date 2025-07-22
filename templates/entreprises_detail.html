@@ -99,10 +99,11 @@
 
           <div class="mb-3">
             <strong>Pays :</strong>
-            <p>
-              {% if company.country %} {{ get_country_name(company.country) }}
-              {% else %} Non communiqué {% endif %}
-            </p>
+            {% if company.country %}
+            <p>{{ get_country_name(company.country) }}</p>
+            {% else %}
+            <p>Non communiqué</p>
+            {% endif %}
           </div>
 
           {% if company.company_status %}
