@@ -99,6 +99,14 @@
 
                 <!-- Debug -->
                 <p>Nombre de modes multi : {{ platform.multiplayer_modes|length }}</p>
+                <ul>
+                {% for mode in platform.multiplayer_modes %}
+                  <li>
+                    {{ mode.id }} :
+                    {{ mode.__dict__ }}
+                  </li>
+                {% endfor %}
+                </ul>
             </div>
             <div class="col-md-4">
                 <!-- Colonne de droite pour infos additionnelles (logos, entreprises, etc.) -->
