@@ -59,12 +59,15 @@
         </div>
         {% endif %}
 
+        <strong>Pays DEBUG :</strong>
+        <p>Code brut : {{ company.country }}</p>
+        <p>Nom : {{ get_country_name(company.country) }}</p>
         <div class="mb-3">
           <strong>Pays :</strong>
           {% if company.country %}
-            <p>{{ get_country_name(company.country) }}</p>
+          <p>{{ get_country_name(company.country) }}</p>
           {% else %}
-            <p>Non communiqué</p>
+          <p>Non communiqué</p>
           {% endif %}
         </div>
 
