@@ -5,7 +5,7 @@ import os
 import logging
 from datetime import datetime
 from recommendation import recommend_games
-import country_converter as coco
+from traductionpays import code_vers_nom_pays
 
 
 # Configuration des logs
@@ -28,20 +28,9 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
 
-# FOnction code ISO pays
+# Fonction code ISO pays
 def get_country_name(iso_code):
-    if not iso_code:
-        return ""
-    try:
-        # Convertit en int, même si float ou str
-        code_num = int(float(iso_code))
-        code_str = str(code_num).zfill(3)
-        name_fr = coco.convert(names=code_str, src='ISO3N', to='name_short', not_found=str(iso_code), language='fr')
-        if name_fr == code_str or name_fr == str(iso_code):
-            return ""
-        return name_fr
-    except Exception:
-        return ""
+    return code_vers_nom_pays(iso_code)
 
 
 # Gestionnaires d'erreurs globaux
