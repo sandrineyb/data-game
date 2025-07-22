@@ -45,8 +45,9 @@
     <div class="container" style="margin-top:90px;">
         <div class="row">
             <div class="col-md-8">
+                <div class="text-white">
+                    <h1>{{ game.name }}</h1>
                 <h1>{{ game.name }}</h1>
-
                 {% if game.videos %}
                 {% if game.videos|length > 0 %}
                 <div class="ratio ratio-16x9 mb-4">
@@ -72,13 +73,13 @@
                 </div>
 
                 {% if game.first_release_date %}
-                <p class="text-muted">Date de sortie : {{ game.first_release_date.strftime('%d/%m/%Y') }}</p>
+                <p class="text-muted text-white" >Date de sortie : {{ game.first_release_date.strftime('%d/%m/%Y') }}</p>
                 {% endif %}
 
                 <!-- Game Types -->
                 {% if game.game_types %}
                 <div class="mb-3">
-                    <strong>Type : </strong>
+                    <strong class="text-white">Type : </strong>
                     {% for type in game.game_types %}
                     <span class="badge bg-info me-1">{{ type.name }}</span>
                     {% endfor %}
@@ -88,7 +89,7 @@
                 <!-- Genres -->
                 {% if game.genres %}
                 <div class="mb-3">
-                    <strong>Genres : </strong>
+                    <strong class="text-white">Genres : </strong>
                     {% for genre in game.genres %}
                     <span class="badge bg-secondary me-1">{{ genre.name }}</span>
                     {% endfor %}
@@ -98,7 +99,7 @@
                 <!-- Player Perspectives -->
                 {% if game.player_perspectives %}
                 <div class="mb-3">
-                    <strong>Perspective : </strong>
+                    <strong class="text-white"> Perspective : </strong>
                     {% for perspective in game.player_perspectives %}
                     <span class="badge bg-warning text-dark me-1">{{ perspective.name }}</span>
                     {% endfor %}
