@@ -73,27 +73,33 @@
                 {% endif %}
 
                 <!-- Modes multijoueur -->
-                {% if platform.multiplayer_modes %}
+                {% set has_multiplayer = false %}
+                {% for mode in platform.multiplayer_modes %}
+                  {% for key, value in mode.__dict__.items() %}
+                    {% if key not in ['_sa_instance_state', 'id', 'platform_id'] and value and value != 0 %}
+                      {% set has_multiplayer = true %}
+                    {% endif %}
+                  {% endfor %}
+                {% endfor %}
+
+                {% if has_multiplayer %}
                 <div class="card mb-4">
-                    <div class="card-header">
-                        <h3 class="mb-0">Modes Multijoueur</h3>
-                    </div>
-                    <div class="card-body">
-                        <ul class="list-group list-group-flush">
-                            {% for mode in platform.multiplayer_modes %}
-                                {% if mode.campaingcoop %}
-                                <li class="list-group-item">Coopération en Campagne</li>
-                                {% endif %}
-                                {% if mode.lancoop %}
-                                <li class="list-group-item">Coopération en Réseau Local (LAN)</li>
-                                {% endif %}
-                                {% if mode.splitscreen %}
-                                <li class="list-group-item">Splitscreen</li>
-                                {% endif %}
-                                {# Ajoute d'autres modes si besoin #}
-                            {% endfor %}
-                        </ul>
-                    </div>
+                  <div class="card-header">
+                    <h3 class="mb-0">Modes Multijoueur</h3>
+                  </div>
+                  <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                      {% for mode in platform.multiplayer_modes %}
+                        {% for key, value in mode.__dict__.items() %}
+                          {% if key not in ['_sa_instance_state', 'id', 'platform_id'] and value and value != 0 %}
+                            <li class="list-group-item">
+                              {{ key|replace('coop', 'coopération')|replace('max', 'max')|replace('online', 'en ligne')|replace('offline', 'hors ligne')|replace('splitscreen', 'écran partagé')|capitalize }} : {{ value }}
+                            </li>
+                          {% endif %}
+                        {% endfor %}
+                      {% endfor %}
+                    </ul>
+                  </div>
                 </div>
                 {% endif %}
 
