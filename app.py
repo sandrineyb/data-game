@@ -122,7 +122,7 @@ def jeu_detail(slug):
 @app.route('/console/<slug>')
 def console_detail(slug):
     platform = Platform.query.filter_by(slug=slug).first_or_404()
-    return render_template('platform_detail.html', platform=platform)
+    return render_template('console_detail.html', platform=platform)
 
 @app.route('/entreprise/<slug>')
 def entreprise_detail(slug):
