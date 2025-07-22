@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -87,31 +86,29 @@
             />
             {% endfor %}
           </div>
-          {% endif %}
-
-          {% if company.start_date %}
+          {% endif %} {% if company.start_date %}
           <p class="text-muted">
-            Date de création : {{ company.start_date.strftime('%m/%Y') }}
+            <strong> Date de création :</strong>
+            {{ company.start_date.strftime('%m/%Y') }}
           </p>
-          {% endif %}
-
-          {% if company.country %}
+          {% endif %} {% if company.country %}
           <div class="mb-3">
             <strong>Pays : </strong>
             <p>{{ get_country_name(company.country) }}</p>
           </div>
-          {% endif %}
-
-          {% if company.company_status %}
+          {% else %}
+          <div class="mb-3">
+            <strong>Pays : </strong>
+            <p>Non communiqué</p>
+          </div>
+          {% endif %} {% if company.company_status %}
           <div class="mb-3">
             <strong>Statut : </strong>
             {% for status in company.company_status %}
             <p>{{ status.name }}</p>
             {% endfor %}
           </div>
-          {% endif %}
-
-          {% if company.description %}
+          {% endif %} {% if company.description %}
           <div class="card mb-4">
             <div class="card-header">
               <h3 class="mb-0">Description</h3>
@@ -120,9 +117,7 @@
               <p class="card-text">{{ company.description }}</p>
             </div>
           </div>
-          {% endif %}
-
-          {% if company.company_game_engine %}
+          {% endif %} {% if company.game_game_engines %}
           <div class="mb-3">
             <strong>Moteur graphique : </strong>
             {% for engine in company.company_game_engine %}
@@ -131,16 +126,18 @@
             <div class="mb-3">
               <strong>Logos moteur graphique :</strong>
               {% for logo in engine.engine_logos %}
-              <img class="badge bg-warning text-dark me-1" src="https:{{ logo.url }}" />
+              <img
+                class="badge bg-warning text-dark me-1"
+                src="https:{{ logo.url }}"
+              />
               {% endfor %}
             </div>
-            {% endif %}
-            {% endfor %}
+            {% endif %} {% endfor %}
           </div>
           {% endif %}
-        </div> 
-      </div> 
-    </div> 
+        </div>
+      </div>
+    </div>
 
     <footer class="text-center py-3 mt-5" style="background-color: #f2f2f2">
       <div class="container">
