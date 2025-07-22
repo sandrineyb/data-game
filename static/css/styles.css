@@ -4,7 +4,7 @@
 /* ---------- Rajout de Sandrine --------------------------- */
 /* Fond pixel art */
 body {
-    background-image: url("/static/img/background-pixel.png");
+    background-image: url("../img/background-pixel.png");
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;

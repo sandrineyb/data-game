@@ -14,35 +14,26 @@
 
 <body>
 
-    <!-- Wrapper centré et largeur 66% -->
-    <div class="position-fixed top-0 start-50 translate-middle-x" style="width:66%; z-index: 1030;">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent py-3 px-4">
-            <div class="container-fluid justify-content-between align-items-center">
-                <!-- Boutons à gauche -->
-                <div class="d-flex align-items-center">
-                    <a class="btn btn-primary me-2" href="{{ url_for('home') }}">Accueil</a>
-                    <a class="btn btn-primary me-2" href="{{ url_for('jeux') }}">Jeux</a>
-                    <a class="btn btn-primary me-2" href="{{ url_for('consoles') }}">Consoles</a>
-                    <a class="btn btn-primary" href="{{ url_for('entreprises') }}">Entreprises</a>
-                </div>
-                <!-- Logo centré -->
-                <div class="mx-auto">
-                    <img src="/static/img/logo.png" alt="Logo Data Game" style="height:40px;">
-                </div>
-                <!-- Bouton recherche à droite -->
-                <div class="d-flex align-items-center">
-                    <form action="{{ url_for('rechercher') }}" method="GET" class="d-flex">
-                        <input type="text" name="q" class="form-control form-control-sm me-2"
-                            placeholder="Rechercher un jeu..." aria-label="Rechercher">
-                        <button type="submit" class="btn border border-white text-white"
-                            style="background:transparent;">
-                            <i class="bi bi-search"></i>
-                        </button>
-                    </form>
-                </div>
+    <!-- Barre de navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent py-3 px-4">
+        <div class="container-fluid justify-content-between align-items-center">
+            <div>
+                <a class="btn btn-outline-light me-2" href="{{ url_for('home') }}">Accueil</a>
+                <a class="btn btn-outline-light me-2" href="{{ url_for('jeux') }}">Jeux</a>
+                <a class="btn btn-outline-light me-2" href="{{ url_for('consoles') }}">Consoles</a>
+                <a class="btn btn-outline-light" href="{{ url_for('entreprises') }}">Entreprises</a>
             </div>
-        </nav>
-    </div>
+            <div>
+                <img src="/static/img/logo.png" alt="Logo" style="height: 40px;">
+            </div>
+            <div>
+                <form action="{{ url_for('rechercher') }}" method="GET" class="d-flex">
+                    <input class="form-control form-control-sm me-2" type="text" name="q" placeholder="Rechercher">
+                    <button class="btn btn-outline-light" type="submit"><i class="bi bi-search"></i></button>
+                </form>
+            </div>
+        </div>
+    </nav>
 
     <!-- Section principale -->
     <header class="main-header text-center text-white">
