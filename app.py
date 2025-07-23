@@ -1,5 +1,5 @@
 from flask import Flask, redirect, render_template, request, url_for
-from models import db, Game, Platform, Company, Genre, game_platform, game_genre
+from models import db, Game, Platform, Company, Genre, game_platform, game_genre, game_game_engine, game_engines, company_game_engine
 from dotenv import load_dotenv
 import os
 import logging
