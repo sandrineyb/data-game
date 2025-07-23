@@ -137,8 +137,10 @@ def consoles():
 
     generations = db.session.query(
         Platform.generation).distinct().order_by(Platform.generation).all()
-    families = db.session.query(Platform.family).filter(
-        Platform.family.isnot(None)).distinct().order_by(Platform.family).all()
+    families = [
+        (fam[0].strip(),) for fam in db.session.query(Platform.family)
+        .filter(Platform.family.isnot(None)).distinct().order_by(Platform.family).all()
+    ]
 
     return render_template(
         'consoles.html',
