@@ -17,6 +17,16 @@
                     {% endfor %}
                 </select>
             </div>
+            <div class="col-md-4">
+                <select name="family" class="form-select" onchange="this.form.submit()">
+                    <option value="">Toutes les familles</option>
+                    {% for fam in families %}
+                    <option value="{{ fam[0] }}" {% if fam[0]==selected_family %}selected{% endif %}>
+                        {{ fam[0] }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
             <div class="col-md-2 d-flex align-items-end">
                 <button type="submit" class="btn btn-primary w-100 me-2">Filtrer</button>
                 <a href="{{ url_for('consoles') }}" class="btn btn-outline-secondary w-100">Réinitialiser</a>

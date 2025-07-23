@@ -88,15 +88,15 @@ def jeux():
     per_page = 25
     selected_genres = request.args.getlist('genre', type=int)
     sort = request.args.get('sort', 'date_desc')
-    
+
     query = Game.query
-    
+
     # Filtre genres
     if selected_genres:
         query = query.join(game_genre, Game.id == game_genre.c.game_id) \
                      .join(Genre, Genre.id == game_genre.c.genre_id) \
                      .filter(Genre.id.in_(selected_genres))
-    
+
     # Tri par date
     if sort == 'date_asc':
         query = query.order_by(Game.first_release_date.asc())
@@ -123,16 +123,31 @@ def consoles():
     per_page = 25
 
     query = Platform.query
-    
+
     selected_generation = request.args.get('generation', type=int)
+    selected_family = request.args.get('family', type=str)
+
     if selected_generation:
         query = query.filter(Platform.generation == selected_generation)
-    
+    if selected_family:
+        query = query.filter(Platform.family == selected_family)
+
     pagination = query.paginate(page=page, per_page=per_page)
-    
-    generations = db.session.query(Platform.generation).distinct().order_by(Platform.generation).all()
-    
-    return render_template('consoles.html', platforms=pagination.items, pagination=pagination, selected_generation=selected_generation, generations=generations)
+
+    generations = db.session.query(
+        Platform.generation).distinct().order_by(Platform.generation).all()
+    families = db.session.query(Platform.family).filter(
+        Platform.family.isnot(None)).distinct().order_by(Platform.family).all()
+
+    return render_template(
+        'consoles.html',
+        platforms=pagination.items,
+        pagination=pagination,
+        selected_generation=selected_generation,
+        generations=generations,
+        selected_family=selected_family,
+        families=families
+    )
 
 
 @app.route('/entreprises')
@@ -153,7 +168,8 @@ def jeu_detail(slug):
     # Récupérer les objets Game depuis la base SQL
     recommandations = Game.query.filter(Game.name.in_(recommended_names)).all()
 
-    return render_template('jeu_detail.html', game=game, recommandations=recommandations) 
+    return render_template('jeu_detail.html', game=game, recommandations=recommandations)
+
 
 @app.route('/console/<slug>')
 def console_detail(slug):
@@ -167,12 +183,12 @@ def console_detail(slug):
                     mode_max[key] = value
     # Transforme en liste de tuples pour le template
     multiplayer_modes_display = list(mode_max.items())
-    
+
     # Top 5 jeux les mieux notés pour la console
     top_5_games = Game.query.join(game_platform).filter(
         game_platform.c.platform_id == platform.id
     ).order_by(Game.total_rating.desc()).limit(5).all()
-    
+
     return render_template(
         'console_detail.html',
         platform=platform,
@@ -191,16 +207,8 @@ def entreprise_detail(slug):
         .join(company_game_engine, game_engines.id == company_game_engine.c.engine_id) \
         .filter(company_game_engine.c.company_id == company.id) \
         .all()
-    moteur_graphique = game_engines.query \
-        .join(company_game_engine, game_engines.id == company_game_engine.c.engine_id) \
-        .join(game_engines, game_engines.id == game_game_engine.c.engine_id) \
-        .filter(company_game_engine.c.company_id == company.id) \
-        .all()
-    logo_moteur_graphique = game_engine_logo.query \
-        .join(game_engine_logos, game_engine_logos.id == game_engine_logo.c.logo_id) \
-        .join(game_engines, game_engines.id == game_engine_logo.c.engine_id) \
-        .filter(game_engines.id.in_([engine.id for engine in moteur_graphique]))
-    return render_template('entreprises_detail.html', company=company, get_country_name=get_country_name, jeux_associes=jeux_associes, moteur_graphique=moteur_graphique, logo_moteur_graphique=logo_moteur_graphique)
+    return render_template('entreprises_detail.html', company=company, get_country_name=get_country_name, jeux_associes=jeux_associes)
+
 
 @app.route('/rechercher')
 def rechercher():
