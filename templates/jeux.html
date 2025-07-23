@@ -43,7 +43,8 @@
       <input type="number" name="date_min" class="form-control" placeholder="Année min" value="{{ date_min or '' }}">
     </div>
     <div class="col-md-2">
-      <input type="number" name="date_max" class="form-control" placeholder="Année max" value="{{ date_max or '' }}">
+      <input type="number" name="date_max" class="form-control" placeholder="Année max"
+       value="{{ date_max or current_year }}" max="{{ current_year }}">
     </div>
     <div class="col-md-4">
       <button type="submit" class="btn btn-primary w-100">Filtrer</button>
