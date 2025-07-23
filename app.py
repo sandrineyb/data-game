@@ -6,6 +6,7 @@ import logging
 from datetime import datetime
 from recommendation import recommend_games
 from traductionpays import code_vers_nom_pays
+from sqlalchemy.exc import OperationalError
 
 
 # Configuration des logs
@@ -62,6 +63,16 @@ def handle_exception(e):
     return render_template('erreur.html',
                            message="Une erreur inattendue s'est produite.",
                            error=str(e)), 500
+
+
+@app.errorhandler(OperationalError)
+def handle_db_error(e):
+    app.logger.error("Erreur base de données: %s", str(e))
+    return render_template(
+        'erreur.html',
+        message="Erreur de connexion à la base de données.",
+        error=str(e)
+    ), 500
 
 # Routes
 
@@ -145,27 +156,31 @@ def entreprise_detail(slug):
 
 @app.route('/rechercher')
 def rechercher():
-    query = request.args.get('q', '')
+    try:
+        query = request.args.get('q', '')
+        if not query:
+            return redirect(url_for('jeux'))
+        resultats = Game.query.filter(
+            Game.name.like(f'%{query}%')
+        ).limit(50).all()
 
-    if not query:
-        return redirect(url_for('jeux'))
+        # Convertir les dates si nécessaire
+        for jeu in resultats:
+            if isinstance(jeu.first_release_date, str):
+                try:
+                    jeu.first_release_date = datetime.strptime(
+                        jeu.first_release_date, '%Y-%m-%d').date()
+                except (ValueError, TypeError):
+                    pass
 
-    resultats = Game.query.filter(
-        Game.name.like(f'%{query}%')
-    ).limit(50).all()
-
-    # Convertir les dates si nécessaire
-    for jeu in resultats:
-        if isinstance(jeu.first_release_date, str):
-            try:
-                jeu.first_release_date = datetime.strptime(
-                    jeu.first_release_date, '%Y-%m-%d').date()
-            except (ValueError, TypeError):
-                pass
-
-    return render_template('resultats_recherche.html',
-                           query=query,
-                           resultats=resultats)
+        return render_template('resultats_recherche.html', query=query, resultats=resultats)
+    except Exception as e:
+        app.logger.error("Erreur dans /rechercher: %s", str(e), exc_info=True)
+        return render_template(
+            'erreur.html',
+            message="Une erreur est survenue lors de la recherche.",
+            error=str(e)
+        ), 500
 
 
 # Pour exécuter l'app en local
