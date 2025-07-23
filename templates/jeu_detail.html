@@ -31,11 +31,15 @@
                     {% endfor %}
                     {% endif %}
                 </div>
-
-                {% if game.first_release_date %}
-                <p class="text-muted text-white">Date de sortie : {{ game.first_release_date.strftime('%d/%m/%Y') }}</p>
-                {% endif %}
-
+                <span>
+                    {% if game.first_release_date and game.first_release_date != "0000-00-00" %}
+                    {% if game.first_release_date is string %}
+                    {{ game.first_release_date }}
+                    {% else %}
+                    {{ game.first_release_date.strftime('%d/%m/%Y') }}
+                    {% endif %}
+                    {% endif %}
+                </span>
                 <!-- Game Types -->
                 {% if game.game_types %}
                 <div class="mb-3">
