@@ -23,6 +23,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = (
     f"@{os.getenv('BDD_HOST')}/{os.getenv('BDD_NAME')}"
 )
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
+    'pool_pre_ping': True
+}
 
 # Initialise db avec l'app
 db.init_app(app)
