@@ -87,10 +87,7 @@ def jeux():
     page = request.args.get('page', 1, type=int)
     per_page = 25
     selected_genres = request.args.getlist('genre', type=int)
-    current_year = datetime.now().year
     sort = request.args.get('sort', 'date_desc')
-    date_min = request.args.get('date_min', type=int)
-    date_max = request.args.get('date_max', type=int)
     
     query = Game.query
     
@@ -116,10 +113,7 @@ def jeux():
         pagination=pagination,
         all_genres=all_genres,
         selected_genres=selected_genres,
-        selected_sort=sort,
-        date_min=date_min,
-        date_max=date_max,
-        current_year=current_year
+        selected_sort=sort
     )
 
 
@@ -178,13 +172,19 @@ def console_detail(slug):
     )
 
 
-
-
 @app.route('/entreprise/<slug>')
 def entreprise_detail(slug):
     company = Company.query.filter_by(slug=slug).first_or_404()
-    return render_template('entreprises_detail.html', company=company, get_country_name=get_country_name)
-
+    # Récupérer les jeux associés à l'entreprise
+    jeux_associes = Game.query \
+        .join(game_game_engine, Game.id == game_game_engine.c.game_id) \
+        .join(game_engines, game_engines.id == game_game_engine.c.engine_id) \
+        .join(company_game_engine, game_engines.id == company_game_engine.c.engine_id) \
+        .filter(company_game_engine.c.company_id == company.id) \
+        .all()
+    return render_template('entreprises_detail.html', company=company, get_country_name=get_country_name, jeux_associes=jeux_associes)
+                     
+                     
 
 @app.route('/rechercher')
 def rechercher():
