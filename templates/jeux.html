@@ -11,12 +11,27 @@
   <!-- Formulaire de filtres -->
   <form method="get" class="row g-2 mb-4">
     <div class="col-md-4">
-      <select name="genre" class="form-select" multiple size="5" onchange="this.form.submit()">
-        {% for genre in all_genres %}
-          <option value="{{ genre.id }}" {% if genre.id in selected_genres %}selected{% endif %}>{{ genre.name }}</option>
-        {% endfor %}
-      </select>
-      <small class="text-muted">Ctrl+clic pour sélectionner plusieurs genres</small>
+      <div class="dropdown">
+        <button class="btn btn-outline-secondary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          {% if selected_genres %}
+            {{ all_genres|selectattr("id", "in", selected_genres)|map(attribute="name")|join(", ") }}
+          {% else %}
+            Genres
+          {% endif %}
+        </button>
+        <ul class="dropdown-menu p-2" style="max-height: 250px; overflow-y: auto;">
+          {% for genre in all_genres %}
+            <li>
+              <label class="dropdown-item">
+                <input type="checkbox" name="genre" value="{{ genre.id }}"
+                  {% if genre.id in selected_genres %}checked{% endif %}
+                  onchange="this.form.submit()">
+                {{ genre.name }}
+              </label>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
     </div>
     <div class="col-md-4">
       <select name="sort" class="form-select" onchange="this.form.submit()">
