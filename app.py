@@ -121,9 +121,18 @@ def jeux():
 def consoles():
     page = request.args.get('page', 1, type=int)
     per_page = 25
-    app.logger.debug("Récupération des consoles page %s", page)
-    pagination = Platform.query.paginate(page=page, per_page=per_page)
-    return render_template('consoles.html', platforms=pagination.items, pagination=pagination)
+
+    query = Platform.query
+    
+    selected_generation = request.args.get('generation', type=int)
+    if selected_generation:
+        query = query.filter(Platform.generation == selected_generation)
+    
+    pagination = query.paginate(page=page, per_page=per_page)
+    
+    generations = db.session.query(Platform.generation).distinct().order_by(Platform.generation).all()
+    
+    return render_template('consoles.html', platforms=pagination.items, pagination=pagination, selected_generation=selected_generation, generations=generations)
 
 
 @app.route('/entreprises')
