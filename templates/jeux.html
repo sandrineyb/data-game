@@ -46,8 +46,9 @@
       <input type="number" name="date_max" class="form-control" placeholder="Année max"
        value="{{ date_max or current_year }}" max="{{ current_year }}">
     </div>
-    <div class="col-md-4">
-      <button type="submit" class="btn btn-primary w-100">Filtrer</button>
+    <div class="col-md-2 d-flex align-items-end">
+      <button type="submit" class="btn btn-primary w-100 me-2">Filtrer</button>
+      <a href="{{ url_for('jeux') }}" class="btn btn-outline-secondary w-100">Réinitialiser</a>
     </div>
   </form>
 
