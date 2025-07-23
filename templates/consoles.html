@@ -21,8 +21,8 @@
                 <select name="family" class="form-select" onchange="this.form.submit()">
                     <option value="">Toutes les familles</option>
                     {% for fam in families %}
-                    <option value="{{ fam[0] }}" {% if fam[0]==selected_family %}selected{% endif %}>
-                        {{ fam[0] }}
+                    <option value="{{ fam[0]|trim }}" {% if fam[0]|trim == selected_family|trim %}selected{% endif %}>
+                        {{ fam[0]|trim }}
                     </option>
                     {% endfor %}
                 </select>

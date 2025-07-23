@@ -130,6 +130,7 @@ def consoles():
     if selected_generation:
         query = query.filter(Platform.generation == selected_generation)
     if selected_family:
+        selected_family = selected_family.strip()
         query = query.filter(Platform.family == selected_family)
 
     pagination = query.paginate(page=page, per_page=per_page)
