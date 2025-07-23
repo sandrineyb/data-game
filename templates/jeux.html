@@ -11,18 +11,24 @@
   <!-- Formulaire de filtres -->
   <form method="get" class="row g-2 mb-4">
     <div class="col-md-4">
-      <select name="genre" class="form-select" onchange="this.form.submit()">
-        <option value="">Tous les genres</option>
+      <select name="genre" class="form-select" multiple size="5" onchange="this.form.submit()">
         {% for genre in all_genres %}
-        <option value="{{ genre.id }}" {% if genre.id==selected_genre %}selected{% endif %}>{{ genre.name }}</option>
+          <option value="{{ genre.id }}" {% if genre.id in selected_genres %}selected{% endif %}>{{ genre.name }}</option>
         {% endfor %}
       </select>
+      <small class="text-muted">Ctrl+clic pour sélectionner plusieurs genres</small>
     </div>
     <div class="col-md-4">
       <select name="sort" class="form-select" onchange="this.form.submit()">
         <option value="date_desc" {% if selected_sort=='date_desc' %}selected{% endif %}>Plus récents d'abord</option>
         <option value="date_asc" {% if selected_sort=='date_asc' %}selected{% endif %}>Plus anciens d'abord</option>
       </select>
+    </div>
+    <div class="col-md-2">
+      <input type="number" name="date_min" class="form-control" placeholder="Année min" value="{{ date_min or '' }}">
+    </div>
+    <div class="col-md-2">
+      <input type="number" name="date_max" class="form-control" placeholder="Année max" value="{{ date_max or '' }}">
     </div>
     <div class="col-md-4">
       <button type="submit" class="btn btn-primary w-100">Filtrer</button>

@@ -86,16 +86,16 @@ def home():
 def jeux():
     page = request.args.get('page', 1, type=int)
     per_page = 25
-    genre_id = request.args.get('genre', type=int)
+    selected_genres = request.args.getlist('genre', type=int)
     sort = request.args.get('sort', 'date_desc')
     
     query = Game.query
     
     # Filtre genres
-    if genre_id:
+    if selected_genres:
         query = query.join(game_genre, Game.id == game_genre.c.game_id) \
                      .join(Genre, Genre.id == game_genre.c.genre_id) \
-                     .filter(Genre.id == genre_id)
+                     .filter(Genre.id.in_(selected_genres))
     
     # Tri par date
     if sort == 'date_asc':
@@ -112,7 +112,7 @@ def jeux():
         games=pagination.items,
         pagination=pagination,
         all_genres=all_genres,
-        selected_genre=genre_id,
+        selected_genres=selected_genres,
         selected_sort=sort
     )
 
