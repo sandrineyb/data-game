@@ -1,5 +1,5 @@
 from flask import Flask, redirect, render_template, request, url_for
-from models import db, Game, Platform, Company, game_platform
+from models import db, Game, Platform, Company, Genre, game_platform, game_genre
 from dotenv import load_dotenv
 import os
 import logging
@@ -86,9 +86,35 @@ def home():
 def jeux():
     page = request.args.get('page', 1, type=int)
     per_page = 25
-    app.logger.debug("Récupération des jeux page %s", page)
-    pagination = Game.query.paginate(page=page, per_page=per_page)
-    return render_template('jeux.html', games=pagination.items, pagination=pagination)
+    genre_id = request.args.get('genre', type=int)
+    sort = request.args.get('sort', 'date_desc')
+    
+    query = Game.query
+    
+    # Filtre genres
+    if genre_id:
+        query = query.join(game_genre, Game.id == game_genre.c.game_id) \
+                     .join(Genre, Genre.id == game_genre.c.genre_id) \
+                     .filter(Genre.id == genre_id)
+    
+    # Tri par date
+    if sort == 'date_asc':
+        query = query.order_by(Game.first_release_date.asc())
+    else:
+        query = query.order_by(Game.first_release_date.desc())
+
+    pagination = query.paginate(page=page, per_page=per_page)
+
+    all_genres = Genre.query.order_by(Genre.name).all()
+
+    return render_template(
+        'jeux.html',
+        games=pagination.items,
+        pagination=pagination,
+        all_genres=all_genres,
+        selected_genre=genre_id,
+        selected_sort=sort
+    )
 
 
 @app.route('/consoles')
