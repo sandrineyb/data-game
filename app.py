@@ -7,6 +7,7 @@ from datetime import datetime
 from recommendation import recommend_games
 from traductionpays import code_vers_nom_pays
 from sqlalchemy.exc import OperationalError
+from sqlalchemy import func
 
 
 # Configuration des logs
@@ -131,7 +132,7 @@ def consoles():
         query = query.filter(Platform.generation == selected_generation)
     if selected_family:
         selected_family = selected_family.strip()
-        query = query.filter(Platform.family == selected_family)
+        query = query.filter(func.lower(func.trim(Platform.family)) == selected_family.lower())
 
     pagination = query.paginate(page=page, per_page=per_page)
 
