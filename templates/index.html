@@ -1,40 +1,8 @@
-<!DOCTYPE html>
-<html lang="fr">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Game</title>
+{% block title %}Data Game{% endblock %}
 
-    <!-- CSS perso + Bootstrap -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-</head>
-
-<body>
-
-    <!-- Barre de navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent py-3 px-4">
-        <div class="container-fluid justify-content-between align-items-center">
-            <div>
-                <a class="btn btn-outline-light me-2" href="{{ url_for('home') }}">Accueil</a>
-                <a class="btn btn-outline-light me-2" href="{{ url_for('jeux') }}">Jeux</a>
-                <a class="btn btn-outline-light me-2" href="{{ url_for('consoles') }}">Consoles</a>
-                <a class="btn btn-outline-light" href="{{ url_for('entreprises') }}">Entreprises</a>
-            </div>
-            <div>
-                <img src="/static/img/logo.png" alt="Logo" style="height: 40px;">
-            </div>
-            <div>
-                <form action="{{ url_for('rechercher') }}" method="GET" class="d-flex">
-                    <input class="form-control form-control-sm me-2" type="text" name="q" placeholder="Rechercher">
-                    <button class="btn btn-outline-light" type="submit"><i class="bi bi-search"></i></button>
-                </form>
-            </div>
-        </div>
-    </nav>
-
+{% block content %}
     <!-- Section principale -->
     <header class="main-header text-center text-white">
         <h1 class="display-4">Bienvenue dans l’univers Data Game</h1>
@@ -75,11 +43,5 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="text-center text-white py-3">
-        <p class="mb-0">© 2025 Data Game. Tous droits réservés.</p>
-    </footer>
+{% endblock %}
 
-</body>
-
-</html>
