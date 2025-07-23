@@ -3,39 +3,8 @@
 {% block title %}Entrprises - Data Game{% endblock %}
 
 {% block content %}
-  <!-- Wrapper centré et largeur 66% -->
-  <div class="position-fixed top-0 start-50 translate-middle-x" style="width: 66%; z-index: 1030">
-    <nav class="navbar navbar-expand-lg bg-primary rounded-pill my-3 px-4 py-2 shadow">
-      <div class="container-fluid justify-content-between align-items-center">
-        <!-- Boutons à gauche -->
-        <div class="d-flex align-items-center">
-          <a class="btn btn-primary me-2" href="{{ url_for('home') }}">Accueil</a>
-          <a class="btn btn-primary me-2" href="{{ url_for('jeux') }}">Jeux</a>
-          <a class="btn btn-primary me-2" href="{{ url_for('consoles') }}">Consoles</a>
-          <a class="btn btn-primary" href="{{ url_for('entreprises') }}">Entreprises</a>
-        </div>
-        <!-- Logo centré -->
-        <div class="mx-auto">
-          <img src="/static/img/logo.png" alt="Logo Data Game" style="height: 40px" />
-        </div>
-        <!-- Bouton recherche à droite -->
-        <div class="d-flex align-items-center">
-          <form action="{{ url_for('rechercher') }}" method="GET" class="d-flex">
-            <input type="text" name="q" class="form-control form-control-sm me-2" placeholder="Rechercher un jeu..."
-              aria-label="Rechercher" />
-            <button type="submit" class="btn border border-white text-white" style="background: transparent">
-              <i class="bi bi-search"></i>
-            </button>
-          </form>
-        </div>
-      </div>
-    </nav>
-  </div>
   <!-- Ajoute un margin-top sur .container pour ne pas cacher le contenu sous la navbar -->
   <div class="container" style="margin-top: 90px">
-
-
-
     <!-- Liste Bootstrap avec list-group -->
     <div class="list-group mb-4">
       {% for company in companies %}

@@ -151,7 +151,7 @@ def rechercher():
         return redirect(url_for('jeux'))
 
     resultats = Game.query.filter(
-        Game.name.like(f'%{query}%')
+        Game.name.like(f'%{query}%').limit(50).all()
     ).all()
 
     # Convertir les dates si nécessaire
