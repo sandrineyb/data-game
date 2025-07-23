@@ -16,23 +16,23 @@
                         <h3 class="mb-0">Résumé</h3>
                     </div>
                     <div class="card-body">
-                        <p class="card-text">{{ platform.summary }}</p>
+                        <p class="card-text text-light">{{ platform.summary }}</p>
                     </div>
                 </div>
                 {% endif %}
 
                 <!-- 3. Métadonnées -->
                 {% if platform.family %}
-                <p class="text-muted">Famille : {{ platform.family }}</p>
+                <p class="text-light">Famille : {{ platform.family }}</p>
                 {% endif %}
                 {% if platform.generation %}
-                <p class="text-muted">Génération : {{ platform.generation }}</p>
+                <p class="text-light">Génération : {{ platform.generation }}</p>
                 {% endif %}
                 {% if platform.type %}
-                <p class="text-muted">Type : {{ platform.type }}</p>
+                <p class="text-light">Type : {{ platform.type }}</p>
                 {% endif %}
                 {% if platform.alternative_name %}
-                <p class="text-muted">Nom alternatif : {{ platform.alternative_name }}</p>
+                <p class="text-light">Nom alternatif : {{ platform.alternative_name }}</p>
                 {% endif %}
 
                 <!-- 4. Versions -->
@@ -55,8 +55,8 @@
                         <ul class="list-group list-group-flush">
                             {% for key, value in multiplayer_modes_display %}
                             <li class="list-group-item">
-                                {{ key|replace('coop', ' coopération')|replace('max', ' max')|replace('online', ' en
-                                ligne')|replace('offline', ' hors ligne')|replace('splitscreen', ' écran
+                                {{ key|replace('coop', ' Coopération')|replace('max', ' Max')|replace('online', ' En
+                                ligne')|replace('offline', ' Hors ligne')|replace('splitscreen', ' Ecran
                                 partagé')|capitalize }} : {{ value }}
                             </li>
                             {% endfor %}
