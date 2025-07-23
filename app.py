@@ -158,11 +158,9 @@ def rechercher():
     for jeu in resultats:
         if isinstance(jeu.first_release_date, str):
             try:
-                # Supposant que le format est YYYY-MM-DD
                 jeu.first_release_date = datetime.strptime(
                     jeu.first_release_date, '%Y-%m-%d').date()
             except (ValueError, TypeError):
-                # Gardez-le tel quel si la conversion échoue
                 pass
 
     return render_template('resultats_recherche.html',
