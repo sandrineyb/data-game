@@ -1,5 +1,5 @@
 from flask import Flask, redirect, render_template, request, url_for
-from models import db, Game, Platform, Company, Genre, game_platform, game_genre, game_game_engine, company_game_engine, game_engine_logo
+from models import db, Game, Platform, Company, Genre, GameEngine, game_platform, game_genre, game_game_engine, company_game_engine, game_engine_logo
 from dotenv import load_dotenv
 import os
 import logging
@@ -207,8 +207,8 @@ def entreprise_detail(slug):
     # Récupérer les jeux associés à l'entreprise
     jeux_associes = Game.query \
         .join(game_game_engine, Game.id == game_game_engine.c.game_id) \
-        .join(game_engines, game_engines.id == game_game_engine.c.engine_id) \
-        .join(company_game_engine, game_engines.id == company_game_engine.c.engine_id) \
+        .join(GameEngine, GameEngine.id == game_game_engine.c.engine_id) \
+        .join(company_game_engine, GameEngine.id == company_game_engine.c.engine_id) \
         .filter(company_game_engine.c.company_id == company.id) \
         .all()
     return render_template('entreprises_detail.html', company=company, get_country_name=get_country_name, jeux_associes=jeux_associes)
