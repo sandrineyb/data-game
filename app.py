@@ -87,7 +87,10 @@ def jeux():
     page = request.args.get('page', 1, type=int)
     per_page = 25
     selected_genres = request.args.getlist('genre', type=int)
+    current_year = datetime.now().year
     sort = request.args.get('sort', 'date_desc')
+    date_min = request.args.get('date_min', type=int)
+    date_max = request.args.get('date_max', type=int)
     
     query = Game.query
     
@@ -113,7 +116,10 @@ def jeux():
         pagination=pagination,
         all_genres=all_genres,
         selected_genres=selected_genres,
-        selected_sort=sort
+        selected_sort=sort,
+        date_min=date_min,
+        date_max=date_max,
+        current_year=current_year
     )
 
 
