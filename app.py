@@ -174,6 +174,14 @@ def entreprises():
     pagination = Company.query.paginate(page=page, per_page=per_page)
     return render_template('entreprises.html', companies=pagination.items, pagination=pagination)
 
+@app.route('/moteurs-graphique')
+def engines():
+    page = request.args.get('page', 1, type=int)
+    per_page = 20
+    app.logger.debug("Récupération des Game engines page %s", page)
+    pagination = GameEngine.query.paginate(page=page, per_page=per_page)
+    return render_template('moteurs_graphique.html', engines=pagination.items, pagination=pagination)
+
 
 @app.route('/jeu/<slug>')
 def jeu_detail(slug):
@@ -183,8 +191,6 @@ def jeu_detail(slug):
 
     # Récupérer les objets Game depuis la base SQL
     recommandations = Game.query.filter(Game.name.in_(recommended_names)).all()
-
-
 
     return render_template('jeu_detail.html', game=game, recommandations=recommandations)
 
@@ -223,16 +229,16 @@ def entreprise_detail(slug):
         .join(company_game_engine) \
         .filter(company_game_engine.c.company_id == company.id) \
         .all()
+    
+    return render_template('entreprises_detail.html', company=company, get_country_name=get_country_name, jeux_associes=jeux_associes)
 
-    engines = company.game_engines  # liste d’objets GameEngine liés
 
-    return render_template(
-        'entreprises_detail.html',
-        company=company,
-        jeux_associes=jeux_associes,
-        game_engines=engines,
-        get_country_name=get_country_name
-    )
+@app.route('/moteur-graphique/<slug>')
+def engines_detail(slug):
+    engines = GameEngine.query.filter_by(slug=slug).first_or_404()
+    
+    return render_template('moteur_graphique_detail.html', engines=engines)
+
 
 @app.route('/rechercher')
 def rechercher():

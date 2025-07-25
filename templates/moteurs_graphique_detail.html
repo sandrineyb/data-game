@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}{{ engines.name }} - Data Game{% endblock %}
+
+{% block content %}
+<div class="container" style="margin-top:90px;">
+  <div class="row">
+    <div class="col-md-8">
+      <h1>{{ engines.name }}</h1>
+      {% if engines.logos %}
+        <div class="mb-3">
+          {% for logo in engines.logos %}
+            <img src="https:{{ logo.url }}" alt="Logo {{ engines.name }}" style="height:60px; width:auto; margin-right:10px;">
+          {% endfor %}
+        </div>
+      {% endif %}
+      {% if engines.description %}
+        <div class="card mb-4">
+          <div class="card-header">
+            <h3 class="mb-0">Description</h3>
+          </div>
+          <div class="card-body">
+            <p class="card-text">{{ engines.description }}</p>
+          </div>
+        </div>
+      {% endif %}
+      {% if engines.games %}
+        <div class="card mb-4">
+          <div class="card-header">
+            <h3 class="mb-0">Jeux utilisant ce moteur</h3>
+          </div>
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              {% for game in engines.games %}
+                <li class="list-group-item">
+                  <a href="{{ url_for('jeu_detail', slug=game.slug) }}">{{ game.name }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

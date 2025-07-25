@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Moteurs graphiques - Data Game{% endblock %}
+
+{% block content %}
+<div class="container" style="margin-top:90px;">
+  <h2 class="mb-4">Liste des moteurs graphiques</h2>
+  <div class="list-group mb-4">
+    {% for engine in engines %}
+      <a href="{{ url_for('engines_detail', slug=engine.slug) }}" class="list-group-item list-group-item-action">
+        <div class="d-flex align-items-center">
+          <h5 class="mb-1 me-2">{{ engine.name }}</h5>
+          {% if engine.logos %}
+            {% for logo in engine.logos %}
+              <img src="https:{{ logo.url }}" alt="Logo {{ engine.name }}" style="height:30px; width:auto; margin-left:10px;">
+            {% endfor %}
+          {% endif %}
+        </div>
+        {% if engine.description %}
+          <p class="text-truncate text-muted small mt-1">{{ engine.description }}</p>
+        {% endif %}
+      </a>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
