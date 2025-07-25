@@ -1,11 +1,10 @@
 {% extends "base.html" %} {% block title %}{{ company.name }} - Data Game{%
 endblock %} {% block content %}
-
 <div class="container" style="margin-top: 90px">
   <div class="row">
     <div class="col-md-8">
       <h1 class="text-white">{{ company.name }}</h1>
-      <h1 class="text-white"></h1>
+
       {% if company.company_logos %}
       <div class="mb-3">
         <strong>Logos :</strong>
@@ -55,28 +54,30 @@ endblock %} {% block content %}
       {% endif %}
 
       <!-- Jeux développés -->
-      {% if jeux_associes %}
       <div class="mb-3">
         <strong>Jeux développés :</strong>
+        {% if jeux_associes %}
         <ul>
           {% for jeu in jeux_associes %}
           <li>
             <a
               href="{{ url_for('jeu_detail', slug=jeu.slug) }}"
               class="text-white"
-              >{{ jeu.name }}</a
             >
+              {{ jeu.name }}
+            </a>
           </li>
           {% endfor %}
         </ul>
+        {% else %}
+        <span class="text-muted">Aucun</span>
+        {% endif %}
       </div>
-      {% else %}
+
+      <!-- Moteurs graphiques -->
+      {% if game_engines is defined and game_engines %}
       <div class="mb-3">
-        <strong>Jeux développés :</strong> <span class="text-muted">Aucun</span>
-      </div>
-      {% endif %} {% if company.game_engines %}
-      <div class="mb-3">
-        <strong>Moteur graphique :</strong>
+        <strong>Moteurs graphiques :</strong>
         <ul>
           {% for engine in game_engines %}
           <li>
@@ -95,7 +96,7 @@ endblock %} {% block content %}
       </div>
       {% else %}
       <div class="mb-3">
-        <strong>Moteur graphique :</strong>
+        <strong>Moteurs graphiques :</strong>
         <span class="text-muted">Aucun</span>
       </div>
       {% endif %}
