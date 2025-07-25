@@ -89,6 +89,8 @@ def jeux():
     per_page = 25
     selected_genres = request.args.getlist('genre', type=int)
     sort = request.args.get('sort', 'date_desc')
+    date_min = request.args.get('date_min', type=int)
+    date_max = request.args.get('date_max', type=int)
 
     query = Game.query
 
@@ -97,6 +99,12 @@ def jeux():
         query = query.join(game_genre, Game.id == game_genre.c.game_id) \
                      .join(Genre, Genre.id == game_genre.c.genre_id) \
                      .filter(Genre.id.in_(selected_genres))
+
+    # Filtre dates
+    if date_min:
+        query = query.filter(Game.first_release_date >= f"{date_min}-01-01")
+    if date_max:
+        query = query.filter(Game.first_release_date <= f"{date_max}-12-31")
 
     # Tri par date
     if sort == 'date_asc':
@@ -114,7 +122,10 @@ def jeux():
         pagination=pagination,
         all_genres=all_genres,
         selected_genres=selected_genres,
-        selected_sort=sort
+        selected_sort=sort,
+        date_min=date_min,
+        date_max=date_max,
+        current_year=datetime.now().year
     )
 
 
