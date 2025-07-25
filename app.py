@@ -228,6 +228,8 @@ def entreprise_detail(slug):
         .join(game_game_engine).join(GameEngine) \
         .join(company_game_engine) \
         .filter(company_game_engine.c.company_id == company.id) \
+        .order_by(Game.total_rating.desc()) \
+        .limit(5) \
         .all()
     
     return render_template('entreprises_detail.html', company=company, get_country_name=get_country_name, jeux_associes=jeux_associes)
