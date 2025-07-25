@@ -218,17 +218,21 @@ def console_detail(slug):
 @app.route('/entreprise/<slug>')
 def entreprise_detail(slug):
     company = Company.query.filter_by(slug=slug).first_or_404()
-    # Récupérer les jeux associés à l'entreprise
     jeux_associes = Game.query \
-        .join(game_game_engine, Game.id == game_game_engine.c.game_id) \
-        .join(GameEngine, GameEngine.id == game_game_engine.c.engine_id) \
-        .join(company_game_engine, GameEngine.id == company_game_engine.c.engine_id) \
+        .join(game_game_engine).join(GameEngine) \
+        .join(company_game_engine) \
         .filter(company_game_engine.c.company_id == company.id) \
         .all()
-    
 
-    
-    return render_template('entreprises_detail.html', company=company, get_country_name=get_country_name, jeux_associes=jeux_associes)
+    engines = company.game_engines  # liste d’objets GameEngine liés
+
+    return render_template(
+        'entreprises_detail.html',
+        company=company,
+        jeux_associes=jeux_associes,
+        game_engines=engines,
+        get_country_name=get_country_name
+    )
 
 @app.route('/rechercher')
 def rechercher():
@@ -252,7 +256,7 @@ def rechercher():
                 except (ValueError, TypeError):
                     pass
 
-        return render_template('resultats_recherche.html', query=query, jeux=jeux, consoles=consoles, entreprises=entreprises,  engines=engines, get_country_name=get_country_name)
+        return render_template('resultats_recherche.html', query=query, jeux=jeux, consoles=consoles, entreprises=entreprises,  engines=engines)
     except Exception as e:
         app.logger.error("Erreur dans /rechercher: %s", str(e), exc_info=True)
         return render_template(
