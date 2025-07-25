@@ -8,7 +8,43 @@
         <!-- Colonne principale : infos du jeu -->
         <div class="col-md-8">
             <div class="text-white">
-                <h1>{{ game.name }}</h1>
+                <!-- Titre, note et date -->
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h1 class="mb-0">{{ game.name }}</h1>
+                    <div class="text-end">
+                        {% if game.total_rating %}
+                        <span class="badge bg-primary mb-1" style="font-size:1.2rem;">{{ "%.1f"|format(game.total_rating) }}/100</span><br>
+                        {% endif %}
+                        {% if game.first_release_date and game.first_release_date != "0000-00-00" %}
+                        <small class="text-muted">
+                            {% if game.first_release_date is string %}
+                                {{ game.first_release_date }}
+                            {% else %}
+                                {{ game.first_release_date.strftime('%d/%m/%Y') }}
+                            {% endif %}
+                        </small>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Badges category, genres, perspectives -->
+                <div class="mb-3">
+                    {% if game.game_types %}
+                        {% for type in game.game_types %}
+                        <span class="badge bg-info me-1">{{ type.name }}</span>
+                        {% endfor %}
+                    {% endif %}
+                    {% if game.genres %}
+                        {% for genre in game.genres %}
+                        <span class="badge bg-secondary me-1">{{ genre.name }}</span>
+                        {% endfor %}
+                    {% endif %}
+                    {% if game.player_perspectives %}
+                        {% for perspective in game.player_perspectives %}
+                        <span class="badge bg-warning text-dark me-1">{{ perspective.name }}</span>
+                        {% endfor %}
+                    {% endif %}
+                </div>
 
                 <!-- Vidéo YouTube -->
                 {% if game.videos and game.videos|length > 0 %}
@@ -17,60 +53,6 @@
                         title="{{ game.videos[0].name }}"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
-                </div>
-                {% endif %}
-
-                <!-- Notes + Âge -->
-                <div class="d-flex align-items-center mb-3">
-                    {% if game.total_rating %}
-                    <span class="badge bg-primary me-2">{{ "%.1f"|format(game.total_rating) }}/100</span>
-                    {% endif %}
-
-                    {% if game.age_ratings %}
-                    {% for rating in game.age_ratings %}
-                    <span class="badge bg-danger me-2">{{ rating.organization }} {{ rating.age }}</span>
-                    {% endfor %}
-                    {% endif %}
-                </div>
-
-                <!-- Date de sortie -->
-                <span>
-                    {% if game.first_release_date and game.first_release_date != "0000-00-00" %}
-                        {% if game.first_release_date is string %}
-                        {{ game.first_release_date }}
-                        {% else %}
-                        {{ game.first_release_date.strftime('%d/%m/%Y') }}
-                        {% endif %}
-                    {% endif %}
-                </span>
-
-                <!-- Types -->
-                {% if game.game_types %}
-                <div class="mb-3">
-                    <strong class="text-white">Type : </strong>
-                    {% for type in game.game_types %}
-                    <span class="badge bg-info me-1">{{ type.name }}</span>
-                    {% endfor %}
-                </div>
-                {% endif %}
-
-                <!-- Genres -->
-                {% if game.genres %}
-                <div class="mb-3">
-                    <strong class="text-white">Genres : </strong>
-                    {% for genre in game.genres %}
-                    <span class="badge bg-secondary me-1">{{ genre.name }}</span>
-                    {% endfor %}
-                </div>
-                {% endif %}
-
-                <!-- Perspectives -->
-                {% if game.player_perspectives %}
-                <div class="mb-3">
-                    <strong class="text-white">Perspective : </strong>
-                    {% for perspective in game.player_perspectives %}
-                    <span class="badge bg-warning text-dark me-1">{{ perspective.name }}</span>
-                    {% endfor %}
                 </div>
                 {% endif %}
 
