@@ -43,7 +43,7 @@ endblock %} {% block content %}
         </p>
       </div>
       {% endif %} {% if company.description %}
-      <div class="card mb-4 bg-secondary text-white">
+      <div class="card mb-4">
         <div class="card-header">
           <h3 class="mb-0">Description</h3>
         </div>
@@ -68,25 +68,24 @@ endblock %} {% block content %}
               style="height: 40px"
               alt="Logo moteur graphique"
             />
-            {% endfor %} {% else %}
-            <span class="text-muted text-white"
-              >— moteur graphique d’une autre compagnie</span
-            >
-            {% endif %}
+            {% endfor %} {% endif %}
           </li>
-          {% endfor %}
         </ul>
       </div>
       {% else %}
       <div class="mb-3">
         <strong>Moteurs graphiques :</strong>
-        <span class="text-muted text-white">Aucun</span>
+        <span class="text-muted text-white"
+          >moteur graphique d’une autre compagnie</span
+        >
       </div>
       {% endif %}
 
       <!-- Jeux avec le même moteur graphique -->
-      <div class="mb-3">
-        <strong>Jeux avec le même moteur graphique :</strong>
+      <div class="mb-4">
+        <div class="card-header">
+          <h3 class="mb-0">Jeux avec le même moteur graphique :</h3>
+        </div>
         {% if jeux_associes %}
         <ul>
           {% for jeu in jeux_associes %}
