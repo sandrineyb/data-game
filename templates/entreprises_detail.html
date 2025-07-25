@@ -7,7 +7,7 @@ endblock %} {% block content %}
 
       {% if company.company_logos %}
       <div class="mb-3">
-        <strong>Logos :</strong>
+        <strong>Logos :</strong>
         {% for logo in company.company_logos %}
         <img
           src="https:{{ logo.url }}"
@@ -19,13 +19,13 @@ endblock %} {% block content %}
       </div>
       {% endif %} {% if company.start_date %}
       <div class="mb-3">
-        <strong>Date de création :</strong>
+        <strong>Date de création :</strong>
         {{ company.start_date.strftime('%m/%Y') }}
       </div>
       {% endif %}
 
       <div class="mb-3">
-        <strong>Pays :</strong>
+        <strong>Pays :</strong>
         {% if company.country %}
         <p>{{ get_country_name(company.country) }}</p>
         {% else %}
@@ -35,7 +35,7 @@ endblock %} {% block content %}
 
       {% if company.company_status %}
       <div class="mb-3">
-        <strong>Statut :</strong>
+        <strong>Statut :</strong>
         <p>
           {% for status in company.company_status %}
           <span class="badge bg-secondary me-1">{{ status.name }}</span>
@@ -53,31 +53,10 @@ endblock %} {% block content %}
       </div>
       {% endif %}
 
-      <!-- Jeux développés -->
-      <div class="mb-3">
-        <strong>Jeux développés :</strong>
-        {% if jeux_associes %}
-        <ul>
-          {% for jeu in jeux_associes %}
-          <li>
-            <a
-              href="{{ url_for('jeu_detail', slug=jeu.slug) }}"
-              class="text-white"
-            >
-              {{ jeu.name }}
-            </a>
-          </li>
-          {% endfor %}
-        </ul>
-        {% else %}
-        <span class="text-muted">Aucun</span>
-        {% endif %}
-      </div>
-
       <!-- Moteurs graphiques -->
       {% if game_engines is defined and game_engines %}
       <div class="mb-3">
-        <strong>Moteurs graphiques :</strong>
+        <strong>Moteurs graphiques :</strong>
         <ul>
           {% for engine in game_engines %}
           <li>
@@ -96,10 +75,31 @@ endblock %} {% block content %}
       </div>
       {% else %}
       <div class="mb-3">
-        <strong>Moteurs graphiques :</strong>
+        <strong>Moteurs graphiques :</strong>
         <span class="text-muted">Aucun</span>
       </div>
       {% endif %}
+
+      <!-- Jeux développés -->
+      <div class="mb-3">
+        <strong>Jeux développés :</strong>
+        {% if jeux_associes %}
+        <ul>
+          {% for jeu in jeux_associes %}
+          <li>
+            <a
+              href="{{ url_for('jeu_detail', slug=jeu.slug) }}"
+              class="text-white"
+            >
+              {{ jeu.name }}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <span class="text-muted">Aucun</span>
+        {% endif %}
+      </div>
     </div>
   </div>
 </div>
