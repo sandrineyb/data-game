@@ -74,6 +74,7 @@
           {% for engine in engines %}
             <div class="list-group-item">
               <div class="d-flex align-items-center">
+                <a href="{{ url_for('engines', slug=engines.slug) }}" class="list-group-item list-group-item-action"></a>
                 <h5 class="mb-1 me-2">{{ engine.name }}</h5>
                 {% if engine.logos %}
                   {% for logo in engine.logos %}
