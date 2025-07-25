@@ -17,7 +17,7 @@
                             "%.1f"|format(game.total_rating) }}/100</span><br>
                         {% endif %}
                         {% if game.first_release_date and game.first_release_date != "0000-00-00" %}
-                        <small class="text-white">
+                        <small class="badge bg text-white">
                             {% if game.first_release_date is string %}
                             {{ game.first_release_date }}
                             {% else %}
@@ -161,6 +161,10 @@
                                 {{ rec.name }}
                             </a>
                         </h6>
+                        {% if game.total_rating %}
+                        <span class="badge bg-primary mb-1" style="font-size:1.2rem;">{{
+                            "%.1f"|format(game.total_rating) }}/100</span><br>
+                        {% endif %}
                         {% if rec.genres %}
                         <div class="mb-1" style="font-size: 0.85rem;">
                             {% for genre in rec.genres %}
