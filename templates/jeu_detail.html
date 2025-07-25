@@ -98,43 +98,46 @@
                 </div>
                 {% endif %}
 
-                <!-- platform -->
-                {% if game.platform %}
+                <!-- Game Engines et logos -->
+                {% if game.game_engines %}
                 <div class="card mb-4">
                     <div class="card-header">
-                        <h3 class="mb-0">Langues disponibles</h3>
+                        <h3 class="mb-0">Moteur graphique</h3>
                     </div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
-                            {% for platform_name in game.platform %}
-                            <li class="list-group-item">{{ platform_name }}</li>
+                            {% for engine in game.game_engines %}
+                            <li class="list-group-item d-flex align-items-center">
+                                <span>{{ engine.name }}</span>
+                                {% if engine.logos %}
+                                {% for logo in engine.logos %}
+                                <img src="https:{{ logo.url }}" alt="Logo {{ engine.name }}"
+                                    style="height:40px; width:auto; margin-left:10px;">
+                                {% endfor %}
+                                {% endif %}
+                            </li>
                             {% endfor %}
                         </ul>
                     </div>
                 </div>
                 {% endif %}
 
-                <!-- multiplayer -->
-                {% if game.multiplayer %}
+                <!-- Plateformes -->
+                {% if game.platforms %}
                 <div class="card mb-4">
                     <div class="card-header">
-                        <h3 class="mb-0">Modes Multijoueur</h3>
+                        <h3 class="mb-0">Disponible sur :</h3>
                     </div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
-                            {% if game.multiplayer.campaingcoop %}
-                            <li class="list-group-item">Coopération en Campagne</li>
-                            {% endif %}
-
-                            {% if game.multiplayer.lancoop %}
-                            <li class="list-group-item">Coopération en Réseau Local (LAN)</li>
-                            {% endif %}
-
-                            {# Ajoute ici d'autres modes si besoin #}
+                            {% for platform in game.platforms %}
+                            <li class="list-group-item">{{ platform.name }}</li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>
                 {% endif %}
+                
                 <!-- Jeux similaires -->
                 {% if recommandations %}
                 <div class="card mb-4">
