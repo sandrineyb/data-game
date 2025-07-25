@@ -29,11 +29,10 @@
                 </div>
 
                 <!-- Badges category, genres, perspectives -->
-                {# Détection du français #}
-                {% set has_fr = false %}
+                {% set ns = namespace(has_fr=false) %}
                 {% for lang in game.languages %}
                     {% if 'fr' in lang.name|lower or (lang.native_name and 'fr' in lang.native_name|lower) %}
-                        {% set has_fr = true %}
+                        {% set ns.has_fr = true %}
                     {% endif %}
                 {% endfor %}
 
@@ -53,9 +52,9 @@
                         <span class="badge bg-warning text-dark me-1 mb-1">{{ perspective.name }}</span>
                         {% endfor %}
                     {% endif %}
-                    <span class="badge bg-primary ms-2 align-middle">
+                    <span class="badge bg-secondary ms-2 align-middle">
                         <span class="fw-bold">FR</span>
-                        {% if has_fr %}
+                        {% if ns.has_fr %}
                             <span class="material-symbols-outlined text-success align-middle" style="font-size:1.2em;vertical-align:middle;">check</span>
                         {% else %}
                             <span class="material-symbols-outlined text-danger align-middle" style="font-size:1.2em;vertical-align:middle;">close</span>

@@ -60,16 +60,19 @@ endblock %} {% block content %}
         <ul>
           {% for engine in game_engines %}
           <li>
-            {{ engine.name }} {% if engine.logos and engine.logos|length > 0 %}
-            {% for logo in engine.logos %}
-            <img
-              src="https:{{ logo.url }}"
-              class="me-2"
-              style="height: 40px"
-              alt="Logo moteur graphique"
-            />
-            {% endfor %} {% endif %}
+            {{ engine.name }}
+            {% if engine.logos and engine.logos|length > 0 %}
+              {% for logo in engine.logos %}
+                <img
+                  src="https:{{ logo.url }}"
+                  class="me-2"
+                  style="height: 40px"
+                  alt="Logo moteur graphique"
+                />
+              {% endfor %}
+            {% endif %}
           </li>
+          {% endfor %}
         </ul>
       </div>
       {% else %}
