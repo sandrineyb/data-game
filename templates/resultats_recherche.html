@@ -8,41 +8,85 @@
         <!-- Jeux -->
         {% if jeux %}
         <h3>Jeux</h3>
-        <ul>
+        <div class="list-group mb-4">
           {% for jeu in jeux %}
-            <li><a href="{{ url_for('jeu_detail', slug=jeu.slug) }}">{{ jeu.name }}</a></li>
+            <a href="{{ url_for('jeu_detail', slug=jeu.slug) }}" class="list-group-item list-group-item-action">
+              <div class="d-flex justify-content-between align-items-center">
+                <h5 class="mb-1">{{ jeu.name }}</h5>
+                {% if jeu.first_release_date %}
+                  <small class="text-muted">
+                    {% if jeu.first_release_date is string %}
+                      {{ jeu.first_release_date }}
+                    {% else %}
+                      {{ jeu.first_release_date.strftime('%d/%m/%Y') }}
+                    {% endif %}
+                  </small>
+                {% endif %}
+              </div>
+              {% if jeu.summary %}
+                <p class="text-truncate text-muted small mt-1">{{ jeu.summary }}</p>
+              {% endif %}
+            </a>
           {% endfor %}
-        </ul>
+        </div>
         {% endif %}
 
         <!-- Consoles -->
         {% if consoles %}
         <h3>Consoles</h3>
-        <ul>
+        <div class="list-group mb-4">
           {% for console in consoles %}
-            <li><a href="{{ url_for('console_detail', slug=console.slug) }}">{{ console.name }}</a></li>
+            <a href="{{ url_for('console_detail', slug=console.slug) }}" class="list-group-item list-group-item-action">
+              <div class="d-flex justify-content-between align-items-center">
+                <h5 class="mb-1">{{ console.name }}</h5>
+                <small class="text-muted">{{ console.family }}</small>
+              </div>
+              {% if console.generation %}
+                <small class="text-muted">Génération : {{ console.generation }}</small>
+              {% endif %}
+              {% if console.summary %}
+                <p class="text-truncate text-muted small mt-1">{{ console.summary }}</p>
+              {% endif %}
+            </a>
           {% endfor %}
-        </ul>
+        </div>
         {% endif %}
 
         <!-- Entreprises -->
         {% if entreprises %}
         <h3>Entreprises</h3>
-        <ul>
+        <div class="list-group mb-4">
           {% for entreprise in entreprises %}
-            <li><a href="{{ url_for('entreprise_detail', slug=entreprise.slug) }}">{{ entreprise.name }}</a></li>
+            <a href="{{ url_for('entreprise_detail', slug=entreprise.slug) }}" class="list-group-item list-group-item-action">
+              <h5 class="mb-1">{{ entreprise.name }}</h5>
+              {% if entreprise.country %}
+                <small class="text-muted">{{ get_country_name(entreprise.country) }}</small>
+              {% endif %}
+            </a>
           {% endfor %}
-        </ul>
+        </div>
         {% endif %}
 
         <!-- Game Engines -->
         {% if engines %}
         <h3>Moteurs graphiques</h3>
-        <ul>
+        <div class="list-group mb-4">
           {% for engine in engines %}
-            <li>{{ engine.name }}</li>
+            <div class="list-group-item">
+              <div class="d-flex align-items-center">
+                <h5 class="mb-1 me-2">{{ engine.name }}</h5>
+                {% if engine.logos %}
+                  {% for logo in engine.logos %}
+                    <img src="https:{{ logo.url }}" alt="Logo {{ engine.name }}" style="height:30px; width:auto; margin-left:10px;">
+                  {% endfor %}
+                {% endif %}
+              </div>
+              {% if engine.summary %}
+                <p class="text-truncate text-muted small mt-1">{{ engine.summary }}</p>
+              {% endif %}
+            </div>
           {% endfor %}
-        </ul>
+        </div>
         {% endif %}
     </div>
 {% endblock %}
