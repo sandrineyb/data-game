@@ -5,11 +5,13 @@
 {% block content %}
 <div class="container" style="margin-top:90px;">
     <div class="row">
+        <!-- Colonne principale : infos du jeu -->
         <div class="col-md-8">
             <div class="text-white">
                 <h1>{{ game.name }}</h1>
-                {% if game.videos %}
-                {% if game.videos|length > 0 %}
+
+                <!-- Vidéo YouTube -->
+                {% if game.videos and game.videos|length > 0 %}
                 <div class="ratio ratio-16x9 mb-4">
                     <iframe src="https://www.youtube.com/embed/{{ game.videos[0].video_id }}"
                         title="{{ game.videos[0].name }}"
@@ -17,30 +19,32 @@
                         allowfullscreen></iframe>
                 </div>
                 {% endif %}
-                {% endif %}
 
+                <!-- Notes + Âge -->
                 <div class="d-flex align-items-center mb-3">
                     {% if game.total_rating %}
                     <span class="badge bg-primary me-2">{{ "%.1f"|format(game.total_rating) }}/100</span>
                     {% endif %}
 
-                    <!-- Age Ratings -->
                     {% if game.age_ratings %}
                     {% for rating in game.age_ratings %}
                     <span class="badge bg-danger me-2">{{ rating.organization }} {{ rating.age }}</span>
                     {% endfor %}
                     {% endif %}
                 </div>
+
+                <!-- Date de sortie -->
                 <span>
                     {% if game.first_release_date and game.first_release_date != "0000-00-00" %}
-                    {% if game.first_release_date is string %}
-                    {{ game.first_release_date }}
-                    {% else %}
-                    {{ game.first_release_date.strftime('%d/%m/%Y') }}
-                    {% endif %}
+                        {% if game.first_release_date is string %}
+                        {{ game.first_release_date }}
+                        {% else %}
+                        {{ game.first_release_date.strftime('%d/%m/%Y') }}
+                        {% endif %}
                     {% endif %}
                 </span>
-                <!-- Game Types -->
+
+                <!-- Types -->
                 {% if game.game_types %}
                 <div class="mb-3">
                     <strong class="text-white">Type : </strong>
@@ -60,10 +64,10 @@
                 </div>
                 {% endif %}
 
-                <!-- Player Perspectives -->
+                <!-- Perspectives -->
                 {% if game.player_perspectives %}
                 <div class="mb-3">
-                    <strong class="text-white"> Perspective : </strong>
+                    <strong class="text-white">Perspective : </strong>
                     {% for perspective in game.player_perspectives %}
                     <span class="badge bg-warning text-dark me-1">{{ perspective.name }}</span>
                     {% endfor %}
@@ -98,7 +102,7 @@
                 </div>
                 {% endif %}
 
-                <!-- Game Engines et logos -->
+                <!-- Moteur graphique -->
                 {% if game.game_engines %}
                 <div class="card mb-4">
                     <div class="card-header">
@@ -137,38 +141,42 @@
                     </div>
                 </div>
                 {% endif %}
-                
-                <!-- Jeux similaires -->
-                {% if recommandations %}
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <h3 class="mb-0">Jeux similaires</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            {% for rec in recommandations %}
-                            <div class="col-md-6 mb-3">
-                                <div class="card h-100">
-                                    <a href="{{ url_for('jeu_detail', slug=rec.slug) }}">
-                                        <img src="{{ rec.image_url }}" class="card-img-top" alt="{{ rec.name }}">
-                                    </a>
-                                    <div class="card-body p-2">
-                                        <h5 class="card-title mb-0" style="font-size: 1rem;">
-                                            <a href="{{ url_for('jeu_detail', slug=rec.slug) }}">{{ rec.name }}</a>
-                                        </h5>
-                                    </div>
-                                </div>
-                            </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-                {% endif %}
-
-                <!-- Colonne de droite pour info additionnelles -->
-                <div class="col-md-4">
-                    <!-- Si tu veux ajouter plus d'infos dans une colonne secondaire -->
-                </div>
             </div>
         </div>
-        {% endblock %}
+
+        <!-- Colonne droite : recommandations -->
+        <div class="col-md-4">
+            {% if recommandations %}
+            <div class="card bg-dark text-white mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Jeux similaires</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    {% for rec in recommandations %}
+                    <li class="list-group-item bg-dark text-white">
+                        <h6 class="mb-1">
+                            <a href="{{ url_for('jeu_detail', slug=rec.slug) }}" class="text-info text-decoration-none">
+                                {{ rec.name }}
+                            </a>
+                        </h6>
+                        {% if rec.genres %}
+                        <div class="mb-1" style="font-size: 0.85rem;">
+                            {% for genre in rec.genres %}
+                                <span class="badge bg-secondary me-1">{{ genre.name }}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% if rec.summary %}
+                        <p class="mb-0 text-muted" style="font-size: 0.8rem;">
+                            {{ rec.summary[:100] }}{% if rec.summary|length > 100 %}...{% endif %}
+                        </p>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
