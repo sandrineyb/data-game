@@ -68,7 +68,11 @@ endblock %} {% block content %}
               style="height: 40px"
               alt="Logo moteur graphique"
             />
-            {% endfor %} {% endif %}
+            {% endfor %} {% else %}
+            <span class="text-muted">
+              — moteur graphique d’une autre compagnie</span
+            >
+            {% endif %}
           </li>
           {% endfor %}
         </ul>
@@ -80,9 +84,9 @@ endblock %} {% block content %}
       </div>
       {% endif %}
 
-      <!-- Jeux développés -->
+      <!-- Jeux avec le même moteur graphique -->
       <div class="mb-3">
-        <strong>Jeux développés :</strong>
+        <strong>Jeux avec le même moteur graphique :</strong>
         {% if jeux_associes %}
         <ul>
           {% for jeu in jeux_associes %}
