@@ -70,16 +70,18 @@
 
                 <!-- Langues -->
                 {% if game.languages %}
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <h3 class="mb-0">Langues disponibles</h3>
+                <div class="mb-4">
+                    <div class="card-header bg-transparent px-0">
+                        <h3 class="mb-2">Langues disponibles</h3>
                     </div>
-                    <div class="card-body">
-                        <ul class="list-group list-group-flush">
-                            {% for language in game.languages %}
-                            <li class="list-group-item">{{ language.name }} ({{ language.native_name }})</li>
-                            {% endfor %}
-                        </ul>
+                    <div class="row">
+                        {% for language in game.languages %}
+                        <div class="col-6 col-md-4 col-lg-3 mb-1">
+                            <span class="badge bg-secondary w-100 py-2" style="font-size:1rem;">
+                                {{ language.name }}{% if language.native_name %} ({{ language.native_name }}){% endif %}
+                            </span>
+                        </div>
+                        {% endfor %}
                     </div>
                 </div>
                 {% endif %}
