@@ -237,7 +237,7 @@ def entreprise_detail(slug):
 def engines_detail(slug):
     engines = GameEngine.query.filter_by(slug=slug).first_or_404()
     
-    return render_template('moteur_graphique_detail.html', engines=engines)
+    return render_template('moteurs_graphique_detail.html', engines=engines)
 
 
 @app.route('/rechercher')
