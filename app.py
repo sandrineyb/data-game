@@ -184,16 +184,7 @@ def jeu_detail(slug):
     # Récupérer les objets Game depuis la base SQL
     recommandations = Game.query.filter(Game.name.in_(recommended_names)).all()
 
-    # Récuperation moteur graphique
-    moteur_graphique = GameEngine.query \
-        .join(company_game_engine, GameEngine.id == company_game_engine.c.engine_id) \
-        .join(GameEngine, GameEngine.id == game_game_engine.c.engine_id) \
-        .filter(company_game_engine.c.company_id == Company.id) \
-        .all()
-    logo_moteur_graphique = GameEngineLogo.query \
-        .join(GameEngineLogo, GameEngineLogo.id == game_engine_logo.c.logo_id) \
-        .join(GameEngine, GameEngine.id == game_engine_logo.c.engine_id) \
-        .filter(GameEngine.id.in_([engine.id for engine in moteur_graphique]))
+
 
     return render_template('jeu_detail.html', game=game, recommandations=recommandations)
 
