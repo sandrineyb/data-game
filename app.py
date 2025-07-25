@@ -236,12 +236,15 @@ def rechercher():
         query = request.args.get('q', '')
         if not query:
             return redirect(url_for('jeux'))
-        resultats = Game.query.filter(
-            Game.name.like(f'%{query}%')
-        ).limit(50).all()
+
+        # Recherche pour chaque catégorie
+        jeux = Game.query.filter(Game.name.ilike(f'%{query}%')).limit(50).all()
+        consoles = Platform.query.filter(Platform.name.ilike(f'%{query}%')).limit(50).all()
+        entreprises = Company.query.filter(Company.name.ilike(f'%{query}%')).limit(50).all()
+        engines = GameEngine.query.filter(GameEngine.name.ilike(f'%{query}%')).limit(50).all()
 
         # Convertir les dates si nécessaire
-        for jeu in resultats:
+        for jeu in jeux:
             if isinstance(jeu.first_release_date, str):
                 try:
                     jeu.first_release_date = datetime.strptime(
@@ -249,7 +252,7 @@ def rechercher():
                 except (ValueError, TypeError):
                     pass
 
-        return render_template('resultats_recherche.html', query=query, resultats=resultats)
+        return render_template('resultats_recherche.html', query=query, jeux=jeux, consoles=consoles, entreprises=entreprises,  engines=engines)
     except Exception as e:
         app.logger.error("Erreur dans /rechercher: %s", str(e), exc_info=True)
         return render_template(
