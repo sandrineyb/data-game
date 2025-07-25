@@ -20,7 +20,7 @@ conn = mysql.connector.connect(
 cursor = conn.cursor()
 
 # Chemin vers ton fichier CSV local
-csv_path = r"C:\Users\User\Documents\Data-Game\data-game\csv\company_game_engines_exploded.csv"
+csv_path = r"C:\Users\User\Documents\Data-Game\data-game\csv\company_game_engine.csv"
 
 query = f"""
 LOAD DATA LOCAL INFILE '{csv_path.replace("\\", "/")}'

@@ -1,5 +1,5 @@
 from flask import Flask, redirect, render_template, request, url_for
-from models import db, Game, Platform, Company, Genre, GameEngine, GameEngineLogo, game_platform, game_genre, game_game_engine, company_game_engine, game_engine_logo
+from models import db, Game, Platform, Company, Genre, GameEngine, GameEngineLogo, GameType, game_platform, game_genre, game_game_engine, company_game_engine, game_engine_logo, game_game_type
 from dotenv import load_dotenv
 import os
 import logging
@@ -208,10 +208,19 @@ def console_detail(slug):
     # Transforme en liste de tuples pour le template
     multiplayer_modes_display = list(mode_max.items())
 
-    # Top 5 jeux les mieux notés pour la console
-    top_5_games = Game.query.join(game_platform).filter(
-        game_platform.c.platform_id == platform.id
-    ).order_by(Game.total_rating.desc()).limit(5).all()
+    # Top 5 jeux principaux (GameType id=0) pour la console
+    top_5_games = (
+        Game.query
+        .join(game_platform, Game.id == game_platform.c.game_id)
+        .join(game_game_type, Game.id == game_game_type.c.game_id)
+        .filter(
+            game_platform.c.platform_id == platform.id,
+            game_game_type.c.category_id == 0
+        )
+        .order_by(Game.total_rating.desc())
+        .limit(5)
+        .all()
+    )
 
     return render_template(
         'console_detail.html',
