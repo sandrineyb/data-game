@@ -159,11 +159,9 @@
                             <a href="{{ url_for('jeu_detail', slug=rec.slug) }}" class="text-info text-decoration-none">
                                 {{ rec.name }}
                             </a>
+
                         </h6>
-                        {% if game.total_rating %}
-                        <span class="badge bg-primary mb-1" style="font-size:1.2rem;">{{
-                            "%.1f"|format(game.total_rating) }}/100</span><br>
-                        {% endif %}
+
                         {% if rec.genres %}
                         <div class="mb-1" style="font-size: 0.85rem;">
                             {% for genre in rec.genres %}
