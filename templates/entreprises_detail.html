@@ -60,8 +60,8 @@ endblock %} {% block content %}
         <ul>
           {% for engine in game_engines %}
           <li>
-            {{ engine.name }} {% if engine.logos %} {% for logo in engine.logos
-            %}
+            {{ engine.name }} {% if engine.logos and engine.logos|length > 0 %}
+            {% for logo in engine.logos %}
             <img
               src="https:{{ logo.url }}"
               class="me-2"
@@ -69,8 +69,8 @@ endblock %} {% block content %}
               alt="Logo moteur graphique"
             />
             {% endfor %} {% else %}
-            <span class="text-muted">
-              — moteur graphique d’une autre compagnie</span
+            <span class="text-muted text-white"
+              >— moteur graphique d’une autre compagnie</span
             >
             {% endif %}
           </li>
@@ -80,7 +80,7 @@ endblock %} {% block content %}
       {% else %}
       <div class="mb-3">
         <strong>Moteurs graphiques :</strong>
-        <span class="text-muted">Aucun</span>
+        <span class="text-muted text-white">Aucun</span>
       </div>
       {% endif %}
 
