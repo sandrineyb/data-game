@@ -252,7 +252,7 @@ def rechercher():
                 except (ValueError, TypeError):
                     pass
 
-        return render_template('resultats_recherche.html', query=query, jeux=jeux, consoles=consoles, entreprises=entreprises,  engines=engines)
+        return render_template('resultats_recherche.html', query=query, jeux=jeux, consoles=consoles, entreprises=entreprises,  engines=engines, get_country_name=get_country_name)
     except Exception as e:
         app.logger.error("Erreur dans /rechercher: %s", str(e), exc_info=True)
         return render_template(
