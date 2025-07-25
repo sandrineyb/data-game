@@ -87,27 +87,40 @@
 
         <!-- Jeux développés -->
         {% if company.games %}
-        {% endif %}
-       {% if company.game_engines %}
         <div class="mb-3">
-          <strong>Moteur graphique :</strong>
+          <strong>Jeux développés :</strong>
           <ul>
-            {% for engine in company.game_engines %}
-              <li>
-                {{ engine.name }}
-                {% if engine.logos %}
-                  {% for logo in engine.logos %}
-                    <img src="https:{{ logo.url }}" class="me-2" style="height: 40px" alt="Logo moteur graphique" />
-                  {% endfor %}
-                {% endif %}
-              </li>
+            {% for jeu in company.games %}
+            <li>
+              <a href="{{ url_for('jeu_detail', slug=jeu.slug) }}" class="text-white">{{ jeu.name }}</a>
+            </li>
             {% endfor %}
           </ul>
         </div>
         {% else %}
-          <div class="mb-3">
-            <strong>Moteur graphique :</strong> <span class="text-muted">Aucun</span>
-          </div>
+        <div class="mb-3">
+          <strong>Jeux développés :</strong> <span class="text-muted">Aucun</span>
+        </div>
+        {% endif %} {% if company.game_engines %}
+        <div class="mb-3">
+          <strong>Moteur graphique :</strong>
+          <ul>
+            {% for engine in company.game_engines %}
+            <li>
+              {{ engine.name }}
+              {% if engine.logos %}
+              {% for logo in engine.logos %}
+              <img src="https:{{ logo.url }}" class="me-2" style="height: 40px" alt="Logo moteur graphique" />
+              {% endfor %}
+              {% endif %}
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% else %}
+        <div class="mb-3">
+          <strong>Moteur graphique :</strong> <span class="text-muted">Aucun</span>
+        </div>
         {% endif %}
       </div>
     </div>
