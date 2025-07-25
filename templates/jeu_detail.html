@@ -147,13 +147,13 @@
         <!-- Colonne droite : recommandations -->
         <div class="col-md-4">
             {% if recommandations %}
-            <div class="card bg-dark text-white mb-4">
+            <div class="card bg-light text-dark mb-4">
                 <div class="card-header">
                     <h5 class="mb-0">Jeux similaires</h5>
                 </div>
                 <ul class="list-group list-group-flush">
                     {% for rec in recommandations %}
-                    <li class="list-group-item bg-dark text-white">
+                    <li class="list-group-item bg-light text-dark">
                         <h6 class="mb-1">
                             <a href="{{ url_for('jeu_detail', slug=rec.slug) }}" class="text-info text-decoration-none">
                                 {{ rec.name }}
@@ -167,7 +167,7 @@
                         </div>
                         {% endif %}
                         {% if rec.summary %}
-                        <p class="mb-0 text-muted" style="font-size: 0.8rem;">
+                        <p class="mb-0 text-dark" style="font-size: 0.8rem;">
                             {{ rec.summary[:100] }}{% if rec.summary|length > 100 %}...{% endif %}
                         </p>
                         {% endif %}
