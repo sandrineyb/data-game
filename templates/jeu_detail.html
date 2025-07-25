@@ -13,14 +13,15 @@
                     <h1 class="mb-0">{{ game.name }}</h1>
                     <div class="text-end">
                         {% if game.total_rating %}
-                        <span class="badge bg-primary mb-1" style="font-size:1.2rem;">{{ "%.1f"|format(game.total_rating) }}/100</span><br>
+                        <span class="badge bg-primary mb-1" style="font-size:1.2rem;">{{
+                            "%.1f"|format(game.total_rating) }}/100</span><br>
                         {% endif %}
                         {% if game.first_release_date and game.first_release_date != "0000-00-00" %}
                         <small class="text-white">
                             {% if game.first_release_date is string %}
-                                {{ game.first_release_date }}
+                            {{ game.first_release_date }}
                             {% else %}
-                                {{ game.first_release_date.strftime('%d/%m/%Y') }}
+                            {{ game.first_release_date.strftime('%d/%m/%Y') }}
                             {% endif %}
                         </small>
                         {% endif %}
@@ -30,20 +31,37 @@
                 <!-- Badges category, genres, perspectives -->
                 <div class="mb-3">
                     {% if game.game_types %}
-                        {% for type in game.game_types %}
-                        <span class="badge bg-info me-1">{{ type.name }}</span>
-                        {% endfor %}
+                    {% for type in game.game_types %}
+                    <span class="badge bg-info me-1">{{ type.name }}</span>
+                    {% endfor %}
                     {% endif %}
                     {% if game.genres %}
-                        {% for genre in game.genres %}
-                        <span class="badge bg-secondary me-1">{{ genre.name }}</span>
-                        {% endfor %}
+                    {% for genre in game.genres %}
+                    <span class="badge bg-secondary me-1">{{ genre.name }}</span>
+                    {% endfor %}
                     {% endif %}
                     {% if game.player_perspectives %}
-                        {% for perspective in game.player_perspectives %}
-                        <span class="badge bg-warning text-dark me-1">{{ perspective.name }}</span>
-                        {% endfor %}
+                    {% for perspective in game.player_perspectives %}
+                    <span class="badge bg-warning text-dark me-1">{{ perspective.name }}</span>
+                    {% endfor %}
                     {% endif %}
+                    <!-- Indicateur FR -->
+                    {% set has_fr = false %}
+                    {% for lang in game.languages %}
+                    {% if 'french' in lang.name|lower or 'français' in (lang.native_name|lower if lang.native_name else '') %}
+                    {% set has_fr = true %}
+                    {% endif %}
+                    {% endfor %}
+                    <span class="ms-2 align-middle">
+                        <span class="fw-bold">FR</span>
+                        {% if has_fr %}
+                        <span class="material-symbols-outlined text-success align-middle"
+                            style="font-size:1.2em;vertical-align:middle;">check</span>
+                        {% else %}
+                        <span class="material-symbols-outlined text-danger align-middle"
+                            style="font-size:1.2em;vertical-align:middle;">close</span>
+                        {% endif %}
+                    </span>
                 </div>
 
                 <!-- Vidéo YouTube -->
@@ -137,27 +155,27 @@
                 </div>
                 <ul class="list-group list-group-flush">
                     {% for rec in recommandations %}
-                        {% if rec.slug != game.slug %}
-                            <li class="list-group-item bg-light text-dark">
-                                <h6 class="mb-1">
-                                    <a href="{{ url_for('jeu_detail', slug=rec.slug) }}" class="text-info text-decoration-none">
-                                        {{ rec.name }}
-                                    </a>
-                                </h6>
-                                {% if rec.genres %}
-                                <div class="mb-1" style="font-size: 0.85rem;">
-                                    {% for genre in rec.genres %}
-                                        <span class="badge bg-secondary me-1">{{ genre.name }}</span>
-                                    {% endfor %}
-                                </div>
-                                {% endif %}
-                                {% if rec.summary %}
-                                <p class="mb-0 text-dark" style="font-size: 0.8rem;">
-                                    {{ rec.summary[:100] }}{% if rec.summary|length > 100 %}...{% endif %}
-                                </p>
-                                {% endif %}
-                            </li>
-                        {% endif %}    
+                    {% if rec.slug != game.slug %}
+                    <li class="list-group-item bg-light text-dark">
+                        <h6 class="mb-1">
+                            <a href="{{ url_for('jeu_detail', slug=rec.slug) }}" class="text-info text-decoration-none">
+                                {{ rec.name }}
+                            </a>
+                        </h6>
+                        {% if rec.genres %}
+                        <div class="mb-1" style="font-size: 0.85rem;">
+                            {% for genre in rec.genres %}
+                            <span class="badge bg-secondary me-1">{{ genre.name }}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% if rec.summary %}
+                        <p class="mb-0 text-dark" style="font-size: 0.8rem;">
+                            {{ rec.summary[:100] }}{% if rec.summary|length > 100 %}...{% endif %}
+                        </p>
+                        {% endif %}
+                    </li>
+                    {% endif %}
                     {% endfor %}
                 </ul>
             </div>
