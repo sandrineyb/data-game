@@ -29,37 +29,36 @@
                 </div>
 
                 <!-- Badges category, genres, perspectives -->
+                {# Détection du français #}
+                {% set has_fr = false %}
+                {% for lang in game.languages %}
+                    {% if 'fr' in lang.name|lower or (lang.native_name and 'fr' in lang.native_name|lower) %}
+                        {% set has_fr = true %}
+                    {% endif %}
+                {% endfor %}
+
                 <div class="mb-3 d-flex align-items-center flex-wrap">
                     {% if game.game_types %}
-                    {% for type in game.game_types %}
-                    <span class="badge bg-info me-1 mb-1">{{ type.name }}</span>
-                    {% endfor %}
+                        {% for type in game.game_types %}
+                        <span class="badge bg-info me-1 mb-1">{{ type.name }}</span>
+                        {% endfor %}
                     {% endif %}
                     {% if game.genres %}
-                    {% for genre in game.genres %}
-                    <span class="badge bg-secondary me-1 mb-1">{{ genre.name }}</span>
-                    {% endfor %}
+                        {% for genre in game.genres %}
+                        <span class="badge bg-secondary me-1 mb-1">{{ genre.name }}</span>
+                        {% endfor %}
                     {% endif %}
                     {% if game.player_perspectives %}
-                    {% for perspective in game.player_perspectives %}
-                    <span class="badge bg-warning text-dark me-1 mb-1">{{ perspective.name }}</span>
-                    {% endfor %}
+                        {% for perspective in game.player_perspectives %}
+                        <span class="badge bg-warning text-dark me-1 mb-1">{{ perspective.name }}</span>
+                        {% endfor %}
                     {% endif %}
-                    <!-- Indicateur FR -->
-                    {% set has_fr = false %}
-                    {% for lang in game.languages %}
-                    {% if 'fr' in lang.name|lower or 'fr' in (lang.native_name|lower if lang.native_name else '') %}
-                    {% set has_fr = true %}
-                    {% endif %}
-                    {% endfor %}
-                    <span class="ms-2 align-middle">
+                    <span class="badge bg-primary ms-2 align-middle">
                         <span class="fw-bold">FR</span>
                         {% if has_fr %}
-                        <span class="material-symbols-outlined text-success align-middle"
-                            style="font-size:1.2em;vertical-align:middle;">check</span>
+                            <span class="material-symbols-outlined text-success align-middle" style="font-size:1.2em;vertical-align:middle;">check</span>
                         {% else %}
-                        <span class="material-symbols-outlined text-danger align-middle"
-                            style="font-size:1.2em;vertical-align:middle;">close</span>
+                            <span class="material-symbols-outlined text-danger align-middle" style="font-size:1.2em;vertical-align:middle;">close</span>
                         {% endif %}
                     </span>
                 </div>
