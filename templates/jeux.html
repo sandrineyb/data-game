@@ -94,7 +94,7 @@
     <ul class="pagination justify-content-center">
       {% if pagination.has_prev %}
       <li class="page-item">
-        <a class="page-link" href="{{ url_for('jeux', page=pagination.prev_num) }}">Précédent</a>
+        <a class="page-link" href="{{ url_for('jeux', page=pagination.prev_num, genre=selected_genres, sort=selected_sort, date_min=date_min, date_max=date_max) }}">Précédent</a>
       </li>
       {% else %}
       <li class="page-item disabled">
