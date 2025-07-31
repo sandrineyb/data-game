@@ -5,6 +5,34 @@
 {% block content %}
     <div class="container" style="margin-top:90px;">
         <h2 class="mb-4">Résultats pour "{{ query }}"</h2>
+        
+        <form method="get" action="{{ url_for('rechercher') }}" class="row g-2 mb-4">
+          <input type="hidden" name="q" value="{{ query }}">
+          <div class="col-md-3">
+            <label for="date_min" class="form-label">Année min</label>
+            <input type="number" class="form-control" name="date_min" id="date_min" value="{{ request.args.get('date_min', '') }}">
+          </div>
+          <div class="col-md-3">
+            <label for="date_max" class="form-label">Année max</label>
+            <input type="number" class="form-control" name="date_max" id="date_max" value="{{ request.args.get('date_max', '') }}">
+          </div>
+          <div class="col-md-4">
+            <label for="genre" class="form-label">Genres</label>
+            <select class="form-select" name="genre" id="genre">
+              <option value="">Tous</option>
+              {% for genre in all_genres %}
+                <option value="{{ genre.id }}"
+                  {% if genre.id|string == request.args.get('genre', '') %}selected{% endif %}>
+                  {{ genre.name }}
+                </option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="col-md-2 d-flex align-items-end">
+            <button type="submit" class="btn btn-primary w-100">Filtrer</button>
+          </div>
+        </form>
+
         <!-- Jeux -->
         {% if jeux %}
         <h3>Jeux</h3>

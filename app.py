@@ -255,14 +255,32 @@ def engines_detail(slug):
 def rechercher():
     try:
         query = request.args.get('q', '')
+        date_min = request.args.get('date_min', type=int)
+        date_max = request.args.get('date_max', type=int)
+        genre_id = request.args.get('genre', type=int)
+
         if not query:
             return redirect(url_for('jeux'))
 
-        # Recherche pour chaque catégorie
-        jeux = Game.query.filter(Game.name.ilike(f'%{query}%')).limit(50).all()
+        jeux_query = Game.query.filter(Game.name.ilike(f'%{query}%'))
+
+        # Filtre genre
+        if genre_id:
+            jeux_query = jeux_query.join(game_genre, Game.id == game_genre.c.game_id) \
+                                   .filter(game_genre.c.genre_id == genre_id)
+
+        # Filtre dates
+        if date_min:
+            jeux_query = jeux_query.filter(Game.first_release_date >= f"{date_min}-01-01")
+        if date_max:
+            jeux_query = jeux_query.filter(Game.first_release_date <= f"{date_max}-12-31")
+
+        jeux = jeux_query.limit(50).all()
         consoles = Platform.query.filter(Platform.name.ilike(f'%{query}%')).limit(50).all()
         entreprises = Company.query.filter(Company.name.ilike(f'%{query}%')).limit(50).all()
         engines = GameEngine.query.filter(GameEngine.name.ilike(f'%{query}%')).limit(50).all()
+
+        all_genres = Genre.query.order_by(Genre.name).all()
 
         # Convertir les dates si nécessaire
         for jeu in jeux:
@@ -273,7 +291,16 @@ def rechercher():
                 except (ValueError, TypeError):
                     pass
 
-        return render_template('resultats_recherche.html', query=query, jeux=jeux, consoles=consoles, entreprises=entreprises,  engines=engines, get_country_name=get_country_name)
+        return render_template(
+            'resultats_recherche.html',
+            query=query,
+            jeux=jeux,
+            consoles=consoles,
+            entreprises=entreprises,
+            engines=engines,
+            get_country_name=get_country_name,
+            all_genres=all_genres
+        )
     except Exception as e:
         app.logger.error("Erreur dans /rechercher: %s", str(e), exc_info=True)
         return render_template(
