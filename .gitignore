@@ -1,3 +1,4 @@
 .env
 bdd/bdd_accounts
 csv/
+.vscode/
